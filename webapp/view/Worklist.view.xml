@@ -1,0 +1,264 @@
+<mvc:View	xmlns="sap.m" 
+			xmlns:mvc="sap.ui.core.mvc" 
+			xmlns:core="sap.ui.core" 
+			xmlns:semantic="sap.m.semantic" 
+			xmlns:footerbar="sap.ushell.ui.footerbar" 
+			xmlns:l="sap.ui.layout" 
+			xmlns:u="sap.ui.unified"
+			controllerName="portaltest.controller.Worklist">
+	<semantic:FullscreenPage id="page" navButtonPress="onNavBack" showNavButton="true" title="{i18n>worklistViewTitle}">
+		<semantic:content>
+			<IconTabBar selectedKey="firstTab" id="__bar0">
+				<items>
+
+					<!-- OVERVIEW -->
+					<IconTabFilter text="Overview">
+						<content>
+							<Table id="table" width="auto" 
+							items="{ path: '/InfoRecSet', sorter: { path: 'MaterialNumber', descending: false } }" noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished">
+								<headerToolbar>
+									<Toolbar>
+										<Title id="tableHeader" text="Info Records"/>
+										<ToolbarSpacer/>
+										<SearchField id="searchField" tooltip="{i18n>worklistSearchTooltip}" search="onSearch" width="auto"/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column id="nameColumn" vAlign="Top">
+										<Text text="Product" id="tabColMaterial"/>
+									</Column>
+									<Column id="WebColumn" vAlign="Top" hAlign="Center" width="30px">
+										<Text text="WebApp" id="tabColFla"/>
+									</Column>
+									<Column id="MLColumn" vAlign="Top" hAlign="Center" width="30px">
+										<Text text="ML" id="tabColFra"/>
+									</Column>
+									<Column id="iOSColumn" vAlign="Top" hAlign="Center" width="30px">
+										<Text text="iOS" id="tabColCi"/>
+									</Column>
+									<Column id="IoTColumn" vAlign="Top" hAlign="Center" width="30px">
+										<Text text="IoT" id="tabColAm"/>
+									</Column>
+									<Column id="proMetColumn" vAlign="Top" width="15%">
+										<Text text="Factory" id="tabColProMet"/>
+									</Column>
+									<Column id="purOrgColumn" vAlign="Top" width="10%">
+										<Text text="Customer" id="tabColPurOrg"/>
+									</Column>
+									<Column id="unitNumberColumn" hAlign="Left" vAlign="Top">
+										<Text text="Cust. Inf" id="tabColSupplier"/>
+									</Column>
+									<Column id="docColumn" hAlign="Left" vAlign="Top">
+										<Text text="Documentation" id="tabColDoc"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem type="Navigation" press="onPress">
+										<cells>
+											<ObjectIdentifier title="{MaterialName}" text="{MaterialNumber}"/>
+											<CheckBox selected="{MatAreaFLA}"/>
+											<CheckBox selected="{MatAreaFRA}"/>
+											<CheckBox selected="{MatAreaCI}"/>
+											<CheckBox selected="{MatAreaAM}"/>
+											<Text text="{ProductionMethod}"/>
+											<Text text="{PurchaseOrg}"/>
+											<ObjectListItem type="Active" title="{SupplierNumber}">
+												<attributes>
+													<ObjectAttribute text="{SupplierName}"/>
+													<ObjectAttribute title="Email" text="{SupplierEmail}"/>
+													<ObjectAttribute title="Manufacturer" text="{SupplierManufacturer}"/>
+													<ObjectAttribute title="Mat. Code" text="{SupplierMatCode}"/>
+												</attributes>
+											</ObjectListItem>
+											<ObjectListItem type="Active" title="{DocumentStatus}">
+												<attributes>
+													<ObjectAttribute text="{DocumentAssigned}"/>
+													<ObjectAttribute title="Owner" text="{ProcessOwner}"/>
+													<ObjectAttribute title="Campaign" text="{CampaignID}"/>
+												</attributes>
+											</ObjectListItem>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</IconTabFilter>
+					
+					<!-- CAMPAIGNS	-->
+					<IconTabFilter text="Campaigns">
+						<content>
+							<Table noDataText="Drop column list items here and columns in the area above" id="tabCampaign" items="{ path: '/CampaignSet', sorter: { path: 'CampaignID', descending: false } }" growing="true" growingScrollToLoad="true">
+								<headerToolbar>
+									<Toolbar>
+										<Title text="Campaign"/>
+										<ToolbarSpacer/>
+										<SearchField tooltip="Search" search="onSearch" width="auto"/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column id="__column0">
+										<header><Label text="Name"/></header>
+									</Column>
+									<Column id="__column1">
+										<header><Label text="Type"/></header>
+									</Column>
+									<Column id="__column2">
+										<header><Label text="Status"/></header>
+									</Column>
+									<Column id="__column3">
+										<header><Label text="Created on"/></header>
+									</Column>
+									<Column id="__column4">
+										<header><Label text="Created at"/></header>
+									</Column>
+									<Column id="__column5">
+										<header><Label text="Created by"/></header>
+									</Column>
+									<Column id="__column6">
+										<header><Label text="Finalized on"/></header>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem type="Navigation" press="onItemSelected" id="Column999">
+										<cells>
+											<Text text="{CampaignName}" id="text11"/>
+											<Text text="{CampaignType}" id="text12"/>
+											<Text text="{CampaignStatus}" id="text31"/>
+											<Text text="{CreatedOn}" id="text14"/>
+											<Text text="{CreatedAt}" id="text15"/>
+											<Text text="{CreatedBy}" id="text16"/>
+											<Text text="{FinalizedOn}" id="text17"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+							<Table id="tabCampInfoRec" items="{ path: 'ToCampaignInfoRec', parameters: {expand: 'ToInfoRec'} }" visible="false">
+								<headerToolbar>
+									<Toolbar> <Title text="Info Records"/> </Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column><Text text="{i18n>tabMaterial}"/></Column>
+									<Column width="30px"><Text text="FLA"/></Column>
+									<Column width="30px"><Text text="FRA"/></Column>
+									<Column width="30px"><Text text="CI"/></Column>
+									<Column width="30px"><Text text="AM"/></Column>
+									<Column><Text text="{i18n>tabSupplier}" width="25%"/></Column>
+									<Column><Text text="Documents" width="25%"/></Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{ToInfoRec/MaterialNumber}" text="{ToInfoRec/MaterialName}"/>
+											<CheckBox selected="{ToInfoRec/MatAreaFLA}"/>
+											<CheckBox selected="{ToInfoRec/MatAreaFRA}"/>
+											<CheckBox selected="{ToInfoRec/MatAreaCI}"/>
+											<CheckBox selected="{ToInfoRec/MatAreaAM}"/>
+											<ObjectIdentifier title="{ToInfoRec/SupplierNumber}" text="{ToInfoRec/SupplierName}"/>
+											<ObjectListItem type="Active" title="{ToInfoRec/DocumentStatus}">
+												<attributes>
+													<ObjectAttribute text="{ToInfoRec/DocumentAssigned}"/>
+												</attributes>
+											</ObjectListItem>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</IconTabFilter>
+					
+					<!-- DOCUMENTS	-->
+					<IconTabFilter text="Preview Docs.">
+						<content>
+							<l:VerticalLayout>
+								<u:FileUploader
+									id="fileUploader"
+									name="myFileUpload"
+									uploadUrl="upload/"
+									width="400px"
+									tooltip="Upload your file to the local server"
+									uploadComplete="handleUploadComplete"/>
+								<Button
+									text="Upload File"
+									press="handleUploadPress"/>
+							</l:VerticalLayout>	
+							
+						</content>	
+					</IconTabFilter>
+
+					<!-- QUESTIONNAIRES -->
+					<IconTabFilter text="Design Questionnaire" key="firstTab">
+						<content>
+							<Table items="{/QuestionnaireSet}" showSeparators="None">
+								<columns>
+									<Column/>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Table showSeparators="None">
+												<columns>
+													<Column/>
+												</columns>
+												<items>
+													<ColumnListItem>
+														<cells><Title text="{Question/TitleQuestion}" titleStyle="H3"/></cells>
+													</ColumnListItem>
+													<ColumnListItem>
+														<cells><MessageStrip text="{Question/IntroQuestion}" type="Information" showIcon="true" class="sapUiNoMarginBottom"/></cells>
+													</ColumnListItem>
+													<ColumnListItem>
+														<cells>
+															<Table showSeparators="None">
+																<columns>
+																	<Column vAlign="Top" width="25%"/>
+																	<Column vAlign="Top" minScreenWidth="Tablet" demandPopin="true"/>
+																</columns>
+																<items>
+																	<ColumnListItem>
+																		<cells><Text text="{Question/LabelQuestion}"/></cells>
+																		<cells>
+																			<Select selectedKey="{Question/InputAnswer}" width="25%">
+																				<items>
+																					<core:Item key="No" text="No"/>
+																					<core:Item key="Yes" text="Yes"/>
+																					<core:Item key="Others" text="Others..."/>
+																				</items>
+																			</Select>
+																		</cells>
+																	</ColumnListItem>
+																	<ColumnListItem visible="{Question/ActiveComment}">
+																		<cells><Text text="{Question/LabelComment}"/></cells>
+																		<cells><TextArea value="{Question/InputComment}" growing="true" growingMaxLines="5" width="100%" placeholder="Enter Text ..."/></cells>
+																	</ColumnListItem>
+																	<ColumnListItem>
+																		<cells><Text class="sapUiNoMarginBottom"/></cells>
+																	</ColumnListItem>
+																</items>
+															</Table>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+			
+			
+				<!-- FOOTER	  -->
+		</semantic:content>
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
+		</semantic:shareInJamAction>
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id="shareTile" title="{worklistView>/saveAsTileTitle}"/>
+		</semantic:saveAsTileAction>
+	</semantic:FullscreenPage>
+</mvc:View>

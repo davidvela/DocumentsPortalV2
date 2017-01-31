@@ -1,0 +1,112 @@
+[{
+	"CampaignID": "CampaignID 1",
+	"InfoRecID": "InfoRecID 1",
+	"__metadata": {
+		"uri": "CampaignToInfoSet(CampaignID='CampaignID%201',InfoRecID='InfoRecID%201')",
+		"type": "OData_Portal.CampaignToInfo"
+	},
+	"ToInfoRec": {
+		"__deferred": {
+			"uri": "CampaignToInfoSet(CampaignID='CampaignID%201',InfoRecID='InfoRecID%201')/ToInfoRec"
+		}
+	}
+}, {
+	"CampaignID": "CampaignID 1",
+	"InfoRecID": "InfoRecID 2",
+	"__metadata": {
+		"uri": "CampaignToInfoSet(CampaignID='CampaignID%201',InfoRecID='InfoRecID%202')",
+		"type": "OData_Portal.CampaignToInfo"
+	},
+	"ToInfoRec": {
+		"__deferred": {
+			"uri": "CampaignToInfoSet(CampaignID='CampaignID%201',InfoRecID='InfoRecID%202')/ToInfoRec"
+		}
+	}
+}, {
+	"CampaignID": "CampaignID 1",
+	"InfoRecID": "InfoRecID 3",
+	"__metadata": {
+		"uri": "CampaignToInfoSet(CampaignID='CampaignID%201',InfoRecID='InfoRecID%203')",
+		"type": "OData_Portal.CampaignToInfo"
+	},
+	"ToInfoRec": {
+		"__deferred": {
+			"uri": "CampaignToInfoSet(CampaignID='CampaignID%201',InfoRecID='InfoRecID%203')/ToInfoRec"
+		}
+	}
+}, {
+	"CampaignID": "CampaignID 2",
+	"InfoRecID": "InfoRecID 4",
+	"__metadata": {
+		"uri": "CampaignToInfoSet(CampaignID='CampaignID%204',InfoRecID='InfoRecID%204')",
+		"type": "OData_Portal.CampaignToInfo"
+	},
+	"ToInfoRec": {
+		"__deferred": {
+			"uri": "CampaignToInfoSet(CampaignID='CampaignID%204',InfoRecID='InfoRecID%204')/ToInfoRec"
+		}
+	}
+}, {
+	"CampaignID": "CampaignID 2",
+	"InfoRecID": "InfoRecID 5",
+	"__metadata": {
+		"uri": "CampaignToInfoSet(CampaignID='CampaignID%205',InfoRecID='InfoRecID%205')",
+		"type": "OData_Portal.CampaignToInfo"
+	},
+	"ToInfoRec": {
+		"__deferred": {
+			"uri": "CampaignToInfoSet(CampaignID='CampaignID%205',InfoRecID='InfoRecID%205')/ToInfoRec"
+		}
+	}
+}, {
+	"CampaignID": "CampaignID 3",
+	"InfoRecID": "InfoRecID 6",
+	"__metadata": {
+		"uri": "CampaignToInfoSet(CampaignID='CampaignID%206',InfoRecID='InfoRecID%206')",
+		"type": "OData_Portal.CampaignToInfo"
+	},
+	"ToInfoRec": {
+		"__deferred": {
+			"uri": "CampaignToInfoSet(CampaignID='CampaignID%206',InfoRecID='InfoRecID%206')/ToInfoRec"
+		}
+	}
+}, {
+	"CampaignID": "CampaignID 3",
+	"InfoRecID": "InfoRecID 7",
+	"__metadata": {
+		"uri": "CampaignToInfoSet(CampaignID='CampaignID%207',InfoRecID='InfoRecID%207')",
+		"type": "OData_Portal.CampaignToInfo"
+	},
+	"ToInfoRec": {
+		"__deferred": {
+			"uri": "CampaignToInfoSet(CampaignID='CampaignID%207',InfoRecID='InfoRecID%207')/ToInfoRec"
+		}
+	}
+}, {
+	"CampaignID": "CampaignID 3",
+	"InfoRecID": "InfoRecID 8",
+	"__metadata": {
+		"uri": "CampaignToInfoSet(CampaignID='CampaignID%208',InfoRecID='InfoRecID%208')",
+		"type": "OData_Portal.CampaignToInfo"
+	},
+	"ToInfoRec": {
+		"__deferred": {
+			"uri": "CampaignToInfoSet(CampaignID='CampaignID%208',InfoRecID='InfoRecID%208')/ToInfoRec"
+		}
+	}
+}, {
+	"CampaignID": "CampaignID 3",
+	"InfoRecID": "InfoRecID 9",
+	"__metadata": {
+		"uri": "CampaignToInfoSet(CampaignID='CampaignID%209',InfoRecID='InfoRecID%209')",
+		"type": "OData_Portal.CampaignToInfo"
+	},
+	"ToInfoRec": {
+		"__deferred": {
+			"uri": "CampaignToInfoSet(CampaignID='CampaignID%209',InfoRecID='InfoRecID%209')/ToInfoRec"
+		}
+	}
+}, {
+	"CampaignID": "CampaignID 2",
+	"InfoRecID": "InfoRecID 1"
+}]
