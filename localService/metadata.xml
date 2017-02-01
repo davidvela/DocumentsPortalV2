@@ -1,10 +1,81 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<edmx:Edmx
-    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
-    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Version="1.0">
+<?xml version="1.0" encoding="UTF-8"?><edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Version="1.0">
     <edmx:DataServices m:DataServiceVersion="2.0">
-        <Schema
-            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="PortalTest">
+        <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="OData_Portal">
+            <EntityType Name="InfoRec">
+                <Key>
+                    <PropertyRef Name="InfoRecID"/>
+                </Key>
+                <Property Name="InfoRecID" Nullable="false" Type="Edm.String"/>
+                <Property Name="MaterialNumber" Type="Edm.String"/>
+                <Property Name="MaterialName" Type="Edm.String"/>
+                <Property Name="ProductionMethod" Type="Edm.String"/>
+                <Property Name="PurchaseOrg" Type="Edm.String"/>
+                <Property Name="SupplierNumber" Type="Edm.String"/>
+                <Property Name="SupplierName" Type="Edm.String"/>
+                <Property Name="SupplierMatCode" Type="Edm.String"/>
+                <Property Name="SupplierManufacturer" Type="Edm.String"/>
+                <Property Name="SupplierEmail" Type="Edm.String"/>
+                <Property Name="DocumentStatus" Type="Edm.String"/>
+                <Property Name="DocumentAssigned" Type="Edm.String"/>
+                <Property Name="MatAreaFLA" Type="Edm.Boolean"/>
+                <Property Name="MatAreaFRA" Type="Edm.Boolean"/>
+                <Property Name="MatAreaCI" Type="Edm.Boolean"/>
+                <Property Name="MatAreaAM" Type="Edm.Boolean"/>
+                <Property Name="ProcessOwner" Type="Edm.String"/>
+                <NavigationProperty FromRole="From_InfoRec" Name="CampaignToInfoSet" Relationship="OData_Portal.InfoRecCampaignToInfo" ToRole="To_CampaignToInfo"/>
+            </EntityType>
+            <EntityType Name="Campaign">
+                <Key>
+                    <PropertyRef Name="CampaignID"/>
+                </Key>
+                <Property Name="CampaignID" Nullable="false" Type="Edm.String"/>
+                <Property Name="CampaignName" Type="Edm.String"/>
+                <Property Name="CampaignType" Type="Edm.String"/>
+                <Property Name="CampaignStatus" Type="Edm.String"/>
+                <Property Name="CreatedOn" Type="Edm.String"/>
+                <Property Name="CreatedAt" Type="Edm.String"/>
+                <Property Name="CreatedBy" Type="Edm.String"/>
+                <Property Name="FinalizedOn" Type="Edm.String"/>
+                <NavigationProperty FromRole="FromRole_Assoc_CampaignToInfo" Name="ToCampaignInfoRec" Relationship="OData_Portal.Assoc_CampaignToInfo" ToRole="ToRole_Assoc_CampaignToInfo"/>
+            </EntityType>
+            <EntityType Name="CampaignToInfo">
+                <Key>
+                    <PropertyRef Name="CampaignID"/>
+                    <PropertyRef Name="InfoRecID"/>
+                </Key>
+                <Property Name="CampaignID" Nullable="false" Type="Edm.String"/>
+                <Property Name="InfoRecID" Nullable="false" Type="Edm.String"/>
+                <NavigationProperty FromRole="ToRole_Assoc_InfoRec" Name="ToInfoRec" Relationship="OData_Portal.Assoc_InfoRec" ToRole="FromRole_Assoc_InfoRec"/>
+                <NavigationProperty FromRole="From_CampaignToInfo" Name="CampaignSet" Relationship="OData_Portal.InfoCampaignToCampaign" ToRole="To_Campaign"/>
+            </EntityType>
+            <EntityType Name="Document">
+                <Key>
+                    <PropertyRef Name="DocumentID"/>
+                </Key>
+                <Property Name="DocumentID" Nullable="false" Type="Edm.String"/>
+                <Property Name="DocName" Type="Edm.String"/>
+                <Property Name="DocDescription" Type="Edm.String"/>
+                <Property Name="DocType" Type="Edm.String"/>
+                <Property Name="DocStatus" Type="Edm.String"/>
+                <Property Name="DocAreaFLA" Type="Edm.String"/>
+                <Property Name="DocAreaFRA" Type="Edm.String"/>
+                <Property Name="DocAreaCI" Type="Edm.String"/>
+                <Property Name="DocAreaAM" Type="Edm.String"/>
+                <Property Name="DocRegEAME" Type="Edm.String"/>
+                <Property Name="DocRegNA" Type="Edm.String"/>
+                <Property Name="DocRegASPAC" Type="Edm.String"/>
+                <Property Name="DocRegLA" Type="Edm.String"/>
+                <Property Name="DocValidity" Type="Edm.String"/>
+                <Property Name="CreatedOn" Type="Edm.String"/>
+                <Property Name="CreatedAt" Type="Edm.String"/>
+                <Property Name="CreatedBy" Type="Edm.String"/>
+                <Property Name="ChangedOn" Type="Edm.String"/>
+                <Property Name="ChangedAt" Type="Edm.String"/>
+                <Property Name="ChangedBy" Type="Edm.String"/>
+                <Property Name="DocVersion" Type="Edm.String"/>
+                <Property Name="DocChgMinor" Type="Edm.String"/>
+                <Property Name="DocChgMajor" Type="Edm.String"/>
+            </EntityType>
             <EntityType Name="Questionnaire">
                 <Key>
                     <PropertyRef Name="QuestionnaireID"/>
@@ -12,18 +83,86 @@
                 <Property Name="QuestionnaireID" Nullable="false" Type="Edm.String"/>
                 <Property Name="TitleQuestionnaire" Type="Edm.String"/>
                 <Property Name="IntroQuestionnaire" Type="Edm.String"/>
-                <Property Name="Question"  Nullable="false" Type="PortalTest.CT_Question"/>
+                <Property Name="Question" Nullable="false" Type="OData_Portal.CT_Question"/>
             </EntityType>
-			<ComplexType Name="CT_Question">
+            <ComplexType Name="CT_Question">
                 <Property Name="TitleQuestion" Type="Edm.String"/>
                 <Property Name="IntroQuestion" Type="Edm.String"/>
                 <Property Name="LabelQuestion" Type="Edm.String"/>
                 <Property Name="InputAnswer" Type="Edm.String"/>
                 <Property Name="LabelComment" Type="Edm.String"/>
                 <Property Name="InputComment" Type="Edm.String"/>
-			</ComplexType>
+                <Property Name="ActiveComment" Type="Edm.Boolean"/>
+            </ComplexType>
+            <Association Name="Assoc_CampaignToInfo">
+                <End Multiplicity="1" Role="FromRole_Assoc_CampaignToInfo" Type="OData_Portal.Campaign"/>
+                <End Multiplicity="*" Role="ToRole_Assoc_CampaignToInfo" Type="OData_Portal.CampaignToInfo"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Assoc_CampaignToInfo">
+                        <PropertyRef Name="CampaignID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Assoc_CampaignToInfo">
+                        <PropertyRef Name="CampaignID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Assoc_InfoRec">
+                <End Multiplicity="1" Role="FromRole_Assoc_InfoRec" Type="OData_Portal.InfoRec"/>
+                <End Multiplicity="*" Role="ToRole_Assoc_InfoRec" Type="OData_Portal.CampaignToInfo"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Assoc_InfoRec">
+                        <PropertyRef Name="InfoRecID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Assoc_InfoRec">
+                        <PropertyRef Name="InfoRecID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="InfoRecCampaignToInfo">
+                <End Multiplicity="1" Role="From_InfoRec" Type="OData_Portal.InfoRec"/>
+                <End Multiplicity="*" Role="To_CampaignToInfo" Type="OData_Portal.CampaignToInfo"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_InfoRec">
+                        <PropertyRef Name="InfoRecID"/>
+                    </Principal>
+                    <Dependent Role="To_CampaignToInfo">
+                        <PropertyRef Name="InfoRecID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="InfoCampaignToCampaign">
+                <End Multiplicity="*" Role="From_CampaignToInfo" Type="OData_Portal.CampaignToInfo"/>
+                <End Multiplicity="1" Role="To_Campaign" Type="OData_Portal.Campaign"/>
+                <ReferentialConstraint>
+                    <Principal Role="To_Campaign">
+                        <PropertyRef Name="CampaignID"/>
+                    </Principal>
+                    <Dependent Role="From_CampaignToInfo">
+                        <PropertyRef Name="CampaignID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
             <EntityContainer Name="default" m:IsDefaultEntityContainer="true">
-                <EntitySet EntityType="PortalTest.Questionnaire" Name="QuestionnaireSet"/>
+                <EntitySet EntityType="OData_Portal.InfoRec" Name="InfoRecSet"/>
+                <EntitySet EntityType="OData_Portal.Campaign" Name="CampaignSet"/>
+                <EntitySet EntityType="OData_Portal.Questionnaire" Name="QuestionnaireSet"/>
+                <EntitySet EntityType="OData_Portal.CampaignToInfo" Name="CampaignToInfoSet"/>
+                <AssociationSet Association="OData_Portal.Assoc_CampaignToInfo" Name="Assoc_CampaignToInfo_AssocS">
+                    <End EntitySet="CampaignSet" Role="FromRole_Assoc_CampaignToInfo"/>
+                    <End EntitySet="CampaignToInfoSet" Role="ToRole_Assoc_CampaignToInfo"/>
+                </AssociationSet>
+                <AssociationSet Association="OData_Portal.Assoc_InfoRec" Name="Assoc_InfoRec_AssocS">
+                    <End EntitySet="InfoRecSet" Role="FromRole_Assoc_InfoRec"/>
+                    <End EntitySet="CampaignToInfoSet" Role="ToRole_Assoc_InfoRec"/>
+                </AssociationSet>
+                <AssociationSet Association="OData_Portal.InfoRecCampaignToInfo" Name="InfoRecCampaignToInfoSet">
+                    <End EntitySet="InfoRecSet" Role="From_InfoRec"/>
+                    <End EntitySet="CampaignToInfoSet" Role="To_CampaignToInfo"/>
+                </AssociationSet>
+                <AssociationSet Association="OData_Portal.InfoCampaignToCampaign" Name="CampaignToInfoCampaignSet">
+                    <End EntitySet="CampaignToInfoSet" Role="From_CampaignToInfo"/>
+                    <End EntitySet="CampaignSet" Role="To_Campaign"/>
+                </AssociationSet>
             </EntityContainer>
         </Schema>
     </edmx:DataServices>
