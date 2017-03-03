@@ -1,21 +1,15 @@
-<mvc:View	xmlns="sap.m" 
-			xmlns:mvc="sap.ui.core.mvc" 
-			xmlns:core="sap.ui.core" 
-			xmlns:semantic="sap.m.semantic" 
-			xmlns:footerbar="sap.ushell.ui.footerbar" 
-			xmlns:l="sap.ui.layout" 
-			xmlns:u="sap.ui.unified"
-			controllerName="portaltest.controller.Worklist">
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:semantic="sap.m.semantic"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" controllerName="portaltest.controller.Worklist">
 	<semantic:FullscreenPage id="page" navButtonPress="onNavBack" showNavButton="true" title="{i18n>worklistViewTitle}">
 		<semantic:content>
 			<IconTabBar selectedKey="firstTab" id="__bar0">
 				<items>
-
 					<!-- OVERVIEW -->
 					<IconTabFilter text="Overview">
 						<content>
-							<Table id="table" width="auto" 
-							items="{ path: '/InfoRecSet', sorter: { path: 'MaterialNumber', descending: false } }" noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished">
+							<Table id="table" width="auto" items="{ path: '/InfoRecSet', sorter: { path: 'MaterialNumber', descending: false } }"
+								noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true"
+								updateFinished="onUpdateFinished">
 								<headerToolbar>
 									<Toolbar>
 										<Title id="tableHeader" text="Info Records"/>
@@ -83,11 +77,11 @@
 							</Table>
 						</content>
 					</IconTabFilter>
-					
 					<!-- CAMPAIGNS	-->
 					<IconTabFilter text="Campaigns">
 						<content>
-							<Table noDataText="Drop column list items here and columns in the area above" id="tabCampaign" items="{ path: '/CampaignSet', sorter: { path: 'CampaignID', descending: false } }" growing="true" growingScrollToLoad="true">
+							<Table noDataText="Drop column list items here and columns in the area above" id="tabCampaign"
+								items="{ path: '/CampaignSet', sorter: { path: 'CampaignID', descending: false } }" growing="true" growingScrollToLoad="true">
 								<headerToolbar>
 									<Toolbar>
 										<Title text="Campaign"/>
@@ -134,7 +128,9 @@
 							</Table>
 							<Table id="tabCampInfoRec" items="{ path: 'ToCampaignInfoRec', parameters: {expand: 'ToInfoRec'} }" visible="false">
 								<headerToolbar>
-									<Toolbar> <Title text="Info Records"/> </Toolbar>
+									<Toolbar>
+										<Title text="Info Records"/>
+									</Toolbar>
 								</headerToolbar>
 								<columns>
 									<Column><Text text="{i18n>tabMaterial}"/></Column>
@@ -165,28 +161,19 @@
 							</Table>
 						</content>
 					</IconTabFilter>
-					
 					<!-- DOCUMENTS	-->
-					<IconTabFilter text="Preview Docs.">
+					<IconTabFilter text="Preview Docs." key="firstTab">
 						<content>
 							<l:VerticalLayout>
-								<u:FileUploader
-									id="fileUploader"
-									name="myFileUpload"
-									uploadUrl="upload/"
-									width="400px"
-									tooltip="Upload your file to the local server"
-									uploadComplete="handleUploadComplete"/>
-								<Button
-									text="Upload File"
-									press="handleUploadPress"/>
-							</l:VerticalLayout>	
-							
-						</content>	
+								<u:FileUploader id="fileUploader" name="myFileUpload" uploadUrl="upload/" width="400px" uploadOnChange="true"
+									tooltip="Upload your file to the local server" uploadComplete="handleUploadComplete"/>
+								<Button text="Upload File" press="handleUploadPress"/>
+								<Image id="img" src=" " densityAware="false" width="80%"></Image>
+							</l:VerticalLayout>
+						</content>
 					</IconTabFilter>
-
 					<!-- QUESTIONNAIRES -->
-					<IconTabFilter text="Design Questionnaire" key="firstTab">
+					<IconTabFilter text="Design Questionnaire">
 						<content>
 							<Table items="{/QuestionnaireSet}" showSeparators="None">
 								<columns>
@@ -247,9 +234,7 @@
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
-			
-			
-				<!-- FOOTER	  -->
+			<!-- FOOTER	  -->
 		</semantic:content>
 		<semantic:sendEmailAction>
 			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>

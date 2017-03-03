@@ -4,8 +4,9 @@ sap.ui.define([
 		"sap/ui/core/routing/History",
 		"portaltest/model/formatter",
 		"sap/ui/model/Filter",
-		"sap/ui/model/FilterOperator"
-	], function (BaseController, JSONModel, History, formatter, Filter, FilterOperator) {
+		"sap/ui/model/FilterOperator",
+		'sap/m/MessageToast'
+	], function (BaseController, JSONModel, History, formatter, Filter, FilterOperator, MessageToast) {
 		"use strict";
 
 		return BaseController.extend("portaltest.controller.Worklist", {
@@ -56,6 +57,45 @@ sap.ui.define([
 			/* =========================================================== */
 			/* event handlers                                              */
 			/* =========================================================== */
+			handleUploadComplete: function (oEvent) {
+				var f = oEvent.oSource.oFileUpload.files[0]; 
+				var path = URL.createObjectURL(f);   
+				//var img = sap.ui.getCore().byId("img");
+				var img = this.getView().byId("img");
+				img.setSrc(path);  
+			},
+			handleUploadPress : function (oEvent) {
+				var oFileUploader = this.getView().byId("fileUploader");
+				if(!oFileUploader.getValue()) {
+					MessageToast.show("Choose a file first");
+					return;
+				}
+				
+				//oFileUploader.upload();
+				
+				 /*var oFileUploader2 = new sap.ui.unified.FileUploader({
+                    uploadUrl : "your_service/UserSet('"+ user[0].getValue() +"')/Photo",
+                    name: "simpleUploader", 
+                    uploadOnChange: false,
+                    sendXHR: true,
+                    useMultipart: false,
+                    headerParameters: [
+                        new sap.ui.unified.FileUploaderParameter({name: "x-csrf-token", value: sap.ui.getCore().getModel().getHeaders()['x-csrf-token'] }),    
+                    ],
+                    uploadComplete: function (oEvent) {
+                        var sResponse = oEvent.getParameter("response");
+                        if (sResponse) {
+                            oUploadDialog.close();
+                            sap.ui.commons.MessageBox.show("Return Code: " + sResponse, "Response", "Response");
+                        }
+                    }  
+				});
+				// press: 
+					 oFileUploader.insertHeaderParameter(new sap.ui.unified.FileUploaderParameter({name: "slug", value: oFileUploader.getValue() }));
+                     oFileUploader.upload();
+				*/
+				
+			},
 
 			/**
 			 * Triggered by the table's 'updateFinished' event: after new table
