@@ -120,6 +120,10 @@ sap.ui.define([
 				}
 				this.getModel("worklistView").setProperty("/worklistTableTitle", sTitle);
 			},
+			
+			onPressTest: function(oEvent){
+				MessageToast.show("Fragment button");
+			},
 
 			/**
 			 * Event handler when a table item gets pressed

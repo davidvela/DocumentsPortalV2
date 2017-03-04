@@ -162,7 +162,17 @@
 						</content>
 					</IconTabFilter>
 					<!-- DOCUMENTS	-->
-					<IconTabFilter text="Preview Docs." key="firstTab">
+					<IconTabFilter text="Uploads Collections" key="firstTab">
+						<content>
+						  <mvc:JSView id="nestedViewjs" viewName="portaltest.view.fragments_views.upCollections" type="JS"></mvc:JSView>
+						  <mvc:HTMLView id="nestedViewhtmnl" viewName="portaltest.view.fragments_views.upCollections" 
+						  controller="portaltest.view.controller.upCollections" type="HTML"></mvc:HTMLView>
+						  <mvc:XMLView id="nestedView" viewName="portaltest.view.fragments_views.upCollections" type="XML"></mvc:XMLView>
+						  <core:Fragment fragmentName="portaltest.view.fragments_views.upCollections" type="XML"/>
+						</content>
+					</IconTabFilter>
+					<!-- IMAGES 	-->
+					<IconTabFilter text="Preview Images." >
 						<content>
 							<l:VerticalLayout>
 								<u:FileUploader id="fileUploader" name="myFileUpload" uploadUrl="upload/" width="400px" uploadOnChange="true"
