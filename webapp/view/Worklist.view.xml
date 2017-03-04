@@ -178,7 +178,7 @@
 								<u:FileUploader id="fileUploader" name="myFileUpload" uploadUrl="upload/" width="400px" uploadOnChange="true"
 									tooltip="Upload your file to the local server" uploadComplete="handleUploadComplete"/>
 								<Button text="Upload File" press="handleUploadPress"/>
-								<Image id="img" src=" " densityAware="false" width="80%"></Image>
+								<Image id="img" src="../assets/defaultImg.png" densityAware="false" width="80%"></Image>
 							</l:VerticalLayout>
 						</content>
 					</IconTabFilter>
