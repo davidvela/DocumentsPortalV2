@@ -5,8 +5,9 @@ sap.ui.define([
 		"portaltest/model/formatter",
 		"sap/ui/model/Filter",
 		"sap/ui/model/FilterOperator",
+		"portaltest/controls/SnippetsPopUp",
 		'sap/m/MessageToast'
-	], function (BaseController, JSONModel, History, formatter, Filter, FilterOperator, MessageToast) {
+	], function (BaseController, JSONModel, History, formatter, Filter, FilterOperator, SnippetsPopUp, MessageToast) {
 		"use strict";
 
 		return BaseController.extend("portaltest.controller.Worklist", {
@@ -57,6 +58,18 @@ sap.ui.define([
 			/* =========================================================== */
 			/* event handlers                                              */
 			/* =========================================================== */
+			handleSnippetsPress: function (oEvent) {
+					// ok, add another instance...:
+				var myControl2 = new SnippetsPopUp({
+				      src1:"../assets/defaultImg.png", 
+				      prop1:"click to close", 
+				      href1:"www.google.com",
+				      content: [
+				        new sap.m.Button({text: "Hi!"})  
+				      ]
+			    });
+			    myControl2.open();
+			},
 			handleUploadComplete: function (oEvent) {
 				var f = oEvent.oSource.oFileUpload.files[0]; 
 				var path = URL.createObjectURL(f);   
