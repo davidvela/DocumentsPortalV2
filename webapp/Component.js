@@ -11,7 +11,9 @@ sap.ui.define([
 			metadata : {
 				manifest: "json"
 			},
-
+			config : {
+			  fullWidth : true //Set your fullscreen parameter here!
+			},
 			/**
 			 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
 			 * In this function, the FLP and device models are set and the router is initialized.
