@@ -1,0 +1,70 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core">
+	<Table id="table" width="auto" items="{ path: '/InfoRecSet', sorter: { path: 'MaterialNumber', descending: false } }"
+		noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true"
+		updateFinished="onUpdateFinished">
+		<headerToolbar>
+			<Toolbar>
+				<Title id="tableHeader" text="Info Records"/>
+				<ToolbarSpacer/>
+				<SearchField id="searchField" tooltip="{i18n>worklistSearchTooltip}" search="onSearch" width="auto"/>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column id="nameColumn" vAlign="Top">
+				<Text text="Product" id="tabColMaterial"/>
+			</Column>
+			<Column id="WebColumn" vAlign="Top" hAlign="Center" width="30px">
+				<Text text="WebApp" id="tabColFla"/>
+			</Column>
+			<Column id="MLColumn" vAlign="Top" hAlign="Center" width="30px">
+				<Text text="ML" id="tabColFra"/>
+			</Column>
+			<Column id="iOSColumn" vAlign="Top" hAlign="Center" width="30px">
+				<Text text="iOS" id="tabColCi"/>
+			</Column>
+			<Column id="IoTColumn" vAlign="Top" hAlign="Center" width="30px">
+				<Text text="IoT" id="tabColAm"/>
+			</Column>
+			<Column id="proMetColumn" vAlign="Top" width="15%">
+				<Text text="Factory" id="tabColProMet"/>
+			</Column>
+			<Column id="purOrgColumn" vAlign="Top" width="10%">
+				<Text text="Customer" id="tabColPurOrg"/>
+			</Column>
+			<Column id="unitNumberColumn" hAlign="Left" vAlign="Top">
+				<Text text="Cust. Inf" id="tabColSupplier"/>
+			</Column>
+			<Column id="docColumn" hAlign="Left" vAlign="Top">
+				<Text text="Documentation" id="tabColDoc"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem type="Navigation" press="onPress">
+				<cells>
+					<ObjectIdentifier title="{MaterialName}" text="{MaterialNumber}"/>
+					<CheckBox selected="{MatAreaFLA}"/>
+					<CheckBox selected="{MatAreaFRA}"/>
+					<CheckBox selected="{MatAreaCI}"/>
+					<CheckBox selected="{MatAreaAM}"/>
+					<Text text="{ProductionMethod}"/>
+					<Text text="{PurchaseOrg}"/>
+					<ObjectListItem type="Active" title="{SupplierNumber}">
+						<attributes>
+							<ObjectAttribute text="{SupplierName}"/>
+							<ObjectAttribute title="Email" text="{SupplierEmail}"/>
+							<ObjectAttribute title="Manufacturer" text="{SupplierManufacturer}"/>
+							<ObjectAttribute title="Mat. Code" text="{SupplierMatCode}"/>
+						</attributes>
+					</ObjectListItem>
+					<ObjectListItem type="Active" title="{DocumentStatus}">
+						<attributes>
+							<ObjectAttribute text="{DocumentAssigned}"/>
+							<ObjectAttribute title="Owner" text="{ProcessOwner}"/>
+							<ObjectAttribute title="Campaign" text="{CampaignID}"/>
+						</attributes>
+					</ObjectListItem>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

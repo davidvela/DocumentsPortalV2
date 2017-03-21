@@ -1,0 +1,81 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core">
+		<Table noDataText="Drop column list items here and columns in the area above" id="tabCampaign"
+								items="{ path: '/CampaignSet', sorter: { path: 'CampaignID', descending: false } }" growing="true" growingScrollToLoad="true">
+								<headerToolbar>
+									<Toolbar>
+										<Title text="Campaign"/>
+										<ToolbarSpacer/>
+										<SearchField tooltip="Search" search="onSearch" width="auto"/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column id="__column0">
+										<header><Label text="Name"/></header>
+									</Column>
+									<Column id="__column1">
+										<header><Label text="Type"/></header>
+									</Column>
+									<Column id="__column2">
+										<header><Label text="Status"/></header>
+									</Column>
+									<Column id="__column3">
+										<header><Label text="Created on"/></header>
+									</Column>
+									<Column id="__column4">
+										<header><Label text="Created at"/></header>
+									</Column>
+									<Column id="__column5">
+										<header><Label text="Created by"/></header>
+									</Column>
+									<Column id="__column6">
+										<header><Label text="Finalized on"/></header>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem type="Navigation" press="onItemSelected" id="Column999">
+										<cells>
+											<Text text="{CampaignName}" id="text11"/>
+											<Text text="{CampaignType}" id="text12"/>
+											<Text text="{CampaignStatus}" id="text31"/>
+											<Text text="{CreatedOn}" id="text14"/>
+											<Text text="{CreatedAt}" id="text15"/>
+											<Text text="{CreatedBy}" id="text16"/>
+											<Text text="{FinalizedOn}" id="text17"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+							<Table id="tabCampInfoRec" items="{ path: 'ToCampaignInfoRec', parameters: {expand: 'ToInfoRec'} }" visible="false">
+								<headerToolbar>
+									<Toolbar>
+										<Title text="Info Records"/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column><Text text="{i18n>tabMaterial}"/></Column>
+									<Column width="30px"><Text text="FLA"/></Column>
+									<Column width="30px"><Text text="FRA"/></Column>
+									<Column width="30px"><Text text="CI"/></Column>
+									<Column width="30px"><Text text="AM"/></Column>
+									<Column><Text text="{i18n>tabSupplier}" width="25%"/></Column>
+									<Column><Text text="Documents" width="25%"/></Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{ToInfoRec/MaterialNumber}" text="{ToInfoRec/MaterialName}"/>
+											<CheckBox selected="{ToInfoRec/MatAreaFLA}"/>
+											<CheckBox selected="{ToInfoRec/MatAreaFRA}"/>
+											<CheckBox selected="{ToInfoRec/MatAreaCI}"/>
+											<CheckBox selected="{ToInfoRec/MatAreaAM}"/>
+											<ObjectIdentifier title="{ToInfoRec/SupplierNumber}" text="{ToInfoRec/SupplierName}"/>
+											<ObjectListItem type="Active" title="{ToInfoRec/DocumentStatus}">
+												<attributes>
+													<ObjectAttribute text="{ToInfoRec/DocumentAssigned}"/>
+												</attributes>
+											</ObjectListItem>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+</core:FragmentDefinition>

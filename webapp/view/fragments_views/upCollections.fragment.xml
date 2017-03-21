@@ -1,8 +1,5 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core">
 	<Button text="Fragment XML" press="onPressTest"></Button>
-	
-	
-	
 	<UploadCollection id="UploadCollection" maximumFilenameLength="55" maximumFileSize="10" multiple="false" showSeparators="All"
 		change="onChange" fileSizeExceed="onFileSizeExceed" selectionChange="onSelectionChange" typeMissmatch="onTypeMissmatch"
 		uploadComplete="onUploadComplete" beforeUploadStarts="onBeforeUploadStarts" uploadTerminated="onUploadTerminated"
