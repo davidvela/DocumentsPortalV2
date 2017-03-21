@@ -1,0 +1,64 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:semantic="sap.m.semantic"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified"
+	controllerName="portaltest.controller.fragments_views.questionnaire">
+	<Button text="Hola Questionniare" press="onPressTest2"></Button>
+	
+	<!-- Main table  Questionnaire Section    only 1 column --> 
+	<Table items="{/QuestionnaireSet}" showSeparators="None">
+		<columns>
+			<Column/>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					
+					<!-- Sub table  Questionnaire Question    only 1 column + 3 outputs -->
+					<Table showSeparators="None">
+						<columns>
+							<Column/>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells><Title text="{Question/TitleQuestion}" titleStyle="H3"/></cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells><MessageStrip text="{Question/IntroQuestion}" type="Information" showIcon="true" class="sapUiNoMarginBottom"/></cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<Table showSeparators="None">
+										<columns>
+											<Column vAlign="Top" width="25%"/>
+											<Column vAlign="Top" minScreenWidth="Tablet" demandPopin="true"/>
+										</columns>
+										<items>
+											<ColumnListItem>
+												<cells><Text text="{Question/LabelQuestion}"/></cells>
+												<cells>
+													<Select selectedKey="{Question/InputAnswer}" width="25%">
+														<items>
+															<core:Item key="No" text="No"/>
+															<core:Item key="Yes" text="Yes"/>
+															<core:Item key="Others" text="Others..."/>
+														</items>
+													</Select>
+												</cells>
+											</ColumnListItem>
+											<ColumnListItem visible="{Question/ActiveComment}">
+												<cells><Text text="{Question/LabelComment}"/></cells>
+												<cells><TextArea value="{Question/InputComment}" growing="true" growingMaxLines="5" width="100%" placeholder="Enter Text ..."/></cells>
+											</ColumnListItem>
+											<ColumnListItem>
+												<cells><Text class="sapUiNoMarginBottom"/></cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</mvc:View>
