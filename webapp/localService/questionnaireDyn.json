@@ -1,0 +1,50 @@
+{
+	"QuestionnaireSet": [{
+		"QuestionnaireID": "QuestionnaireID 1",
+		"TitleQuestionnaire": "TitleQuestionnaire 1",
+		"IntroQuestionnaire": "IntroQuestionnaire 1",
+		"Question": {
+			"TitleQuestion": "TitleQuestion 1",
+			"IntroQuestion": "Introduction:how are you? ",
+			"LabelQuestion": "are you good?",
+			"InputAnswer": "Yes",
+			"LabelComment": "Your comments",
+			"InputComment": "yes I am good because I won 100e in the lottery",
+			"ActiveComment": true
+		},
+		"__metadata": {
+			"uri": "QuestionnaireSet('QuestionnaireID%201')",
+			"type": "OData_Portal.Questionnaire"
+		}
+	}, {
+		"QuestionnaireID": "QuestionnaireID 2",
+		"TitleQuestionnaire": "TitleQuestionnaire 2",
+		"IntroQuestionnaire": "IntroQuestionnaire 2",
+		"Question": {
+			"TitleQuestion": "TitleQuestion 2",
+			"IntroQuestion": "Intro Question 2",
+			"LabelQuestion": "Label Question2 ",
+			"InputAnswer": "Yes",
+			"LabelComment": "Your comments",
+			"InputComment": "comments",
+			"ActiveComment": false
+		},
+		"__metadata": {
+			"uri": "QuestionnaireSet('QuestionnaireID%202')",
+			"type": "OData_Portal.Questionnaire"
+		}
+	}, {
+		"QuestionnaireID": "QuestionnaireID 3",
+		"TitleQuestionnaire": "TitleQuestionnaire 3",
+		"IntroQuestionnaire": "IntroQuestionnaire 3",
+		"Question": {
+			"TitleQuestion": "TitleQuestion 3",
+			"IntroQuestion": "intro Question 3",
+			"LabelQuestion": "label: ",
+			"InputAnswer": "No",
+			"LabelComment": "Your comments",
+			"InputComment": "comments ",
+			"ActiveComment": true
+		}
+	}]
+}

@@ -2,7 +2,17 @@
 	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified"
 	controllerName="portaltest.controller.fragments_views.questionnaireDyn">
 	<Button text="Questionniare Dynamic" press="onPressTest2"></Button>
-	
+
+		<ActionSelect	id="select"	class="sapUiSmallMarginBottom"
+				items="{
+					path: 'screens>/elements',
+					sorter: { path: 'Name' }
+				}">
+				<items>
+					<core:Item key="{screens>Id}" text="{screens>Name}" />
+				</items>
+			</ActionSelect>
+				
 	<!-- Main table  Questionnaire Section    only 1 column --> 
 	<Table items="{/QuestionnaireSet}" showSeparators="None">
 		<columns>
@@ -26,6 +36,8 @@
 							</ColumnListItem>
 							<ColumnListItem>
 								<cells>
+									
+									<!-- Sub Sub table  Question parts  2 columns + 3 outputs -->
 									<Table showSeparators="None">
 										<columns>
 											<Column vAlign="Top" width="25%"/>
@@ -53,12 +65,22 @@
 											</ColumnListItem>
 										</items>
 									</Table>
+									<!--sub  sub tab -->
+
+									
+									
 								</cells>
 							</ColumnListItem>
 						</items>
 					</Table>
+					<!-- sub tab -->
+					
+					
 				</cells>
 			</ColumnListItem>
 		</items>
 	</Table>
+    <!-- main tab -->	
+	
+	
 </mvc:View>
