@@ -56,7 +56,9 @@
 					</IconTabFilter>
 					<!-- QUESTIONNAIRES	-->
 					<IconTabFilter text="Fill Questionnaire" key="firstTab">
-					<content>
+					<content>						
+						<mvc:JSView id="questDynJSid" 
+						viewName="portaltest.view.fragments_views.questionnaireDyn" type="JS"></mvc:JSView>
 						<mvc:XMLView id="questDynXMLid" 
 						viewName="portaltest.view.fragments_views.questionnaireDyn" type="XML"></mvc:XMLView>
 					</content>
