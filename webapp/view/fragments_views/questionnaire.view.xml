@@ -3,62 +3,90 @@
 	controllerName="portaltest.controller.fragments_views.questionnaire">
 	<Button text="Hola Questionniare" press="onPressTest2"></Button>
 	
-	<!-- Main table  Questionnaire Section    only 1 column --> 
+	<!-- Main table  Questionnaire Section    only 1 column -->
 	<Table items="{/QuestionnaireSet}" showSeparators="None">
-		<columns>
-			<Column/>
-		</columns>
-		<items>
-			<ColumnListItem>
-				<cells>
+		<columns>		<Column/>			</columns>
+		<items>			<ColumnListItem>	<cells>
+			<!-- Sub table  Questions     only 1 column 6 lines man-->
+			<Table showSeparators="None">
+				<columns>		<Column/>	</columns>
+				<items>
+					<!-- 1 line separator -->
+					<ColumnListItem visible="{Question/SpaceLine_act}">	<cells>
+						<Text class="sapUiNoMarginBottom"/>
+					</cells></ColumnListItem>
+					<!-- 2 line Title Question -->
+					<ColumnListItem visible="{Question/TitleQuestion_act}"><cells>
+						<Title text="{Question/TitleQuestion}" titleStyle="H3"/>
+					</cells></ColumnListItem>
+					<!-- 3 line Introduction -->
+					<ColumnListItem visible="{Question/IntroQuestion_act}"><cells>
+						<MessageStrip text="{Question/IntroQuestion}" type="Information" showIcon="true" class="sapUiNoMarginBottom"/>
+					</cells></ColumnListItem>
 					
-					<!-- Sub table  Questionnaire Question    only 1 column + 3 outputs -->
-					<Table showSeparators="None">
-						<columns>
-							<Column/>
-						</columns>
-						<items>
-							<ColumnListItem>
-								<cells><Title text="{Question/TitleQuestion}" titleStyle="H3"/></cells>
-							</ColumnListItem>
-							<ColumnListItem>
-								<cells><MessageStrip text="{Question/IntroQuestion}" type="Information" showIcon="true" class="sapUiNoMarginBottom"/></cells>
-							</ColumnListItem>
-							<ColumnListItem>
-								<cells>
-									<Table showSeparators="None">
-										<columns>
-											<Column vAlign="Top" width="25%"/>
-											<Column vAlign="Top" minScreenWidth="Tablet" demandPopin="true"/>
-										</columns>
-										<items>
-											<ColumnListItem>
-												<cells><Text text="{Question/LabelQuestion}"/></cells>
-												<cells>
-													<Select selectedKey="{Question/InputAnswer}" width="25%">
-														<items>
-															<core:Item key="No" text="No"/>
-															<core:Item key="Yes" text="Yes"/>
-															<core:Item key="Others" text="Others..."/>
-														</items>
-													</Select>
-												</cells>
-											</ColumnListItem>
-											<ColumnListItem visible="{Question/ActiveComment}">
-												<cells><Text text="{Question/LabelComment}"/></cells>
-												<cells><TextArea value="{Question/InputComment}" growing="true" growingMaxLines="5" width="100%" placeholder="Enter Text ..."/></cells>
-											</ColumnListItem>
-											<ColumnListItem>
-												<cells><Text class="sapUiNoMarginBottom"/></cells>
-											</ColumnListItem>
-										</items>
-									</Table>
-								</cells>
-							</ColumnListItem>
-						</items>
-					</Table>
-				</cells>
-			</ColumnListItem>
-		</items>
-	</Table>
+					<!-- 4.0  line Table DropBox 2 columns -->
+					<ColumnListItem visible="{Question/InputDropBox_act}"> <cells>
+						<Table showSeparators="None">
+							<columns>	<Column vAlign="Top" width="25%"/>
+										<Column vAlign="Top" minScreenWidth="Tablet" demandPopin="true"/>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells> <Text text="{Question/LabelDropBox}"/></cells>
+									<cells>	<Select selectedKey="{Question/InputDropBox}" width="25%">
+											<items>
+												<core:Item key="No" text="No"/>
+												<core:Item key="Yes" text="Yes"/>
+												<core:Item key="Others" text="Others..."/>
+											</items>
+										</Select>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</cells></ColumnListItem>
+					
+					<!-- 4.1 line Comment Table -->
+					<ColumnListItem visible="{Question/InputComment_act}">
+						<cells>
+							<Table showSeparators="None">
+								<columns>
+									<Column vAlign="Top" width="25%"/>
+									<Column vAlign="Top" minScreenWidth="Tablet" demandPopin="true"/>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells><Text text="{Question/LabelComment}"/></cells>
+										<cells><TextArea value="{Question/InputComment}" growing="true" growingMaxLines="5" width="100%" placeholder="Enter Text ..."/></cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</cells>
+					</ColumnListItem>
+					<!-- 4.2 line RadioButon Table 3 columns-->
+					<ColumnListItem visible="{Question/InputRadioBtn_act}">
+						<cells>
+							<Table showSeparators="None">
+								<columns>
+									<Column vAlign="Top" width="25%"/>
+									<Column vAlign="Top" width="15%" minScreenWidth="Tablet" demandPopin="true"/>
+									<Column/>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells><Text text="{Question/LabelRadioBtn}"/></cells>
+										<cells><RadioButton groupName="GroupYes" text="Yes" selected="{Question/InputRadioBtnY}"/></cells>
+										<cells><RadioButton groupName="GroupNo" text="No" selected="{Question/InputRadioBtnN}"/></cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</cells>
+					</ColumnListItem>
+							
+					</items>	</Table>
+					<!-- Sub table  Questions -->
+				</cells> </ColumnListItem>
+		</items>	</Table>
+	<!-- Main table -->
+
 </mvc:View>

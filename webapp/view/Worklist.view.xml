@@ -55,7 +55,7 @@
 						</content>
 					</IconTabFilter>-->
 					<!-- QUESTIONNAIRES	-->
-					<IconTabFilter text="Fill Questionnaire" key="firstTab">
+					<IconTabFilter text="Fill Questionnaire" >
 					<content>						
 						<mvc:JSView id="questDynJSid" 
 						viewName="portaltest.view.fragments_views.questionnaireDyn" type="JS"></mvc:JSView>
@@ -63,13 +63,13 @@
 						viewName="portaltest.view.fragments_views.questionnaireDyn" type="XML"></mvc:XMLView>
 					</content>
 					</IconTabFilter>
-					<!-- Design QUESTIONNAIRES	
-					<IconTabFilter text="Design Questionnaire">
+					<!-- Design QUESTIONNAIRES	-->
+					<IconTabFilter text="Design Questionnaire" key="firstTab"> 
 					<content>
 						<mvc:XMLView id="questXMLid" 
 						viewName="portaltest.view.fragments_views.questionnaire" type="XML"></mvc:XMLView>
 					</content>
-					</IconTabFilter>-->
+					</IconTabFilter>
 				</items>
 			</IconTabBar>
 			<!-- FOOTER	  -->
