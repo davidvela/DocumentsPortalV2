@@ -1,11 +1,35 @@
 {
-	"QuestionnaireSet": [{
+	"QuestionnaireSet3": [{
+		"QuestionnaireID": "QuestionnaireID 1",
+		"TitleSection": "Section 1",
+		"IntroSection": "Section intro 1",
+		"Questions": [{
+			"TitleQuestion": "Question 1",
+			"IntroQuestion": "Question intro 1",
+			"QuestionParts": [
+				{"qLabel": "qt 1.1d",	
+				"QuestionOutputs": [	{	"qAns1": "qAns 1.1", "qAns1v": true, "qAns2": true, "qAns2v": false }
+								   ]	
+				},
+				{"qLabel": "qt 1.2d",	
+				"QuestionOutputs": [	{	"qAns1": "qAns 1.2", "qAns1v": false, "qAns2": true, "qAns2v": true },
+										{	"qAns1": "qAns 1.2", "qAns1v": false, "qAns2": false, "qAns2v": true }]
+				},
+				{"qLabel": "qt 1.3d",	
+				"QuestionOutputs": [	{	"qAns1": "qAns 1.3", "qAns1v": true, "qAns2": true, "qAns2v": true }, 
+										{	"qAns1": "qAns 1.3", "qAns1v": true, "qAns2": true, "qAns2v": true}]	
+				}
+			]
+		}
+		]
+	}],
+	
+	"QuestionnaireSet2": [{
 		"QuestionnaireID": "QuestionnaireID 1",
 		"TitleQuestionnaire": "Question 1",
 		"IntroQuestionnaire": "Question intro 1",
 		 "QuestionParts": [
-			{"qLabel": "qt 1.1",	"qAns1": "qAns 1.1", "qAns1v": true,
-									"qAns2": "qAns 1.1", "qAns2v": false	
+			{"qLabel": "qt 1.1",	"qAns1": "qAns 1.1", "qAns1v": true, "qAns2": "qAns 1.1", "qAns2v": false	
 			},
 			{"qLabel": "qt 1.2",	"qAns1": "qAns 1.2", "qAns1v": false ,
 									"qAns2": true,		 "qAns2v": true
@@ -14,23 +38,6 @@
 									"qAns2": "qAns 1.1", "qAns2v": false	
 			}
 			],
-		
-		"Question": {
-			"TitleQuestion": "TitleQuestion 1",
-			"IntroQuestion": "Introduction:how are you? ",
-			
-			
-			
-			"LabelQuestion": "are you good?",
-			"InputAnswer": "Yes",
-			"LabelComment": "Your comments",
-			"InputComment": "yes I am good because I won 100e in the lottery",
-			"ActiveComment": true
-		
-			
-			
-			
-		},
 		"__metadata": {
 			"uri": "QuestionnaireSet('QuestionnaireID%201')",
 			"type": "OData_Portal.Questionnaire"
@@ -39,15 +46,6 @@
 		"QuestionnaireID": "QuestionnaireID 2",
 		"TitleQuestionnaire": "Question 2",
 		"IntroQuestionnaire": "Question intro 2",
-		"Question": {
-			"TitleQuestion": "TitleQuestion 2",
-			"IntroQuestion": "Intro Question 2",
-			"LabelQuestion": "Label Question2 ",
-			"InputAnswer": "Yes",
-			"LabelComment": "Your comments",
-			"InputComment": "comments",
-			"ActiveComment": false
-		},
 		"__metadata": {
 			"uri": "QuestionnaireSet('QuestionnaireID%202')",
 			"type": "OData_Portal.Questionnaire"
@@ -55,23 +53,11 @@
 	}, {
 		"QuestionnaireID": "QuestionnaireID 3",
 		"TitleQuestionnaire": "Question 3",
-		"IntroQuestionnaire": "Question intro 3",
-		"Question": {
-			"TitleQuestion": "TitleQuestion 3",
-			"IntroQuestion": "intro Question 3",
-			"LabelQuestion": "label: ",
-			"InputAnswer": "No",
-			"LabelComment": "Your comments",
-			"InputComment": "comments ",
-			"ActiveComment": true
-		}
+		"IntroQuestionnaire": "Question intro 3"
 	}],
 	
 	
-	
-	
-	
-	"QuestionnaireSet2": [{
+	"QuestionnaireSet1": [{
 		"QuestionnaireID": "QuestionnaireID 1",
 		"TitleQuestionnaire": "TitleQuestionnaire 1",
 		"IntroQuestionnaire": "IntroQuestionnaire 1",
