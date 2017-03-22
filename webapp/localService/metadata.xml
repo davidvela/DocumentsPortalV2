@@ -80,10 +80,11 @@
 				<Key>
 					<PropertyRef Name="QuestionnaireID"/>
 				</Key>
-				<Property Name="QuestionnaireID" Nullable="false" Type="Edm.String"/>
+				<Property Name="QuestionnaireID"	Nullable="false" Type="Edm.String"/>
 				<Property Name="TitleQuestionnaire" Type="Edm.String"/>
 				<Property Name="IntroQuestionnaire" Type="Edm.String"/>
-				<Property Name="Question" Nullable="false" Type="OData_Portal.CT_Question"/>
+				<Property Name="Position"			Type="Edm.String"/>
+				<Property Name="Question"			Nullable="false" Type="OData_Portal.CT_Question"/>
 			</EntityType>
 			<ComplexType Name="CT_Question">
 				<!--Edm.Boolean-->
