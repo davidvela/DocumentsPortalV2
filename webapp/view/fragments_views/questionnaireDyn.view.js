@@ -8,7 +8,7 @@ sap.ui.jsview("portaltest.view.fragments_views.questionnaireDyn", {
 				  
 		    // SUBQUESTION 
 		    
-		    // INPUTS 
+		    // INPUTS -
 		    
 		    var oTable =  new sap.m.Table({ headerText : "Dynamic Table", 
 					columns : [ 
