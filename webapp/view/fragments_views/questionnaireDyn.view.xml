@@ -17,10 +17,10 @@
     <!-- xxxxxxxxxxxxxxx	type 3			xxxxxxxxxxxxxxxxx -->	
     <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 	<!-- Main table 0  Questionnaire Section    only 1 column --> 
-	<Table items="{/QuestionnaireSet3}" showSeparators="None">
-			<headerToolbar>
+	<Table items="{/QuestionnaireSet3}" showSeparators="None" >
+		<headerToolbar>
 			<Toolbar>
-				<Title text="Section Title" level="H3"/>
+				<Title text="{/SectionText}" level="H2"/>
 			</Toolbar>
 		</headerToolbar>
 		<columns><Column/></columns>
@@ -47,7 +47,7 @@
 									<Table items="{QuestionParts}" showSeparators="None">
 										<columns>
 											<Column vAlign="Top" width="25%"/>
-											<Column vAlign="Top" minScreenWidth="Tablet" demandPopin="true"/>
+											<Column/>
 										</columns>
 										<items>
 											<ColumnListItem ><cells><Text text="{qLabel}" /></cells>
@@ -55,13 +55,13 @@
 											
 											<!-- Sub Sub Sub 3 table  Question parts outputs  1 columns + 3 outputs -->
 												<Table showSeparators="None" items="{QuestionOutputs}" >
-														<columns><Column vAlign="Top" minScreenWidth="Tablet" demandPopin="true"/></columns>
+														<columns><Column/>  </columns>
 														<items><ColumnListItem><cells>
 															
 																	
 															<!-- Sub Sub Sub Sub 4 table  Question parts outputs  1 columns + 3 outputs -->
 															<Table showSeparators="None">
-																<columns><Column vAlign="Top" minScreenWidth="Tablet" demandPopin="true"/></columns>
+																<columns><Column/></columns>
 																<items>	
 																<ColumnListItem visible="{qAns1v}" >
 																	<cells><TextArea value="{qAns1}" growing="true" visible="{qAns1v}"

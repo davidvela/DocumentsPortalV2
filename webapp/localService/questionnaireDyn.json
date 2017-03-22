@@ -1,4 +1,5 @@
 {
+	"SectionText" : "Test Section",
 	"QuestionnaireSet3": [{
 		"QuestionnaireID": "QuestionnaireID 1",
 		"TitleSection": "Section 1",
@@ -7,7 +8,8 @@
 			"TitleQuestion": "Question 1",
 			"IntroQuestion": "Question intro 1",
 			"QuestionParts": [
-				{"qLabel": "qt 1.1d",	
+				{"qLabel": "qt 1.1d",
+				"Columns": [	],
 				"QuestionOutputs": [	{	"qAns1": "qAns 1.1", "qAns1v": true, "qAns2": true, "qAns2v": false }
 								   ]	
 				},
