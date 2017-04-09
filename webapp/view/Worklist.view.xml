@@ -6,7 +6,7 @@
 			<IconTabBar selectedKey="firstTab" id="__bar0">
 				<items>
 					<!-- OVERVIEW -->
-					<IconTabFilter text="Overview">
+					<IconTabFilter text="Overview" key="firstTab">
 						<content>
 							<core:Fragment fragmentName="portaltest.view.fragments_views.overview" type="XML"/>
 						</content>
@@ -64,7 +64,7 @@
 					</content>
 					</IconTabFilter>
 					<!-- Design QUESTIONNAIRES	-->
-					<IconTabFilter text="Design Questionnaire" key="firstTab"> 
+					<IconTabFilter text="Design Questionnaire" > 
 					<content>
 						<mvc:XMLView id="questXMLid" 
 						viewName="portaltest.view.fragments_views.questionnaire" type="XML"></mvc:XMLView>
