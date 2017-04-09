@@ -301,11 +301,26 @@ sap.ui.define([
 			 * On phones a additional history entry is created
 			 * @param {sap.m.ObjectListItem} oItem selected Item
 			 * @private
-			 */
+	 		 */
 			_showObject : function (oItem) {
-				this.getRouter().navTo("object", {
-					objectId: oItem.getBindingContext().getProperty("InfoRecID")
-				});
+				
+				var obtSg =  this.getView().byId("SegBtoId");
+				switch (obtSg.getSelectedKey()) {
+					case "MDE":
+							this.getRouter().navTo("objectMD", {
+							objectId: oItem.getBindingContext().getProperty("InfoRecID") });
+						break;
+					case "CAM":
+							this.getRouter().navTo("object", {
+							objectId: oItem.getBindingContext().getProperty("InfoRecID") });
+						break;	
+					default: // nothing 
+				}
+				
+
+			
+				
+				
 			},
 
 			/**

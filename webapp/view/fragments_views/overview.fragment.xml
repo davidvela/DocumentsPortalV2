@@ -6,6 +6,12 @@
 			<Toolbar>
 				<Title id="tableHeader" text="Projects"/>
 				<ToolbarSpacer/>
+				<SegmentedButton id="SegBtoId" selectedKey="MDE" class="sapUiSmallMarginBottom">
+					<items>
+						<SegmentedButtonItem text="Campaigns" key="CAM" />
+						<SegmentedButtonItem text="Master/Detail" key="MDE" />
+					</items>
+				</SegmentedButton>
 				<SearchField id="searchField" tooltip="{i18n>worklistSearchTooltip}" search="onSearch" width="auto"/>
 			</Toolbar>
 		</headerToolbar>

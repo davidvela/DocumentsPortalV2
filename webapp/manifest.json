@@ -101,7 +101,11 @@
 				"pattern": "ProductSet/{objectId}",
 				"name": "object",
 				"target": ["object"]
-			}],
+			},{
+				"pattern": "Project/{objectId}",
+				"name": "objectMD",
+				"target": ["objectMD"]
+			}	],
 			"targets": {
 				"worklist": {
 					"viewName": "Worklist",
@@ -111,6 +115,11 @@
 				"object": {
 					"viewName": "Object",
 					"viewId": "object",
+					"viewLevel": 2
+				},
+				"objectMD": {
+					"viewName": "ObjectMD",
+					"viewId": "objectMD",
 					"viewLevel": 2
 				},
 				"objectNotFound": {
