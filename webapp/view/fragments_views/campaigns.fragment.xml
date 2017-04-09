@@ -45,30 +45,33 @@
 									</ColumnListItem>
 								</items>
 							</Table>
+							
+							
+							<!-- INFO RECORD --> 
 							<Table id="tabCampInfoRec" items="{ path: 'ToCampaignInfoRec', parameters: {expand: 'ToInfoRec'} }" visible="false">
 								<headerToolbar>
 									<Toolbar>
-										<Title text="Info Records"/>
+										<Title text="Project Relation:"/>
 									</Toolbar>
 								</headerToolbar>
 								<columns>
-									<Column><Text text="{i18n>tabMaterial}"/></Column>
-									<Column width="30px"><Text text="FLA"/></Column>
-									<Column width="30px"><Text text="FRA"/></Column>
-									<Column width="30px"><Text text="CI"/></Column>
-									<Column width="30px"><Text text="AM"/></Column>
-									<Column><Text text="{i18n>tabSupplier}" width="25%"/></Column>
+									<Column><Text text="Project"/></Column>
+									<Column width="30px"><Text text="Legacy"/></Column>
+									<Column width="30px"><Text text="App"/></Column>
+									<Column width="30px"><Text text="Big Data"/></Column>
+									<Column width="30px"><Text text="IoT"/></Column>
+									<Column><Text text="Customer" width="25%"/></Column>
 									<Column><Text text="Documents" width="25%"/></Column>
 								</columns>
 								<items>
 									<ColumnListItem>
 										<cells>
-											<ObjectIdentifier title="{ToInfoRec/MaterialNumber}" text="{ToInfoRec/MaterialName}"/>
-											<CheckBox selected="{ToInfoRec/MatAreaFLA}"/>
-											<CheckBox selected="{ToInfoRec/MatAreaFRA}"/>
-											<CheckBox selected="{ToInfoRec/MatAreaCI}"/>
-											<CheckBox selected="{ToInfoRec/MatAreaAM}"/>
-											<ObjectIdentifier title="{ToInfoRec/SupplierNumber}" text="{ToInfoRec/SupplierName}"/>
+											<ObjectIdentifier title="{ToInfoRec/ProjectNumber}" text="{ToInfoRec/ProjectName}"/>
+											<CheckBox selected="{ToInfoRec/AreaLG}"/>
+											<CheckBox selected="{ToInfoRec/AreaApp}"/>
+											<CheckBox selected="{ToInfoRec/AreaML}"/>
+											<CheckBox selected="{ToInfoRec/AreaIoT}"/>
+											<ObjectIdentifier title="{ToInfoRec/custNumber}" text="{ToInfoRec/custName}"/>
 											<ObjectListItem type="Active" title="{ToInfoRec/DocumentStatus}">
 												<attributes>
 													<ObjectAttribute text="{ToInfoRec/DocumentAssigned}"/>

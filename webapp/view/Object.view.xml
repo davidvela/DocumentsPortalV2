@@ -3,12 +3,9 @@
 	<semantic:FullscreenPage id="page" navButtonPress="onNavBack" showNavButton="true" title="{i18n>objectTitle}" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}">
 
 		<semantic:content>
-			<ObjectHeader id="objectHeader" title="{MaterialNumber}">
-				</ObjectHeader>
-				<ObjectHeader id="objectHeader2" title="{CampaignToInfoSet/CampaignID}">
-				</ObjectHeader>
-				<ObjectHeader id="objectHeader3" title="{CampaignToInfoSet/CampaignName}">
+			<ObjectHeader id="objectHeader" title="{ProjectName}">
 			</ObjectHeader>
+
 
 		<Table	noDataText="Drop column list items here and columns in the area above" id="tabCampaignsfromInfoR" 
 				items= "{ path: 'CampaignToInfoSet', parameters: {expand: 'CampaignSet'} }"

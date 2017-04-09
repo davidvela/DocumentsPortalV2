@@ -4,29 +4,29 @@
 		updateFinished="onUpdateFinished">
 		<headerToolbar>
 			<Toolbar>
-				<Title id="tableHeader" text="Info Records"/>
+				<Title id="tableHeader" text="Projects"/>
 				<ToolbarSpacer/>
 				<SearchField id="searchField" tooltip="{i18n>worklistSearchTooltip}" search="onSearch" width="auto"/>
 			</Toolbar>
 		</headerToolbar>
 		<columns>
 			<Column id="nameColumn" vAlign="Top">
-				<Text text="Product" id="tabColMaterial"/>
+				<Text text="Project" id="tabColMaterial"/>
 			</Column>
-			<Column id="WebColumn" vAlign="Top" hAlign="Center" width="30px">
-				<Text text="WebApp" id="tabColFla"/>
+			<Column id="legacyColumn" vAlign="Top" hAlign="Center" width="30px">
+				<Text text="LG" id="tabColLG"/>
+			</Column>
+			<Column id="AppColumn" vAlign="Top" hAlign="Center" width="30px">
+				<Text text="App" id="tabColApp"/>
 			</Column>
 			<Column id="MLColumn" vAlign="Top" hAlign="Center" width="30px">
-				<Text text="ML" id="tabColFra"/>
-			</Column>
-			<Column id="iOSColumn" vAlign="Top" hAlign="Center" width="30px">
-				<Text text="iOS" id="tabColCi"/>
+				<Text text="Big Data" id="tabColBD"/>
 			</Column>
 			<Column id="IoTColumn" vAlign="Top" hAlign="Center" width="30px">
-				<Text text="IoT" id="tabColAm"/>
+				<Text text="IoT" id="tabColIoT"/>
 			</Column>
-			<Column id="proMetColumn" vAlign="Top" width="15%">
-				<Text text="Factory" id="tabColProMet"/>
+			<Column id="dptoColumn" vAlign="Top" width="15%">
+				<Text text="Dpto" id="tabColDpto"/>
 			</Column>
 			<Column id="purOrgColumn" vAlign="Top" width="10%">
 				<Text text="Customer" id="tabColPurOrg"/>
@@ -41,26 +41,23 @@
 		<items>
 			<ColumnListItem type="Navigation" press="onPress">
 				<cells>
-					<ObjectIdentifier title="{MaterialName}" text="{MaterialNumber}"/>
-					<CheckBox selected="{MatAreaFLA}"/>
-					<CheckBox selected="{MatAreaFRA}"/>
-					<CheckBox selected="{MatAreaCI}"/>
-					<CheckBox selected="{MatAreaAM}"/>
-					<Text text="{ProductionMethod}"/>
+					<ObjectIdentifier title="{ProjectName}" text="{ProjectNumber}"/>
+					<CheckBox selected="{AreaLG}"/>
+					<CheckBox selected="{AreaApp}"/>
+					<CheckBox selected="{AreaML}"/>
+					<CheckBox selected="{AreaIoT}"/>
+					<Text text="{dpto}"/>
 					<Text text="{PurchaseOrg}"/>
-					<ObjectListItem type="Active" title="{SupplierNumber}">
+					<ObjectListItem type="Active" title="{custNumber}">
 						<attributes>
-							<ObjectAttribute text="{SupplierName}"/>
-							<ObjectAttribute title="Email" text="{SupplierEmail}"/>
-							<ObjectAttribute title="Manufacturer" text="{SupplierManufacturer}"/>
-							<ObjectAttribute title="Mat. Code" text="{SupplierMatCode}"/>
+							<ObjectAttribute text="{custName}"/>
+							<ObjectAttribute title="Email" text="{custEmail}"/>
 						</attributes>
 					</ObjectListItem>
 					<ObjectListItem type="Active" title="{DocumentStatus}">
 						<attributes>
 							<ObjectAttribute text="{DocumentAssigned}"/>
 							<ObjectAttribute title="Owner" text="{ProcessOwner}"/>
-							<ObjectAttribute title="Campaign" text="{CampaignID}"/>
 						</attributes>
 					</ObjectListItem>
 				</cells>

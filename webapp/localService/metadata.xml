@@ -6,21 +6,21 @@
                     <PropertyRef Name="InfoRecID"/>
                 </Key>
                 <Property Name="InfoRecID" Nullable="false" Type="Edm.String"/>
-                <Property Name="MaterialNumber" Type="Edm.String"/>
-                <Property Name="MaterialName" Type="Edm.String"/>
-                <Property Name="ProductionMethod" Type="Edm.String"/>
+                <Property Name="ProjectNumber" Type="Edm.String"/>
+                <Property Name="ProjectName" Type="Edm.String"/>
+                <Property Name="dpto" Type="Edm.String"/>
                 <Property Name="PurchaseOrg" Type="Edm.String"/>
-                <Property Name="SupplierNumber" Type="Edm.String"/>
-                <Property Name="SupplierName" Type="Edm.String"/>
-                <Property Name="SupplierMatCode" Type="Edm.String"/>
-                <Property Name="SupplierManufacturer" Type="Edm.String"/>
-                <Property Name="SupplierEmail" Type="Edm.String"/>
+                <Property Name="custNumber" Type="Edm.String"/>
+                <Property Name="custName" Type="Edm.String"/>
+                <Property Name="custMatCode" Type="Edm.String"/>
+                <Property Name="custManufacturer" Type="Edm.String"/>
+                <Property Name="custEmail" Type="Edm.String"/>
                 <Property Name="DocumentStatus" Type="Edm.String"/>
                 <Property Name="DocumentAssigned" Type="Edm.String"/>
-                <Property Name="MatAreaFLA" Type="Edm.Boolean"/>
-                <Property Name="MatAreaFRA" Type="Edm.Boolean"/>
-                <Property Name="MatAreaCI" Type="Edm.Boolean"/>
-                <Property Name="MatAreaAM" Type="Edm.Boolean"/>
+                <Property Name="AreaLG" Type="Edm.Boolean"/>
+                <Property Name="AreaApp" Type="Edm.Boolean"/>
+                <Property Name="AreaML" Type="Edm.Boolean"/>
+                <Property Name="AreaIoT" Type="Edm.Boolean"/>
                 <Property Name="ProcessOwner" Type="Edm.String"/>
                 <NavigationProperty FromRole="From_InfoRec" Name="CampaignToInfoSet" Relationship="OData_Portal.InfoRecCampaignToInfo" ToRole="To_CampaignToInfo"/>
             </EntityType>
@@ -77,34 +77,23 @@
                 <Property Name="DocChgMajor" Type="Edm.String"/>
             </EntityType>
             <EntityType Name="Questionnaire">
-				<Key>
-					<PropertyRef Name="QuestionnaireID"/>
-				</Key>
-				<Property Name="QuestionnaireID"	Nullable="false" Type="Edm.String"/>
-				<Property Name="TitleQuestionnaire" Type="Edm.String"/>
-				<Property Name="IntroQuestionnaire" Type="Edm.String"/>
-				<Property Name="Position"			Type="Edm.String"/>
-				<Property Name="Question"			Nullable="false" Type="OData_Portal.CT_Question"/>
-			</EntityType>
-			<ComplexType Name="CT_Question">
-				<!--Edm.Boolean-->
-				<Property Name="SpaceLine_act" Type="Edm.Boolean"/>
-				<Property Name="SpaceLine" Type="Edm.String"/>
-				<Property Name="TitleQuestion_act" Type="Edm.Boolean"/>
-				<Property Name="TitleQuestion" Type="Edm.String"/>
-				<Property Name="IntroQuestion_act" Type="Edm.Boolean"/>
-				<Property Name="IntroQuestion" Type="Edm.String"/>
-				<Property Name="InputDropBox_act" Type="Edm.Boolean"/>
-				<Property Name="LabelDropBox" Type="Edm.String"/>
-				<Property Name="InputDropBox" Type="Edm.String"/>
-				<Property Name="InputComment_act" Type="Edm.Boolean"/>
-				<Property Name="LabelComment" Type="Edm.String"/>
-				<Property Name="InputComment" Type="Edm.String"/>
-				<Property Name="InputRadioBtn_act" Type="Edm.Boolean"/>
-				<Property Name="LabelRadioBtn" Type="Edm.String"/>
-				<Property Name="InputRadioBtnY" Type="Edm.Boolean"/>
-				<Property Name="InputRadioBtnN" Type="Edm.Boolean"/>
-			</ComplexType>
+                <Key>
+                    <PropertyRef Name="QuestionnaireID"/>
+                </Key>
+                <Property Name="QuestionnaireID" Nullable="false" Type="Edm.String"/>
+                <Property Name="TitleQuestionnaire" Type="Edm.String"/>
+                <Property Name="IntroQuestionnaire" Type="Edm.String"/>
+                <Property Name="Question" Nullable="false" Type="OData_Portal.CT_Question"/>
+            </EntityType>
+            <ComplexType Name="CT_Question">
+                <Property Name="TitleQuestion" Type="Edm.String"/>
+                <Property Name="IntroQuestion" Type="Edm.String"/>
+                <Property Name="LabelQuestion" Type="Edm.String"/>
+                <Property Name="InputAnswer" Type="Edm.String"/>
+                <Property Name="LabelComment" Type="Edm.String"/>
+                <Property Name="InputComment" Type="Edm.String"/>
+                <Property Name="ActiveComment" Type="Edm.Boolean"/>
+            </ComplexType>
             <Association Name="Assoc_CampaignToInfo">
                 <End Multiplicity="1" Role="FromRole_Assoc_CampaignToInfo" Type="OData_Portal.Campaign"/>
                 <End Multiplicity="*" Role="ToRole_Assoc_CampaignToInfo" Type="OData_Portal.CampaignToInfo"/>
