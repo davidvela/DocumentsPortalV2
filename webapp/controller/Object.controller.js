@@ -115,7 +115,7 @@ sap.ui.define([
 				var oViewModel = this.getModel("objectView"),
 					oDataModel = this.getModel();
 					
-					var oTable = this.byId("tabCampaignsfromInfoR");
+				var oTable = this.byId("tabCampaignsfromInfoR");
 					if (oTable !== undefined)
 						oTable.bindElement({ path: sObjectPath });
 
@@ -141,7 +141,6 @@ sap.ui.define([
 					}
 				});
 				
-
 			},
 
 			_onBindingChange : function () {
