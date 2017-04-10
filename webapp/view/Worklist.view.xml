@@ -17,7 +17,7 @@
 							<core:Fragment fragmentName="portaltest.view.fragments_views.campaigns" type="XML"/>
 						</content>
 					</IconTabFilter>
-					<!-- DOCUMENTS	
+					<!-- DOCUMENTS	-->
 					<IconTabFilter text="Uploads Collections">
 						<content>
 							<mvc:JSView id="nestedViewjs" viewName="portaltest.view.fragments_views.upCollections" type="JS"></mvc:JSView>
@@ -26,15 +26,15 @@
 							<mvc:XMLView id="nestedView" viewName="portaltest.view.fragments_views.upCollections" type="XML"></mvc:XMLView>
 							<core:Fragment fragmentName="portaltest.view.fragments_views.upCollections" type="XML"/>
 						</content>
-					</IconTabFilter>-->
-					<!-- GOOGLE MAP	
+					</IconTabFilter>
+					<!-- GOOGLE MAP	-->
 					<IconTabFilter text="Google Map">
 					<content>
 						<mvc:JSView id="nestedViewGooglejs" 
 						viewName="portaltest.view.fragments_views.googleMap" type="JS"></mvc:JSView>
 					</content>
-					</IconTabFilter>-->
-					<!-- IMAGES 	
+					</IconTabFilter>
+					<!-- IMAGES 	-->
 					<IconTabFilter text="Preview Images." >
 						<content>
 							<l:VerticalLayout>
@@ -53,9 +53,9 @@
 								</l:HorizontalLayout >
 							</l:VerticalLayout>
 						</content>
-					</IconTabFilter>-->
+					</IconTabFilter>
 					<!-- QUESTIONNAIRES	-->
-					<IconTabFilter text="Fill Questionnaire" >
+					<IconTabFilter text="Dyn Questionnaire" >
 					<content>						
 						<mvc:JSView id="questDynJSid" 
 						viewName="portaltest.view.fragments_views.questionnaireDyn" type="JS"></mvc:JSView>

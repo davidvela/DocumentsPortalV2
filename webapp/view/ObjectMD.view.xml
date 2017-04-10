@@ -1,32 +1,52 @@
-<mvc:View
-		controllerName="portaltest.controller.ObjectMD"
-		xmlns:core="sap.ui.core"
-		xmlns:mvc="sap.ui.core.mvc"
-		displayBlock="true"
-		busy="{appView>/busy}"
-		busyIndicatorDelay="{appView>/delay}"
-		xmlns:semantic="sap.m.semantic"
-		xmlns="sap.m">
-	
-		<semantic:FullscreenPage id="pageMD" navButtonPress="onNavBack" showNavButton="true" title="{i18n>objectTitle}" 
-		busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}"
-		>
-	 	<semantic:content>
-			
+<mvc:View controllerName="portaltest.controller.ObjectMD" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	busy="{appView>/busy}" busyIndicatorDelay="{appView>/delay}" xmlns:semantic="sap.m.semantic" xmlns="sap.m">
+	<semantic:FullscreenPage id="pageMD" navButtonPress="onNavBack" showNavButton="true" title="{i18n>objectTitle}" busy="{objectView>/busy}"
+		busyIndicatorDelay="{objectView>/delay}" showFooter="false">
+		<semantic:content>
 			<!--	
 			<SplitApp id="idAppControl" />
+			items="{ path: 'master>/objects', sorter: { path: 'Name', descending: false }, groupHeaderFactory: '.createGroupHeader' }"
+			items= "{ path: 'CampaignToInfoSet', parameters: {expand: 'CampaignSet'} }"
+
 			-->
 			<SplitContainer>
-			<masterPages>
-				<semantic:MasterPage title="Master Page Title">
-				</semantic:MasterPage>
-			</masterPages>
-			<detailPages>
-					<semantic:DetailPage title="Detail Page Title">
+				<!--*************************************************************	
+					MASTER 
+				************************************************************* -->
+				<masterPages>
+					<semantic:MasterPage id="OMD_MasterId" title="{objectView>/title}">
+						<semantic:content>
+							<List	id="masterListId" 
+									items= "{ path: 'CampaignToInfoSet', parameters: {expand: 'CampaignSet'} }"
+									busyIndicatorDelay="{objectView>/delay}" 
+									noDataText="{masterView>/noDataText}"
+									mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" 
+									selectionChange="onSelectionChange">
+								<items>
+									<ObjectListItem type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" 
+										press="onSelectionChange" 
+										title="{CampaignSet/CampaignName}"></ObjectListItem>
+								</items>
+							</List>
+						</semantic:content>
+					</semantic:MasterPage>
+				</masterPages>
+				<!--*************************************************************	
+					DETAIL
+				************************************************************* -->
+				<detailPages>
+					<semantic:DetailPage id="OMD_DetailId" title="Area in Detail">
+						<semantic:content>
+							<Input id="objectHeaderMD" value="{ProjectName}"/>
+							<Label text="WELCOME to two ways data binding"/>			
+							<Panel id="detailContainer">
+							<content>
+								<Input id="objectDetMD" value="{detail>/CampaignName}"/>
+							</content></Panel> 
+						</semantic:content>
 					</semantic:DetailPage>
-			</detailPages>
+				</detailPages>
 			</SplitContainer>
-		 </semantic:content>
-		</semantic:FullscreenPage>
-
+		</semantic:content>
+	</semantic:FullscreenPage>
 </mvc:View>
