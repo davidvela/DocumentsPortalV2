@@ -29,10 +29,7 @@ sap.ui.define([
 						oViewModel.setProperty("/delay", iOriginalBusyDelay);
 					}
 				);
-<<<<<<< HEAD
-				
 				//this.initMaster();
-				
 			},
 			
 			
@@ -100,10 +97,7 @@ sap.ui.define([
 				
 				
 			},
-			
-=======
-			},
->>>>>>> branch 'master' of https://github.com/davidvela/DocumentsPortal.git
+
 			
 			// other methods
 			
@@ -119,7 +113,6 @@ sap.ui.define([
 			
 			_bindView : function (sObjectPath) {
 				var oViewModel = this.getModel("objectView");
-<<<<<<< HEAD
 				var oDataModel = this.getModel();
 				
 				var oList = this.byId("masterListId");
@@ -153,12 +146,6 @@ sap.ui.define([
 				var oView = this.getView(),
 					oViewModel = this.getModel("objectView"),
 					oElementBinding = oView.getElementBinding();
-=======
-				
-				oViewModel.setProperty("/busy", false);
->>>>>>> branch 'master' of https://github.com/davidvela/DocumentsPortal.git
-
-<<<<<<< HEAD
 				// No data for the binding
 				if (!oElementBinding.getBoundContext()) {
 					this.getRouter().getTargets().display("objectNotFound");
@@ -179,14 +166,7 @@ sap.ui.define([
 				oViewModel.setProperty("/shareSendEmailMessage",
 				oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectName, sObjectId, location.href]));
 			},
-=======
-				var oDataModel = this.getModel();
 
-				
-			},
-
-
->>>>>>> branch 'master' of https://github.com/davidvela/DocumentsPortal.git
 			onNavBack : function() {
 				var sPreviousHash = History.getInstance().getPreviousHash(),
 					oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
