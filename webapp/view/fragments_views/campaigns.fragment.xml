@@ -46,7 +46,6 @@
 								</items>
 							</Table>
 							
-							
 							<!-- INFO RECORD --> 
 							<Table id="tabCampInfoRec" items="{ path: 'ToCampaignInfoRec', parameters: {expand: 'ToInfoRec'} }" visible="false">
 								<headerToolbar>
