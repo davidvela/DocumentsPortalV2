@@ -8,7 +8,7 @@
 										<SearchField tooltip="Search" search="onSearch" width="auto"/>
 									</Toolbar>
 								</headerToolbar>
-								<columns>
+								<columns>  
 									<Column id="__column0">
 										<header><Label text="Name"/></header>
 									</Column>
