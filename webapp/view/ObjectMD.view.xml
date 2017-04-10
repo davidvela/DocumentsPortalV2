@@ -41,7 +41,7 @@
 							<Label text="WELCOME to two ways data binding"/>			
 							<Panel id="detailContainer">
 							<content>
-								<Input id="objectDetMD" value="{detail>/CampaignName}"/>
+								<Input id="objectDetMD" value="{CampaignName}"/>
 							</content></Panel> 
 						</semantic:content>
 					</semantic:DetailPage>
