@@ -12,17 +12,13 @@ sap.ui.define([
 		return BaseController.extend("portaltest.controller.ObjectMD", {
 
 			onInit : function () {
-				
-				// Model used to manipulate control states. The chosen values make sure,
-				// detail page is busy indication immediately so there is no break in
-				// between the busy indication for loading the view's meta data
 				var iOriginalBusyDelay,
 					oViewModel = new JSONModel({
 						busy : true,
 						delay : 0
 					});
 
-				this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
+				this.getRouter().getRoute("objectMD").attachPatternMatched(this._onObjectMatched, this);
 
 				// Store original busy indicator delay, so it can be restored later on
 				iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
@@ -32,10 +28,43 @@ sap.ui.define([
 						oViewModel.setProperty("/delay", iOriginalBusyDelay);
 					}
 				);
-			}
+			},
 			
 			// other methods
+			
+			_onObjectMatched : function (oEvent) {
+				var sObjectId =  oEvent.getParameter("arguments").objectId;
+				this.getModel().metadataLoaded().then( function() {
+					var sObjectPath = this.getModel().createKey("InfoRecSet", {
+						InfoRecID :  sObjectId
+					});
+					this._bindView("/" + sObjectPath);
+				}.bind(this));
+			},
+			
+			_bindView : function (sObjectPath) {
+				var oViewModel = this.getModel("objectView");
+				
+				oViewModel.setProperty("/busy", false);
 
+				var oDataModel = this.getModel();
+
+				
+			},
+
+
+			onNavBack : function() {
+				var sPreviousHash = History.getInstance().getPreviousHash(),
+					oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
+
+				if (sPreviousHash !== undefined || !oCrossAppNavigator.isInitialNavigation()) {
+					history.go(-1);
+				} else {
+					this.getRouter().navTo("worklist", {}, true);
+				}
+			}
+			
+			
 		});
 
 	}

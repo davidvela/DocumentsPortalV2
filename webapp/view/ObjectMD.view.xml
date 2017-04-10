@@ -1,9 +1,32 @@
 <mvc:View
 		controllerName="portaltest.controller.ObjectMD"
+		xmlns:core="sap.ui.core"
 		xmlns:mvc="sap.ui.core.mvc"
 		displayBlock="true"
 		busy="{appView>/busy}"
 		busyIndicatorDelay="{appView>/delay}"
+		xmlns:semantic="sap.m.semantic"
 		xmlns="sap.m">
-	<SplitApp id="idAppControl" />
+	
+		<semantic:FullscreenPage id="pageMD" navButtonPress="onNavBack" showNavButton="true" title="{i18n>objectTitle}" 
+		busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}"
+		>
+	 	<semantic:content>
+			
+			<!--	
+			<SplitApp id="idAppControl" />
+			-->
+			<SplitContainer>
+			<masterPages>
+				<semantic:MasterPage title="Master Page Title">
+				</semantic:MasterPage>
+			</masterPages>
+			<detailPages>
+					<semantic:DetailPage title="Detail Page Title">
+					</semantic:DetailPage>
+			</detailPages>
+			</SplitContainer>
+		 </semantic:content>
+		</semantic:FullscreenPage>
+
 </mvc:View>
