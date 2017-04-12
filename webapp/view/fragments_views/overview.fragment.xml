@@ -54,7 +54,11 @@
 					<CheckBox selected="{AreaML}"/>
 					<CheckBox selected="{AreaIoT}"/>
 					<Text text="{dpto}"/>
-					<Text text="{PurchaseOrg}"/>
+					<!--<Text text="{PurchaseOrg}"/>-->
+					<Link
+						text="Link"
+						target="_blank"
+						href="http://www.sap.com" />
 					<ObjectListItem type="Active" title="{custNumber}">
 						<attributes>
 							<ObjectAttribute text="{custName}"/>

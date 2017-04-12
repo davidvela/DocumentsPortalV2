@@ -54,7 +54,7 @@
 							</l:VerticalLayout>
 						</content>
 					</IconTabFilter>
-					<!-- QUESTIONNAIRES	-->
+					<!-- dyn QUESTIONNAIRES	
 					<IconTabFilter text="Dyn Questionnaire" >
 					<content>						
 						<mvc:JSView id="questDynJSid" 
@@ -62,7 +62,7 @@
 						<mvc:XMLView id="questDynXMLid" 
 						viewName="portaltest.view.fragments_views.questionnaireDyn" type="XML"></mvc:XMLView>
 					</content>
-					</IconTabFilter>
+					</IconTabFilter>-->
 					<!-- Design QUESTIONNAIRES	-->
 					<IconTabFilter text="Design Questionnaire" > 
 					<content>

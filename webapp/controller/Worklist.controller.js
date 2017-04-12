@@ -317,15 +317,16 @@ sap.ui.define([
 						    /* var a = document.createElement('a');
 							a.href = "www.google.com";
 						    a.target = '_blank'; // now it will open new tab/window and bypass any popup blocker!
-						    this.fireClickEvent(a);
+						    this.fireClickEvent(a);*/
 						
-						    var oLink2 = new sap.ui.commons.Link("l2");
+						    var oLink2 = new sap.m.Link();
+						    oLink2.attachPress(function() {alert('Alert Link');});
 							oLink2.setText("Link to URL (Target: _blank)");
-							oLink2.setTooltip("Target: _blank");
 							oLink2.setHref("http://www.sap.com");
 							oLink2.setTarget("_blank");
+							this.getView().addContent(oLink2);
 							//this.fireClickEvent(oLink2);
-							oLink2.fireEvent("Press");    */
+							oLink2.firePress({});    
 						break;
 					case "CAM":
 							this.getRouter().navTo("object", {

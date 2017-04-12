@@ -1,15 +1,14 @@
 <mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" controllerName="portaltest.controller.Object">
 
-	<semantic:FullscreenPage id="page" navButtonPress="onNavBack" showNavButton="true" title="{i18n>objectTitle}" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}">
+	<semantic:FullscreenPage id="page_O" navButtonPress="onNavBack" showNavButton="true" title="{i18n>objectTitle}" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}">
 
 		<semantic:content>
-			<ObjectHeader id="objectHeader" title="{ProjectName}">
+			<ObjectHeader id="objectHeader_O" title="{ProjectName}">
 			</ObjectHeader>
 
 
 		<Table	noDataText="Drop column list items here and columns in the area above" id="tabCampaignsfromInfoR" 
-				items= "{ path: 'CampaignToInfoSet', parameters: {expand: 'CampaignSet'} }"
-			>
+				items= "{ path: 'CampaignToInfoSet', parameters: {expand: 'CampaignSet'} }"			>
 				<headerToolbar>
 					<Toolbar>
 						<Title text="Campaign"/>
@@ -19,30 +18,30 @@
 					</Toolbar>
 				</headerToolbar>
 				<columns>
-			        <Column id="__column0">
+			        <Column id="__column0_O">
 			            <header><Label text="Name"/></header>
 			        </Column>
-			        <Column id="__column1">
+			        <Column id="__column1_O">
 			            <header><Label text="Type"/></header>
 			        </Column>
-			        <Column id="__column2">
+			        <Column id="__column2_O">
 			        	<header><Label text="Status"/></header>
 			        </Column>
-			        <Column id="__column3">
+			        <Column id="__column3_O">
 			        	<header><Label text="Created on"/></header>
 			        </Column>
-			        <Column id="__column4">
+			        <Column id="__column4_O">
 			        	<header><Label text="Created at"/></header>
 			        </Column>
-			        <Column id="__column5">
+			        <Column id="__column5_O">
 			        	<header><Label text="Created by"/></header>
 			        </Column>
-			        <Column id="__column6">
+			        <Column id="__column6_O">
 			        	<header><Label text="Finalized on"/></header>
 			        </Column>
 			     </columns>
 			    <items>
-			        <ColumnListItem id="__item0">
+			        <ColumnListItem id="__item0_O">
 			            <cells>
 			                <Text text="{CampaignSet/CampaignName}"/>
 			                <Text text="{CampaignSet/CampaignType}" />
@@ -58,15 +57,15 @@
  		</semantic:content>
 
 		<semantic:sendEmailAction>
-			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+			<semantic:SendEmailAction id="shareEmail_O" press="onShareEmailPress"/>
 		</semantic:sendEmailAction>
 
 		<semantic:shareInJamAction>
-			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
+			<semantic:ShareInJamAction id="shareInJam_O" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
 		</semantic:shareInJamAction>
 
 		<semantic:saveAsTileAction>
-			<footerbar:AddBookmarkButton id="shareTile" title="{objectView>/saveAsTileTitle}"/>
+			<footerbar:AddBookmarkButton id="shareTile_O" title="{objectView>/saveAsTileTitle}"/>
 		</semantic:saveAsTileAction>
 
 	</semantic:FullscreenPage>
