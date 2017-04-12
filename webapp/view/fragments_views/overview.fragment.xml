@@ -8,6 +8,7 @@
 				<ToolbarSpacer/>
 				<SegmentedButton id="SegBtoId" selectedKey="MDE" class="sapUiSmallMarginBottom">
 					<items>
+						<SegmentedButtonItem text="NewTab" key="NEW" />
 						<SegmentedButtonItem text="Campaigns" key="CAM" />
 						<SegmentedButtonItem text="Master/Detail" key="MDE" />
 					</items>

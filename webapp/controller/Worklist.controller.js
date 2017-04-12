@@ -310,17 +310,39 @@ sap.ui.define([
 							this.getRouter().navTo("objectMD", {
 							objectId: oItem.getBindingContext().getProperty("InfoRecID") });
 						break;
+					case "NEW": // open new tab _self, _parent, _blank
+							//window.open("www.google.com","_self");
+							//window.location.href = "www.google.com"; 
+
+						    /* var a = document.createElement('a');
+							a.href = "www.google.com";
+						    a.target = '_blank'; // now it will open new tab/window and bypass any popup blocker!
+						    this.fireClickEvent(a);
+						
+						    var oLink2 = new sap.ui.commons.Link("l2");
+							oLink2.setText("Link to URL (Target: _blank)");
+							oLink2.setTooltip("Target: _blank");
+							oLink2.setHref("http://www.sap.com");
+							oLink2.setTarget("_blank");
+							//this.fireClickEvent(oLink2);
+							oLink2.fireEvent("Press");    */
+						break;
 					case "CAM":
 							this.getRouter().navTo("object", {
 							objectId: oItem.getBindingContext().getProperty("InfoRecID") });
 						break;	
 					default: // nothing 
 				}
-				
-
+			},
+			// this function can fire onclick handler for any DOM-Element
+			fireClickEvent : function(element) {
+			    var evt = new window.MouseEvent('click', {
+			        view: window,
+			        bubbles: true,
+			        cancelable: true
+			    });
 			
-				
-				
+			    element.dispatchEvent(evt);
 			},
 
 			/**
