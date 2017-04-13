@@ -51,8 +51,40 @@ sap.ui.define([
 				this.getRouter().navTo("object", {
 					objectId : oItem.getBindingContext().getProperty("ObjectID")
 				}, bReplace);*/
+				
+				
+				var objectSel = this.getView().getModel().getProperty(sPath);
+				oElement.removeAllContent();
+				switch (objectSel.CampaignType) {
+					case "Application":
+						oElement.addContent( new sap.m.Input({ value: "{CampaignName}"}) );
+						break;
+					case "IoT":
+						oElement.addContent( new sap.m.Input({ value: "{CampaignName}"}) );
+						oElement.addContent(new sap.m.Button({ text : "IoT is cool"  }));
+						break;
+					default:
+				}
+				
+				
+				// real logic: 
+				
 			},
-
+			
+			// logic to build screens 
+			buildScreen : function( oElements  ) {
+				var oDetailContainer = this.byId("detailContainer");
+				 //this.getView().setModel(oModel, "master");
+				
+				
+			//	oDetailContainer.emp
+				for(var element in oElements)
+				{	
+				//	switch	
+				}
+				
+				
+			},
 			
 			initMaster: function() {
 				var screens = {
@@ -80,24 +112,6 @@ sap.ui.define([
 			},
 			
 			// detail methods
-			
-			
-			
-			// logic to build screens 
-			buildScreen : function( oElements  ) {
-				var oDetailContainer = this.byId("detailContainer");
-				 //this.getView().setModel(oModel, "master");
-				
-				
-			//	oDetailContainer.emp
-				for(var element in oElements)
-				{	
-				//	switch	
-				}
-				
-				
-			},
-
 			
 			// other methods
 			

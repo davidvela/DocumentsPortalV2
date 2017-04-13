@@ -65,7 +65,7 @@
 								<items>
 									<ColumnListItem>
 										<cells>
-											<ObjectIdentifier title="{ToInfoRec/ProjectNumber}" text="{ToInfoRec/ProjectName}"/>
+											<ObjectIdentifier title="{ToInfoRec/ProjectName}" text="{ToInfoRec/ProjectNumber}"/>
 											<CheckBox selected="{ToInfoRec/AreaLG}"/>
 											<CheckBox selected="{ToInfoRec/AreaApp}"/>
 											<CheckBox selected="{ToInfoRec/AreaML}"/>
