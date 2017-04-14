@@ -1,0 +1,111 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:semantic="sap.m.semantic"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:layout="sap.ui.layout" xmlns:u="sap.ui.unified" 
+	controllerName="portaltest.controller.fragments_views.upCollections"	height="500px">
+	
+	<layout:VerticalLayout
+	height = "100000px">
+		<Page 
+		showHeader="false"
+		showNavButton="false">
+		<content>
+			<Page
+				id="sideContentContainer2"
+				showHeader="false"
+				showNavButton="false">
+				<layout:DynamicSideContent
+					id="DynamicSideContent2"
+					class="sapUiDSCExplored sapUiContentPadding"
+					sideContentFallDown="BelowM"
+					sideContentPosition="Begin"
+					containerQuery="true"
+					breakpointChanged="updateToggleButtonState">
+					<layout:mainContent>
+	
+	<Table id="table" width="auto" items="{ path: '/InfoRecSet', sorter: { path: 'MaterialNumber', descending: false } }"
+		noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true"
+		updateFinished="onUpdateFinished">
+		<headerToolbar>
+			<Toolbar>
+				<Title id="tableHeader" text="Projects"/>
+				<ToolbarSpacer/>
+				<SegmentedButton id="SegBtoId" selectedKey="MDE" class="sapUiSmallMarginBottom">
+					<items>
+						<SegmentedButtonItem text="NewTab" key="NEW" />
+						<SegmentedButtonItem text="Campaigns" key="CAM" />
+						<SegmentedButtonItem text="Master/Detail" key="MDE" />
+					</items>
+				</SegmentedButton>
+				<SearchField id="searchField" tooltip="{i18n>worklistSearchTooltip}" search="onSearch" width="auto"/>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column id="nameColumn" vAlign="Top">
+				<Text text="Project" id="tabColMaterial"/>
+			</Column>
+			<Column id="legacyColumn" vAlign="Top" hAlign="Center" width="30px">
+				<Text text="LG" id="tabColLG"/>
+			</Column>
+			<Column id="AppColumn" vAlign="Top" hAlign="Center" width="30px">
+				<Text text="App" id="tabColApp"/>
+			</Column>
+			<Column id="MLColumn" vAlign="Top" hAlign="Center" width="30px">
+				<Text text="Big Data" id="tabColBD"/>
+			</Column>
+			<Column id="IoTColumn" vAlign="Top" hAlign="Center" width="30px">
+				<Text text="IoT" id="tabColIoT"/>
+			</Column>
+			<Column id="dptoColumn" vAlign="Top" width="15%">
+				<Text text="Dpto" id="tabColDpto"/>
+			</Column>
+			<Column id="purOrgColumn" vAlign="Top" width="10%">
+				<Text text="Customer" id="tabColPurOrg"/>
+			</Column>
+			<Column id="unitNumberColumn" hAlign="Left" vAlign="Top">
+				<Text text="Cust. Inf" id="tabColSupplier"/>
+			</Column>
+			<Column id="docColumn" hAlign="Left" vAlign="Top">
+				<Text text="Documentation" id="tabColDoc"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem type="Navigation" press="onPress">
+				<cells>
+					<ObjectIdentifier title="{ProjectName}" text="{ProjectNumber}"/>
+					<CheckBox selected="{AreaLG}"/>
+					<CheckBox selected="{AreaApp}"/>
+					<CheckBox selected="{AreaML}"/>
+					<CheckBox selected="{AreaIoT}"/>
+					<Text text="{dpto}"/>
+					<!--<Text text="{PurchaseOrg}"/>-->
+					<Link
+						text="Link"
+						target="_blank"
+						href="http://www.sap.com" />
+					<ObjectListItem type="Active" title="{custNumber}">
+						<attributes>
+							<ObjectAttribute text="{custName}"/>
+							<ObjectAttribute title="Email" text="{custEmail}"/>
+						</attributes>
+					</ObjectListItem>
+					<ObjectListItem type="Active" title="{DocumentStatus}">
+						<attributes>
+							<ObjectAttribute text="{DocumentAssigned}"/>
+							<ObjectAttribute title="Owner" text="{ProcessOwner}"/>
+						</attributes>
+					</ObjectListItem>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+	
+		</layout:mainContent>
+		<layout:sideContent>
+			<Title level="H1" text="Side content positioned before main content" />
+		</layout:sideContent>
+	</layout:DynamicSideContent>
+	</Page>
+</content>
+</Page>
+</layout:VerticalLayout>
+
+</mvc:View>

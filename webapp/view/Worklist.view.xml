@@ -8,7 +8,8 @@
 					<!-- OVERVIEW -->
 					<IconTabFilter text="Overview" key="firstTab">
 						<content>
-							<core:Fragment fragmentName="portaltest.view.fragments_views.overview" type="XML"/>
+						<core:Fragment fragmentName="portaltest.view.fragments_views.overview" type="XML"/>
+						<mvc:XMLView  viewName="portaltest.view.fragments_views.overviewWithSP" type="XML"/>
 						</content>
 					</IconTabFilter>
 					<!-- CAMPAIGNS	-->
@@ -20,11 +21,11 @@
 					<!-- DOCUMENTS	-->
 					<IconTabFilter text="Uploads Collections">
 						<content>
+							<core:Fragment fragmentName="portaltest.view.fragments_views.upCollections" type="XML"/>
 							<mvc:JSView id="nestedViewjs" viewName="portaltest.view.fragments_views.upCollections" type="JS"></mvc:JSView>
 							<mvc:HTMLView id="nestedViewhtmnl" viewName="portaltest.view.fragments_views.upCollections"
 								controller="portaltest.view.controller.upCollections" type="HTML"></mvc:HTMLView>
 							<mvc:XMLView id="nestedView" viewName="portaltest.view.fragments_views.upCollections" type="XML"></mvc:XMLView>
-							<core:Fragment fragmentName="portaltest.view.fragments_views.upCollections" type="XML"/>
 						</content>
 					</IconTabFilter>
 					<!-- GOOGLE MAP	-->
