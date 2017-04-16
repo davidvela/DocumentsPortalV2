@@ -3,6 +3,19 @@
 	controllerName="portaltest.controller.fragments_views.upCollections"	height="500px">
 	
 	<Button text="view XML" press="onPressTest2"></Button>
+	
+			<ActionSelect	id="select"	class="sapUiSmallMarginBottom"
+				items="{
+					path: 'screens>/elements',
+					sorter: { path: 'Name' }
+				}">
+				<items>
+					<core:Item key="{screens>Id}" text="{screens>Name}" />
+				</items>
+			</ActionSelect>				
+			<MultiInput id="multiInput" valueHelpRequest="onValueHelpRequest"/> 		
+            
+	
 		<Page 
 		showHeader="false"
 		showNavButton="false">
