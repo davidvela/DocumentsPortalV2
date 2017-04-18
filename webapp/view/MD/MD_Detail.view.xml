@@ -1,14 +1,8 @@
 <mvc:View
-		controllerName="portaltest.controller.MD.Master"
+		controllerName="portaltest.controller.MD.MD_Detail"
 		xmlns:mvc="sap.ui.core.mvc"
 		xmlns:core="sap.ui.core"
 		xmlns="sap.m"
 		xmlns:semantic="sap.m.semantic">
 
-	<semantic:MasterPage
-			id="page"
-			title="{masterView>/title}"
-			navButtonPress="onNavBack"
-			showNavButton="true">
-	</semantic:MasterPage>
 </mvc:View>

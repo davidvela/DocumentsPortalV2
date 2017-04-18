@@ -1,5 +1,5 @@
 <mvc:View
-		controllerName="portaltest.controller.MD.Master"
+		controllerName="portaltest.controller.MD.MD_Master"
 		xmlns:mvc="sap.ui.core.mvc"
 		xmlns:core="sap.ui.core"
 		xmlns="sap.m"
