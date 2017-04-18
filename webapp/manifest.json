@@ -111,7 +111,12 @@
 				"pattern": "Project/{objectId}",
 				"name": "objectMD",
 				"target": ["objectMD"]
-			}	],
+			},{
+				"pattern": "Project_MDR/{objectId}",
+				"name": "objectMDR",
+				"target": ["master", "detail"]
+			}
+			],
 			"targets": {
 				"worklist": {
 					"viewName": "Worklist",
@@ -127,6 +132,17 @@
 					"viewName": "ObjectMD",
 					"viewId": "objectMD",
 					"viewLevel": 2
+				},
+				"master": {
+					"viewName": "MD_Master",
+					"viewId": "MD_Master",
+					"viewLevel": 2,
+					"controlAggregation": "masterPages"
+				},
+				"detail": {
+					"viewName": "MD_Detail",
+					"viewId": "MD_Detail",
+					"viewLevel": 3
 				},
 				"objectNotFound": {
 					"viewName": "ObjectNotFound",
