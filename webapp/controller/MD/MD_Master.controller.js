@@ -5,8 +5,9 @@ sap.ui.define([
 		"sap/ui/model/Filter",
 		"sap/ui/model/FilterOperator",
 		"sap/m/GroupHeaderListItem",
-		"sap/ui/Device"
-	], function (BaseController, JSONModel, Filter, FilterOperator, GroupHeaderListItem, Device) {
+		"sap/ui/Device",
+		"sap/ui/core/routing/History"
+	], function (BaseController, JSONModel, Filter, FilterOperator, GroupHeaderListItem, Device, History) {
 		"use strict";
 
 		return BaseController.extend("portaltest.controller.MD.MD_Master", {
@@ -78,6 +79,14 @@ sap.ui.define([
 			 * @public
 			 */
 			onNavBack : function() {
+				var sPreviousHash = History.getInstance().getPreviousHash(),
+					oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
+	
+				if (sPreviousHash !== undefined || !oCrossAppNavigator.isInitialNavigation()) {
+					history.go(-1);
+				} else {
+					this.getRouter().navTo("worklist", {}, true);
+				}
 				//history.go(-1);
 			},
 			_createViewModel : function() {

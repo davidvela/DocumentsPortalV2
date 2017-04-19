@@ -114,7 +114,7 @@
 			}, {
 				"pattern": "Project_MDR/{objectId}",
 				"name": "master",
-				"target": ["detail", "master", "objectMDR"]
+				"target": ["objectMDR", "detail", "master"]
 			}, {
 				"pattern": "Project_MDR/{objectId}/cam_{campId}",
 				"name": "objectMDR",
@@ -140,19 +140,22 @@
 					"viewName": "MD.MD_App",
 					"viewId": "MD_App",
 					"viewLevel": 2,
-					"controlAggregation": "pages"
+					"controlAggregation": "pages",
+					"controlId": "app"
 				},
 				"master": {
 					"viewName": "MD.MD_Master",
 					"viewId": "MD_Master",
 					"viewLevel": 2,
-					"controlAggregation": "masterPages"
+					"controlAggregation": "masterPages",
+					"controlId": "MD_App"
 				},
 				"detail": {
 					"viewName": "MD.MD_Detail",
 					"viewId": "MD_Detail",
 					"viewLevel": 3,
-					"controlAggregation": "detailPages"
+					"controlAggregation": "detailPages",
+					"controlId": "MD_App"
 				},
 				"objectNotFound": {
 					"viewName": "ObjectNotFound",
