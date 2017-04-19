@@ -1,6 +1,6 @@
 /*global history */
 sap.ui.define([
-		"portaltest/controller/MD/MD_BaseController",
+		"portaltest/controller/BaseController",
 		"sap/ui/model/json/JSONModel",
 		"sap/ui/model/Filter",
 		"sap/ui/model/FilterOperator",
