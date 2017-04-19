@@ -320,9 +320,9 @@ sap.ui.define([
 						    this.fireClickEvent(a);*/
 						
 						    var oLink2 = new sap.m.Link();
-						    oLink2.attachPress(function() {alert('Alert Link');});
+						    oLink2.attachPress(function() { /*alert('Alert Link'); */   });
 							oLink2.setText("Link to URL (Target: _blank)");
-							oLink2.setHref("http://www.sap.com");
+							//oLink2.setHref("http://www.sap.com");
 							oLink2.setTarget("_blank");
 							this.getView().addContent(oLink2);
 							//this.fireClickEvent(oLink2);

@@ -32,7 +32,7 @@ sap.ui.define([
 
 			// ON VALUE HELP
 			onValueHelpRequest: function() {
-				var that = this;
+			/*	var that = this;
 
 				var oValueHelpDialog = new sap.ui.comp.valuehelpdialog.ValueHelpDialog({
 					basicSearchText: this.theTokenInput.getValue(),
@@ -44,6 +44,8 @@ sap.ui.define([
 					descriptionKey: this.aKeys[1],
 					stretch: sap.ui.Device.system.phone
 				});
+			
+			*/
 
 			},
 
