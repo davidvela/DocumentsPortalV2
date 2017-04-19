@@ -60,6 +60,7 @@
 						href="http://www.sap.com" 
 						there is a limit for the href!
 						href= "https://webidetesting6311777-p1941269055trial.dispatcher.hanatrial.ondemand.com/webapp/test/flpSandboxMockServer.html?hc_orionpath=%2Fp1941269055trial%24P1941269055-OrionContent%2FSoftwareMng&origional-url=flpSandboxMockServer.html&sap-ui-appCacheBuster=..%2F..%2F..%2F&sap-ui-xx-componentPreload=off#SoftwareManagement-display&/softwareSet/SO004"
+					"_blank" 
 					-->
 					<Link
 						text="Link_{custNumber}"

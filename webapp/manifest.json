@@ -107,16 +107,19 @@
 				"pattern": "ProductSet/{objectId}",
 				"name": "object",
 				"target": ["object"]
-			},{
+			}, {
 				"pattern": "Project/{objectId}",
 				"name": "objectMD",
 				"target": ["objectMD"]
-			},{
+			}, {
 				"pattern": "Project_MDR/{objectId}",
+				"name": "master",
+				"target": ["detail", "master", "objectMDR"]
+			}, {
+				"pattern": "Project_MDR/{objectId}/cam_{campId}",
 				"name": "objectMDR",
 				"target": ["master", "detail"]
-			}
-			],
+			}],
 			"targets": {
 				"worklist": {
 					"viewName": "Worklist",
@@ -133,16 +136,23 @@
 					"viewId": "objectMD",
 					"viewLevel": 2
 				},
+				"objectMDR": {
+					"viewName": "MD.MD_App",
+					"viewId": "MD_App",
+					"viewLevel": 2,
+					"controlAggregation": "pages"
+				},
 				"master": {
-					"viewName": "MD_Master",
+					"viewName": "MD.MD_Master",
 					"viewId": "MD_Master",
 					"viewLevel": 2,
 					"controlAggregation": "masterPages"
 				},
 				"detail": {
-					"viewName": "MD_Detail",
+					"viewName": "MD.MD_Detail",
 					"viewId": "MD_Detail",
-					"viewLevel": 3
+					"viewLevel": 3,
+					"controlAggregation": "detailPages"
 				},
 				"objectNotFound": {
 					"viewName": "ObjectNotFound",

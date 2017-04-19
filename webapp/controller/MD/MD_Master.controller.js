@@ -1,6 +1,6 @@
 /*global history */
 sap.ui.define([
-		"sap/ui/demo/masterdetail/controller/BaseController",
+		"portaltest/controller/MD/MD_BaseController",
 		"sap/ui/model/json/JSONModel",
 		"sap/ui/model/Filter",
 		"sap/ui/model/FilterOperator",
@@ -12,18 +12,18 @@ sap.ui.define([
 		return BaseController.extend("portaltest.controller.MD.MD_Master", {
 			onInit : function () {
 				// Control state model
-				var oList = this.byId("listMaster"),
+				/*	var oList = this.byId("listMaster"),
 					oViewModel = this._createViewModel(),
 					iOriginalBusyDelay = oList.getBusyIndicatorDelay();
 
 				//this._oGroupSortState = new GroupSortState(oViewModel, grouper.groupUnitNumber(this.getResourceBundle()));
-				/*
+		
 				this._oList = oList;
 				// keeps the filter and search state
 				this._oListFilterState = {
 					aFilter : [],
 					aSearch : []
-				};*/
+				};
 
 				this.setModel(oViewModel, "masterView");
 				oList.attachEventOnce("updateFinished", function(){
@@ -33,11 +33,11 @@ sap.ui.define([
 				this.getView().addEventDelegate({
 					onBeforeFirstShow: function () {
 						this.getOwnerComponent().oListSelector.setBoundMasterList(oList);
-					}.bind(this)
-				});
-
+						}.bind(this)
+					});
+				
 				this.getRouter().getRoute("master").attachPatternMatched(this._onMasterMatched, this);
-				this.getRouter().attachBypassed(this.onBypassed, this);
+				this.getRouter().attachBypassed(this.onBypassed, this);*/
 			},
 
 			/* =========================================================== */
@@ -146,9 +146,3 @@ sap.ui.define([
 
 	}
 );
-
-			
-			
-			
-			
-			
