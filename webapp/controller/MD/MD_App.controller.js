@@ -1,10 +1,10 @@
 sap.ui.define([
-		"sap/ui/demo/masterdetail/controller/BaseController",
+		"portaltest/controller/MD/MD_BaseController",
 		"sap/ui/model/json/JSONModel"
 	], function (BaseController, JSONModel) {
 		"use strict";
 
-		return BaseController.extend("portaltest.controller.App", {
+		return BaseController.extend("portaltest.controller.MD.MD_App", {
 
 			onInit : function () {
 				var oViewModel,
@@ -29,7 +29,7 @@ sap.ui.define([
 				// Makes sure that master view is hidden in split app
 				// after a new list entry has been selected.
 				oListSelector.attachListSelectionChange(function () {
-					this.byId("idAppControl").hideMaster();
+					this.byId("idAppControlMD").hideMaster();
 				}, this);
 
 				// apply content density mode to root view
