@@ -1,6 +1,4 @@
-
-		
- sap.ui.jsview("portaltest.view.fragments_views.googleMap", {
+sap.ui.jsview("portaltest.view.fragments_views.googleMap", {
     // getControllerName: function() {
     //     return "portaltest.controller.fragments_views.upCollections";
     // },
@@ -24,6 +22,11 @@
 				zoom: "{/zoom}"
 			}); 
     		
+    		var myMap2 = new	portaltest.controls.googleMap({
+				longitude:"-122.5", 
+				latitude:" 37.7",
+				zoom: "10"
+			}); 
     		
     		return myMap;
     		
@@ -31,6 +34,3 @@
     	
     	}	
 	});
-	
-
-	

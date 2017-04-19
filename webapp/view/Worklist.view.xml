@@ -31,8 +31,11 @@
 					<!-- GOOGLE MAP	-->
 					<IconTabFilter text="Google Map">
 					<content>
+						<Text text= "Google map component not working!"  />	
+
+						<!--
 						<mvc:JSView id="nestedViewGooglejs" 
-						viewName="portaltest.view.fragments_views.googleMap" type="JS"></mvc:JSView>
+						viewName="portaltest.view.fragments_views.googleMap" type="JS"></mvc:JSView> -->
 					</content>
 					</IconTabFilter>
 					<!-- IMAGES 	-->
