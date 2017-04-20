@@ -58,6 +58,71 @@ sap.ui.define([
 			/* =========================================================== */
 			/* event handlers                                              */
 			/* =========================================================== */
+			
+			
+     		/**
+			 * Shows the selected item on the object page
+			 * On phones a additional history entry is created
+			 * @param {sap.m.ObjectListItem} oItem selected Item
+			 * @private
+	 		 */
+			_showObject : function (oItem) {
+				
+				var obtSg =  this.getView().byId("SegBtoId");
+				switch (obtSg.getSelectedKey()) {
+					case "MDE":
+							this.getRouter().navTo("objectMD", {
+							objectId: oItem.getBindingContext().getProperty("InfoRecID") });
+						break;
+					case "MDER":
+							this.getRouter().navTo("objectMDR", {
+							objectId: oItem.getBindingContext().getProperty("InfoRecID") });
+						break;
+					case "NEW": // open new tab _self, _parent, _blank
+								// I have to write https:// always! otherwise it does not work! 
+							//window.open("www.google.com","_blank"); //not 
+							//window.location.href = "www.google.com"; //not
+							//window.location = "www.google.com"; // not
+							
+							//window.location.assign("https://www.w3schools.com"); /// works! 
+							//window.open("https://www.w3schools.com","_blank"); //works ! 
+							var sSup =  oItem.getBindingContext().getProperty("custNumber");
+							window.open("https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/worklist/webapp/test/mockServer.html#/Objects/ObjectID_"+ sSup, 
+										"_blank"); //not 
+							
+							
+							
+						    /* var a = document.createElement('a');
+							a.href = "www.google.com";
+						    a.target = '_blank'; // now it will open new tab/window and bypass any popup blocker!
+						    this.fireClickEvent(a);*/
+						
+						    /*var oLink2 = new sap.m.Link();
+						    oLink2.attachPress(function() { alert('Alert Link');    });
+							oLink2.setText("Link to URL (Target: _blank)");
+							oLink2.setHref("http://www.sap.com");
+							oLink2.setTarget("_blank");
+							this.getView().addContent(oLink2);
+							//this.fireClickEvent(oLink2);
+							oLink2.firePress({});*/   
+						break;
+					case "CAM":
+							this.getRouter().navTo("object", {
+							objectId: oItem.getBindingContext().getProperty("InfoRecID") });
+						break;	
+					default: // nothing 
+				}
+			},
+			// this function can fire onclick handler for any DOM-Element
+			fireClickEvent : function(element) {
+			    var evt = new window.MouseEvent('click', {
+			        view: window,
+			        bubbles: true,
+			        cancelable: true
+			    });
+			
+			    element.dispatchEvent(evt);
+			},
 			handleSnippetsPress: function (oEvent) {
 					// ok, add another instance...:
 				var myControl2 = new SnippetsPopUp({
@@ -240,7 +305,11 @@ sap.ui.define([
 					this._bindView("/" + sObjectPath);
 				}.bind(this));*/
 			},
-
+			
+			
+			/* =========================================================== */
+			/* internal methods                                            */
+			/* =========================================================== */
 			_bindView : function (sObjectPath) {
 				var oViewModel = this.getModel("objectView"),
 					oDataModel = this.getModel();
@@ -292,73 +361,6 @@ sap.ui.define([
 				oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectName, sObjectId, location.href]));
 			},
 
-			/* =========================================================== */
-			/* internal methods                                            */
-			/* =========================================================== */
-
-			/**
-			 * Shows the selected item on the object page
-			 * On phones a additional history entry is created
-			 * @param {sap.m.ObjectListItem} oItem selected Item
-			 * @private
-	 		 */
-			_showObject : function (oItem) {
-				
-				var obtSg =  this.getView().byId("SegBtoId");
-				switch (obtSg.getSelectedKey()) {
-					case "MDE":
-							this.getRouter().navTo("objectMD", {
-							objectId: oItem.getBindingContext().getProperty("InfoRecID") });
-						break;
-					case "MDER":
-							this.getRouter().navTo("master", {
-							objectId: oItem.getBindingContext().getProperty("InfoRecID") });
-						break;
-					case "NEW": // open new tab _self, _parent, _blank
-								// I have to write https:// always! otherwise it does not work! 
-							//window.open("www.google.com","_blank"); //not 
-							//window.location.href = "www.google.com"; //not
-							//window.location = "www.google.com"; // not
-							
-							//window.location.assign("https://www.w3schools.com"); /// works! 
-							//window.open("https://www.w3schools.com","_blank"); //works ! 
-							var sSup =  oItem.getBindingContext().getProperty("custNumber");
-							window.open("https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/worklist/webapp/test/mockServer.html#/Objects/ObjectID_"+ sSup, 
-										"_blank"); //not 
-							
-							
-							
-						    /* var a = document.createElement('a');
-							a.href = "www.google.com";
-						    a.target = '_blank'; // now it will open new tab/window and bypass any popup blocker!
-						    this.fireClickEvent(a);*/
-						
-						    /*var oLink2 = new sap.m.Link();
-						    oLink2.attachPress(function() { alert('Alert Link');    });
-							oLink2.setText("Link to URL (Target: _blank)");
-							oLink2.setHref("http://www.sap.com");
-							oLink2.setTarget("_blank");
-							this.getView().addContent(oLink2);
-							//this.fireClickEvent(oLink2);
-							oLink2.firePress({});*/   
-						break;
-					case "CAM":
-							this.getRouter().navTo("object", {
-							objectId: oItem.getBindingContext().getProperty("InfoRecID") });
-						break;	
-					default: // nothing 
-				}
-			},
-			// this function can fire onclick handler for any DOM-Element
-			fireClickEvent : function(element) {
-			    var evt = new window.MouseEvent('click', {
-			        view: window,
-			        bubbles: true,
-			        cancelable: true
-			    });
-			
-			    element.dispatchEvent(evt);
-			},
 
 			/**
 			 * Internal helper method to apply both filter and search state together on the list binding

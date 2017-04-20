@@ -113,11 +113,11 @@
 				"target": ["objectMD"]
 			}, {
 				"pattern": "Project_MDR/{objectId}",
-				"name": "master",
+				"name": "objectMDR",
 				"target": ["objectMDR", "detail", "master"]
 			}, {
 				"pattern": "Project_MDR/{objectId}/cam_{campId}",
-				"name": "objectMDR",
+				"name": "master",
 				"target": ["master", "detail"]
 			}],
 			"targets": {
@@ -144,16 +144,18 @@
 					"controlId": "app"
 				},
 				"master": {
+					"parent": "objectMDR",
 					"viewName": "MD.MD_Master",
 					"viewId": "MD_Master",
-					"viewLevel": 2,
+					"viewLevel": 3,
 					"controlAggregation": "masterPages",
 					"controlId": "MD_App"
 				},
 				"detail": {
+					"parent": "objectMDR",
 					"viewName": "MD.MD_Detail",
 					"viewId": "MD_Detail",
-					"viewLevel": 3,
+					"viewLevel": 4,
 					"controlAggregation": "detailPages",
 					"controlId": "MD_App"
 				},
