@@ -27,6 +27,10 @@ sap.ui.define([
 			/* =========================================================== */
 			/* event handlers                                              */
 			/* =========================================================== */
+			onPress : function(oEvent){
+				this.getRouter().navTo("objectMD", {
+							objectId: "001" });// oItem.getBindingContext().getProperty("InfoRecID") });			
+			},
 			/**
 			 * Updates the item count within the line item table's header
 			 * @param {object} oEvent an event containing the total number of items in the list
@@ -149,4 +153,4 @@ sap.ui.define([
 		});
 
 	}
-);	
+);

@@ -113,11 +113,11 @@
 				"target": ["objectMD"]
 			}, {
 				"pattern": "Project_MDR/{objectId}",
-				"name": "objectMDR",
+				"name": "master",
 				"target": ["objectMDR", "detail", "master"]
 			}, {
 				"pattern": "Project_MDR/{objectId}/cam_{campId}",
-				"name": "master",
+				"name": "objectMDR",
 				"target": ["master", "detail"]
 			}],
 			"targets": {

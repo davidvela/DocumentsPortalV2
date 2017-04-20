@@ -75,7 +75,7 @@ sap.ui.define([
 							objectId: oItem.getBindingContext().getProperty("InfoRecID") });
 						break;
 					case "MDER":
-							this.getRouter().navTo("objectMDR", {
+							this.getRouter().navTo("master", {
 							objectId: oItem.getBindingContext().getProperty("InfoRecID") });
 						break;
 					case "NEW": // open new tab _self, _parent, _blank

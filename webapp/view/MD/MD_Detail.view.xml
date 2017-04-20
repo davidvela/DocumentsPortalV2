@@ -4,6 +4,5 @@
 		xmlns:core="sap.ui.core"
 		xmlns="sap.m"
 		xmlns:semantic="sap.m.semantic">
-			<Button text="Hola Questionniare" ></Button>
-
+			<Button text="Hola Questionniare" press="onPress"></Button>
 </mvc:View>

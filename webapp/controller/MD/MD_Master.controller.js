@@ -13,7 +13,7 @@ sap.ui.define([
 		return BaseController.extend("portaltest.controller.MD.MD_Master", {
 			onInit : function () {
 				// Control state model
-				/*	var oList = this.byId("listMaster"),
+					var oList = this.byId("masterListIdMD"),
 					oViewModel = this._createViewModel(),
 					iOriginalBusyDelay = oList.getBusyIndicatorDelay();
 
@@ -31,14 +31,14 @@ sap.ui.define([
 					oViewModel.setProperty("/delay", iOriginalBusyDelay);
 				});
 
-				this.getView().addEventDelegate({
+				/*this.getView().addEventDelegate({
 					onBeforeFirstShow: function () {
 						this.getOwnerComponent().oListSelector.setBoundMasterList(oList);
 						}.bind(this)
-					});
+					}); */
 				
-				this.getRouter().getRoute("master").attachPatternMatched(this._onMasterMatched, this);
-				this.getRouter().attachBypassed(this.onBypassed, this);*/
+				//this.getRouter().getRoute("master").attachPatternMatched(this._onMasterMatched, this);
+				this.getRouter().attachBypassed(this.onBypassed, this);
 			},
 
 			/* =========================================================== */
@@ -94,7 +94,7 @@ sap.ui.define([
 					isFilterBarVisible: false,
 					filterBarLabel: "",
 					delay: 0,
-					title: this.getResourceBundle().getText("masterTitleCount", [0]),
+					title: "My title", //this.getResourceBundle().getText("masterTitleCount", [0]),
 					noDataText: this.getResourceBundle().getText("masterListNoDataText"),
 					sortBy: "Name",
 					groupBy: "None"

@@ -13,7 +13,6 @@
                 <Property Name="custNumber" Type="Edm.String"/>
                 <Property Name="custName" Type="Edm.String"/>
                 <Property Name="custMatCode" Type="Edm.String"/>
-                <Property Name="custManufacturer" Type="Edm.String"/>
                 <Property Name="custEmail" Type="Edm.String"/>
                 <Property Name="DocumentStatus" Type="Edm.String"/>
                 <Property Name="DocumentAssigned" Type="Edm.String"/>
