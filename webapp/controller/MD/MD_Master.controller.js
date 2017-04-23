@@ -9,7 +9,7 @@ sap.ui.define([
 		"sap/ui/core/routing/History"
 	], function (BaseController, JSONModel, Filter, FilterOperator, GroupHeaderListItem, Device, History) {
 		"use strict";
-
+		var objID; 
 		return BaseController.extend("portaltest.controller.MD.MD_Master", {
 			onInit : function () {
 				// Control state model
@@ -114,8 +114,8 @@ sap.ui.define([
 						if (mParams.list.getMode() === "None") {
 							return;
 						}
-						var sObjectId = mParams.firstListitem.getBindingContext().getProperty("ObjectID");
-						//this.getRouter().navTo("object", {objectId : sObjectId}, true);
+						//var sObjectId = mParams.firstListitem.getBindingContext().getProperty("ObjectID");
+						//this.getRouter().navTo("objectMDR", {objectId : sObjectId}, true);
 					}.bind(this),
 					function (mParams) {
 						if (mParams.error) {
@@ -134,8 +134,9 @@ sap.ui.define([
 			 */
 			_showDetail : function (oItem) {
 				var bReplace = !Device.system.phone;
-				this.getRouter().navTo("object", {
-					objectId : oItem.getBindingContext().getProperty("ObjectID")
+				this.getRouter().navTo("objectMDR", {
+					objectId : this.objID,
+					campId : oItem.getBindingContext().getProperty("CampaignID")
 				}, bReplace);
 			},
 
@@ -155,6 +156,7 @@ sap.ui.define([
 			
 		_onObjectMatched: function(oEvent) {
 			var sObjectId = oEvent.getParameter("arguments").objectId;
+			this.objID = sObjectId;
 			this.getModel().metadataLoaded().then(function() {
 				var sObjectPath = this.getModel().createKey("InfoRecSet", {
 					InfoRecID: sObjectId
@@ -164,7 +166,7 @@ sap.ui.define([
 		},
 
 		_bindView: function(sObjectPath) {
-			var oViewModel = this.getModel("objectView");
+			var oViewModel = this.getModel("masterView");
 			var oDataModel = this.getModel();
 
 			var oList = this.byId("masterListIdMD");
@@ -191,10 +193,7 @@ sap.ui.define([
 				}
 			});
 
-		},
-			
-			
-			
+		}
 			
 		});
 

@@ -11,16 +11,16 @@ sap.ui.define([
 				// Model used to manipulate control states. The chosen values make sure,
 				// detail page is busy indication immediately so there is no break in
 				// between the busy indication for loading the view's meta data
-				/*
+				
 				var oViewModel = new JSONModel({
 					busy : false,
 					delay : 0,
 					lineItemListTitle : this.getResourceBundle().getText("detailLineItemTableHeading")
 				});
-				//this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
+				this.getRouter().getRoute("objectMDR").attachPatternMatched(this._onObjectMatched, this);
 				this.setModel(oViewModel, "detailView");
 				this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
-				*/
+				
 				
 			},
 
@@ -65,9 +65,14 @@ sap.ui.define([
 			 */
 			_onObjectMatched : function (oEvent) {
 				var sObjectId =  oEvent.getParameter("arguments").objectId;
+				
+				this
+				this.getView().setModel(oModel, "master");
+				
+				var sCampId =  oEvent.getParameter("arguments").campId;
 				this.getModel().metadataLoaded().then( function() {
-					var sObjectPath = this.getModel().createKey("Objects", {
-						ObjectID :  sObjectId
+					var sObjectPath = this.getModel().createKey("CampaignSet", {
+						CampaignID :  sCampId
 					});
 					this._bindView("/" + sObjectPath);
 				}.bind(this));
@@ -130,19 +135,19 @@ sap.ui.define([
 			_onMetadataLoaded : function () {
 				// Store original busy indicator delay for the detail view
 				var iOriginalViewBusyDelay = this.getView().getBusyIndicatorDelay(),
-					oViewModel = this.getModel("detailView"),
-					oLineItemTable = this.byId("lineItemsList"),
-					iOriginalLineItemTableBusyDelay = oLineItemTable.getBusyIndicatorDelay();
+					oViewModel = this.getModel("detailView");
+					//oLineItemTable = this.byId("lineItemsList");
+					//iOriginalLineItemTableBusyDelay = oLineItemTable.getBusyIndicatorDelay();
 
 				// Make sure busy indicator is displayed immediately when
 				// detail view is displayed for the first time
 				oViewModel.setProperty("/delay", 0);
 				oViewModel.setProperty("/lineItemTableDelay", 0);
 
-				oLineItemTable.attachEventOnce("updateFinished", function() {
+				/*oLineItemTable.attachEventOnce("updateFinished", function() {
 					// Restore original busy indicator delay for line item table
 					oViewModel.setProperty("/lineItemTableDelay", iOriginalLineItemTableBusyDelay);
-				});
+				});*/
 
 				// Binding the view will set it to not busy - so the view is always busy if it is not bound
 				oViewModel.setProperty("/busy", true);
