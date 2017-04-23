@@ -1,6 +1,6 @@
 <mvc:View controllerName="portaltest.controller.MD.MD_Master" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
 	xmlns:semantic="sap.m.semantic">
-	<semantic:MasterPage id="pageMasterMD" title="{masterView>/title}" navButtonPress="onNavBack" showNavButton="true">
+	<semantic:MasterPage id="pageMasterMD" title="{ProjectName}" navButtonPress="onNavBack" showNavButton="true">
 		<semantic:content>
 			<List id="masterListIdMD" items="{ path: 'CampaignToInfoSet', parameters: {expand: 'CampaignSet'} }"
 				busyIndicatorDelay="{objectView>/delay}" noDataText="{masterView>/noDataText}"

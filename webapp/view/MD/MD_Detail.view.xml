@@ -4,5 +4,6 @@
 		xmlns:core="sap.ui.core"
 		xmlns="sap.m"
 		xmlns:semantic="sap.m.semantic">
+			<Label text="WELCOME to two ways data binding - PName:{ProjectName} type: {CampaignName}"/>			
 			<Button text="Hola Questionniare" press="onPress"></Button>
 </mvc:View>

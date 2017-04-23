@@ -38,7 +38,7 @@
 					<semantic:DetailPage id="OMD_DetailId" title="Area in Detail">
 						<semantic:content>
 							<Input id="objectHeaderMD" value="{ProjectName}"/>
-							<Label text="WELCOME to two ways data binding - type: {CampaignName}"/>			
+							<Label text="WELCOME to two ways data binding - PName:{ProjectName} type: {CampaignName}"/>			
 							<Panel id="detailContainer">
 							<content>
 								<Input id="objectDetMD" value="{CampaignName}"/>

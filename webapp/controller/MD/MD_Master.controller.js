@@ -31,13 +31,14 @@ sap.ui.define([
 					oViewModel.setProperty("/delay", iOriginalBusyDelay);
 				});
 
-				/*this.getView().addEventDelegate({
+				this.getView().addEventDelegate({
 					onBeforeFirstShow: function () {
 						this.getOwnerComponent().oListSelector.setBoundMasterList(oList);
 						}.bind(this)
-					}); */
+					}); 
 				
-				//this.getRouter().getRoute("master").attachPatternMatched(this._onMasterMatched, this);
+				this.getRouter().getRoute("master").attachPatternMatched(this._onMasterMatched, this);
+				this.getRouter().getRoute("master").attachPatternMatched(this._onObjectMatched, this);
 				this.getRouter().attachBypassed(this.onBypassed, this);
 			},
 
@@ -114,13 +115,13 @@ sap.ui.define([
 							return;
 						}
 						var sObjectId = mParams.firstListitem.getBindingContext().getProperty("ObjectID");
-						this.getRouter().navTo("object", {objectId : sObjectId}, true);
+						//this.getRouter().navTo("object", {objectId : sObjectId}, true);
 					}.bind(this),
 					function (mParams) {
 						if (mParams.error) {
 							return;
 						}
-						this.getRouter().getTargets().display("detailNoObjectsAvailable");
+						//this.getRouter().getTargets().display("detailNoObjectsAvailable");
 					}.bind(this)
 				);
 			},
@@ -150,7 +151,51 @@ sap.ui.define([
 					sTitle = this.getResourceBundle().getText("masterTitleCount", [iTotalItems]);
 					this.getModel("masterView").setProperty("/title", sTitle);
 				}
-			}
+			},
+			
+		_onObjectMatched: function(oEvent) {
+			var sObjectId = oEvent.getParameter("arguments").objectId;
+			this.getModel().metadataLoaded().then(function() {
+				var sObjectPath = this.getModel().createKey("InfoRecSet", {
+					InfoRecID: sObjectId
+				});
+				this._bindView("/" + sObjectPath);
+			}.bind(this));
+		},
+
+		_bindView: function(sObjectPath) {
+			var oViewModel = this.getModel("objectView");
+			var oDataModel = this.getModel();
+
+			var oList = this.byId("masterListIdMD");
+			if (oList !== undefined)
+				oList.bindElement({
+					path: sObjectPath
+				});
+
+			this.getView().bindElement({
+				path: sObjectPath,
+				parameters: {
+					expand: "CampaignToInfoSet"
+				},
+				events: {
+				//	change: this._onBindingChange.bind(this),
+					dataRequested: function() {
+						oDataModel.metadataLoaded().then(function() {
+							oViewModel.setProperty("/busy", true);
+						});
+					},
+					dataReceived: function() {
+						oViewModel.setProperty("/busy", false);
+					}
+				}
+			});
+
+		},
+			
+			
+			
+			
 		});
 
 	}

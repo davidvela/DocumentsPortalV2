@@ -2,8 +2,10 @@ sap.ui.define([
 		"sap/ui/core/UIComponent",
 		"sap/ui/Device",
 		"portaltest/model/models",
+		"portaltest/controller/MD/MD_ListSelector",
+
 		"portaltest/controller/ErrorHandler"
-	], function (UIComponent, Device, models, ErrorHandler) {
+	], function (UIComponent, Device, models, ListSelector, ErrorHandler) {
 		"use strict";
 
 		return UIComponent.extend("portaltest.Component", {
@@ -26,6 +28,7 @@ sap.ui.define([
 
 				// initialize the error handler with the component
 				this._oErrorHandler = new ErrorHandler(this);
+				this.oListSelector = new ListSelector();
 
 				// set the device model
 				this.setModel(models.createDeviceModel(), "device");
@@ -44,6 +47,7 @@ sap.ui.define([
 			 */
 			destroy : function () {
 				this._oErrorHandler.destroy();
+				this.oListSelector.destroy();
 				// call the base component's destroy function
 				UIComponent.prototype.destroy.apply(this, arguments);
 			},
