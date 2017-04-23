@@ -6,7 +6,7 @@
 			<Toolbar>
 				<Title id="tableHeader" text="Projects"/>
 				<ToolbarSpacer/>
-				<SegmentedButton id="SegBtoId" selectedKey="MDE" class="sapUiSmallMarginBottom">
+				<SegmentedButton id="SegBtoId" selectedKey="MDER" class="sapUiSmallMarginBottom">
 					<items>
 						<SegmentedButtonItem text="NewTab" key="NEW" />
 						<SegmentedButtonItem text="Campaigns" key="CAM" />
