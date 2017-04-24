@@ -41,6 +41,10 @@ sap.ui.define([
 						value: "{CampaignName}"
 					}));
 					break;
+					
+				//	var oTable = sap.m.Table();
+					
+					
 				case "IoT":
 					oElement.addContent(new sap.m.Input({
 						value: "{CampaignName}"
@@ -50,14 +54,17 @@ sap.ui.define([
 					}));
 
 					var sValues = "yes;no";
+    				var aValues = sValues.split(";");
 
 					var cb1 = new sap.m.ComboBox({
 						tooltip: "this is my toolTip!",
 						width: "200px"
 					});
-					cb1.addItem(new sap.ui.core.Item({
-						text: "Production"
-					}));
+					cb1.addItem(new sap.ui.core.Item({	text: "Production"	}));
+					function myFunction(item) {
+						cb1.addItem(new sap.ui.core.Item({	text: item	}));
+					}
+					aValues.forEach(myFunction);
 
 					oElement.addContent(cb1);
 					break;
