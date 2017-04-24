@@ -118,7 +118,7 @@
 			}, {
 				"pattern": "Project_MDR/{objectId}/cam_{campId}",
 				"name": "objectMDR",
-				"target": ["detail"]
+				"target": ["detail", "master"]
 			}],
 			"targets": {
 				"worklist": {

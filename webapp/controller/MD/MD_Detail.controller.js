@@ -66,8 +66,8 @@ sap.ui.define([
 			_onObjectMatched : function (oEvent) {
 				var sObjectId =  oEvent.getParameter("arguments").objectId;
 				
-				this
-				this.getView().setModel(oModel, "master");
+				//this
+				//this.getView().setModel(oModel, "masterIR");
 				
 				var sCampId =  oEvent.getParameter("arguments").campId;
 				this.getModel().metadataLoaded().then( function() {
@@ -96,6 +96,8 @@ sap.ui.define([
 						change : this._onBindingChange.bind(this),
 						dataRequested : function () {
 							oViewModel.setProperty("/busy", true);
+							//setTimeout(function(){ alert("Hello"); }, 3000);
+
 						},
 						dataReceived: function () {
 							oViewModel.setProperty("/busy", false);
