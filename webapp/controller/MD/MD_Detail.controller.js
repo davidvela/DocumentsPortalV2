@@ -60,7 +60,7 @@ sap.ui.define([
 						tooltip: "this is my toolTip!",
 						width: "200px"
 					});
-					cb1.addItem(new sap.ui.core.Item({	text: "Production"	}));
+					//cb1.addItem(new sap.ui.core.Item({	text: "Production"	}));
 					function myFunction(item) {
 						cb1.addItem(new sap.ui.core.Item({	text: item	}));
 					}
@@ -70,7 +70,7 @@ sap.ui.define([
 					break;
 				case "Legacy":
 					oElement.addContent(new sap.ui.core.mvc.XMLView({
-						viewName: "portaltest.view.fragments_views.upCollections",
+						viewName: "portaltest.view.MD.MD_Detail_table",
 						type: "XML"
 					}));
 					break;
