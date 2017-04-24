@@ -56,8 +56,8 @@ sap.ui.define([
 			var objectSel = this.getView().getModel().getProperty(sPath);
 			oElement.removeAllContent();
 			oElement.addContent(new sap.m.Label({
-						text: "type: {CampaignType}"
-					}));
+				text: "type: {CampaignType}"
+			}));
 			switch (objectSel.CampaignType) {
 				case "Application":
 					oElement.addContent(new sap.m.Input({
@@ -71,18 +71,41 @@ sap.ui.define([
 					oElement.addContent(new sap.m.Button({
 						text: "IoT is cool"
 					}));
+					
+					var sValues = "yes;no";
+					
+					
+					var cb1 = new sap.m.ComboBox({
+						tooltip : "this is my toolTip!",
+						width : "200px"
+					});
+					cb1.addItem(new sap.ui.core.Item({ text : "Production"  }));
+
+					oElement.addContent(cb1);
 					break;
 				case "Legacy":
-					oElement.addContent( new sap.ui.core.mvc.XMLView({
-							viewName:"portaltest.view.fragments_views.upCollections" ,
-							type:"XML"					})
-						);
+					oElement.addContent(new sap.ui.core.mvc.XMLView({
+						viewName: "portaltest.view.fragments_views.upCollections",
+						type: "XML"
+					}));
 					break;
 				default:
 			}
 
 			// real logic: objectSel->array - array - ID,  
-			
+			switch (objectSel.CampaignType) {
+				case "Tittle":
+					break;
+				case "Label":
+					break;
+				case "Input":
+					break;
+				case "Dropbox":
+					break;
+				case "Table":
+					break;
+				default:
+			}
 
 		},
 

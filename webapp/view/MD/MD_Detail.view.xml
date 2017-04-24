@@ -1,9 +1,23 @@
-<mvc:View
-		controllerName="portaltest.controller.MD.MD_Detail"
-		xmlns:mvc="sap.ui.core.mvc"
-		xmlns:core="sap.ui.core"
-		xmlns="sap.m"
-		xmlns:semantic="sap.m.semantic">
-			<Label text="WELCOME to two ways data binding - PName:{ProjectName} type: {CampaignType}"/>			
-			<Button text="Hola Questionniare" press="onPress"></Button>
+<mvc:View controllerName="portaltest.controller.MD.MD_Detail" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:semantic="sap.m.semantic">
+	<Label text="WELCOME to two ways data binding - PName:{ProjectName} type: {CampaignType}"/>
+	<Button text="Go to one page M/D" press="onPress"></Button>
+	<MenuButton text="Insert">
+            <menu>
+                <Menu itemSelected="onMenuAction">
+                    <items>
+                        <MenuItem text="Button"  />
+                        <MenuItem text="Field"  />
+                        <MenuItem text="Label" />
+                    </items>
+                </Menu>
+            </menu>
+        </MenuButton>
+	
+	
+	<Panel id="detailContainerMDR">
+		<content>
+			<Input id="objectDetMDR" value="{CampaignName}"/>
+		</content>
+	</Panel>
 </mvc:View>

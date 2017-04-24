@@ -37,7 +37,10 @@ sap.ui.define([
 						}.bind(this)
 					}); 
 				
-				this.getRouter().getRoute("master").attachPatternMatched(this._onMasterMatched, this);
+				var a = this.getRouter().getRoute("master");
+				
+				//this.getRouter().getRoute("master").attachPatternMatched(this._onMasterMatched, this);
+				this.getRouter().getRoute("master").attachPatternMatched(this._onObjectMatched, this);
 				this.getRouter().getRoute("objectMDR").attachPatternMatched(this._onObjectMatched, this);
 				this.getRouter().attachBypassed(this.onBypassed, this);
 			},
