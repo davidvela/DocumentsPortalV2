@@ -15,12 +15,14 @@
 					<!-- CAMPAIGNS	-->
 					<IconTabFilter text="Campaigns">
 						<content>
+							<Button	text="Lame Printing"	press="lamePrint">	</Button>
 							<core:Fragment fragmentName="portaltest.view.fragments_views.campaigns" type="XML"/>
 						</content>
 					</IconTabFilter>
-					<!-- DOCUMENTS	-->
+					<!-- UPLOAD DOCS	-->
 					<IconTabFilter text="Uploads Collections">
 						<content>
+							<Button	text="Lame Printing"	press="lamePrint">	</Button>
 							<core:Fragment fragmentName="portaltest.view.fragments_views.upCollections" type="XML"/>
 							<mvc:JSView id="nestedViewjs" viewName="portaltest.view.fragments_views.upCollections" type="JS"></mvc:JSView>
 							<mvc:HTMLView id="nestedViewhtmnl" viewName="portaltest.view.fragments_views.upCollections"
@@ -41,6 +43,8 @@
 					<!-- IMAGES 	-->
 					<IconTabFilter text="Preview Images." >
 						<content>
+							<Button	text="Lame Printing"	press="lamePrint">	</Button>
+
 							<l:VerticalLayout>
 								<u:FileUploader id="fileUploader" name="myFileUpload" uploadUrl="upload/" width="400px" uploadOnChange="true"
 									tooltip="Upload your file to the local server" uploadComplete="handleUploadComplete"/>

@@ -58,7 +58,9 @@ sap.ui.define([
 			/* =========================================================== */
 			/* event handlers                                              */
 			/* =========================================================== */
-			
+			lamePrint : function (oItem) {
+				window.print();	
+			},
 			
      		/**
 			 * Shows the selected item on the object page

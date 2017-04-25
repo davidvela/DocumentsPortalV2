@@ -77,11 +77,11 @@ sap.ui.define([
 			onNavBack : function() {
 				var sPreviousHash = History.getInstance().getPreviousHash(),
 					oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
-
+		
 				if (sPreviousHash !== undefined || !oCrossAppNavigator.isInitialNavigation()) {
 					history.go(-1);
 				} else {
-					this.getRouter().navTo("worklist", {}, true);
+					this.getRouter().navTo("worklist", {}, true); 
 				}
 			},
 
