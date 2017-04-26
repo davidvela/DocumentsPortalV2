@@ -59,13 +59,14 @@ sap.ui.define([
 			/* event handlers                                              */
 			/* =========================================================== */
 			lamePrint : function (oItem) {
-				window.print();	
+				//window.print();	
 				// var viewDom = this.getView().getDomRef();
-				// var ctrlString = "width=500px, height = 600px";
-				// var wind = window.open("","PrintWindow", ctrlString);
-				// wind.document.write( viewDom );
-				// wind.print();
-				// wind.close();
+				var viewDom = document.body.innerHTML
+				var ctrlString = "width=500px, height = 600px";
+				var wind = window.open("","PrintWindow", ctrlString);
+				wind.document.write( viewDom );
+				wind.print();
+				wind.close();
 			},
 			
      		/**

@@ -79,6 +79,7 @@ sap.ui.define([
 						tooltip: "this is my toolTip!",
 						width: "200px"
 					});
+					///cb1.addStyle("");
 					//cb1.addItem(new sap.ui.core.Item({	text: "Production"	}));
 					function myFunction(item) {
 						cb1.addItem(new sap.ui.core.Item({
@@ -97,8 +98,8 @@ sap.ui.define([
 
 					var oTable = new sap.ui.table.Table({    visibleRowCount: 3		});
 					//var oTable = new sap.m.Table({   mob table does not have column binding!
-						visibleRowCount: 3
-					});
+					//	visibleRowCount: 3
+					//});
 
 					var oModel = new sap.ui.model.json.JSONModel();
 					oModel.setData({
@@ -110,7 +111,6 @@ sap.ui.define([
 					oTable.bindColumns("/columns", function(sId, oContext) {
 						var columnName = oContext.getObject().columnName;
 						return new sap.ui.table.Column({
-						//return new sap.m.Column({   =( 
 							label: columnName,
 							template: columnName
 						});
