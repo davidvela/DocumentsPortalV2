@@ -24,6 +24,29 @@ sap.ui.define([
 		},
 
 		buildDynamicScreen: function(pItemSelected) {
+
+			var columnData = [{
+				columnName: "firstName"
+			}, {
+				columnName: "lastName"
+			}, {
+				columnName: "department"
+			}];
+
+			var rowData = [{
+				firstName: "Sachin",
+				lastName: "Tendulkar",
+				department: "Cricket"
+			}, {
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, {
+				firstName: "Mohan",
+				lastName: "Lal",
+				department: "Film"
+			}];
+
 			var sPath = "/CampaignSet('" + pItemSelected + "')";
 			var oElement = this.byId("detailContainerMDR");
 			// var objectSel = this.getView().getModel().getProperty(sPath);
@@ -41,10 +64,6 @@ sap.ui.define([
 						value: "{CampaignName}"
 					}));
 					break;
-					
-				//	var oTable = sap.m.Table();
-					
-					
 				case "IoT":
 					oElement.addContent(new sap.m.Input({
 						value: "{CampaignName}"
@@ -54,7 +73,7 @@ sap.ui.define([
 					}));
 
 					var sValues = "yes;no";
-    				var aValues = sValues.split(";");
+					var aValues = sValues.split(";");
 
 					var cb1 = new sap.m.ComboBox({
 						tooltip: "this is my toolTip!",
@@ -62,7 +81,9 @@ sap.ui.define([
 					});
 					//cb1.addItem(new sap.ui.core.Item({	text: "Production"	}));
 					function myFunction(item) {
-						cb1.addItem(new sap.ui.core.Item({	text: item	}));
+						cb1.addItem(new sap.ui.core.Item({
+							text: item
+						}));
 					}
 					aValues.forEach(myFunction);
 
@@ -73,6 +94,32 @@ sap.ui.define([
 						viewName: "portaltest.view.MD.MD_Detail_table",
 						type: "XML"
 					}));
+
+					var oTable = new sap.ui.table.Table({    visibleRowCount: 3		});
+					//var oTable = new sap.m.Table({   mob table does not have column binding!
+						visibleRowCount: 3
+					});
+
+					var oModel = new sap.ui.model.json.JSONModel();
+					oModel.setData({
+						rows: rowData,
+						columns: columnData
+					});
+					oTable.setModel(oModel);
+
+					oTable.bindColumns("/columns", function(sId, oContext) {
+						var columnName = oContext.getObject().columnName;
+						return new sap.ui.table.Column({
+						//return new sap.m.Column({   =( 
+							label: columnName,
+							template: columnName
+						});
+					});
+
+					oTable.bindRows("/rows");
+					
+					oElement.addContent(oTable);
+
 					break;
 				default:
 			}
