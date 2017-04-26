@@ -60,6 +60,12 @@ sap.ui.define([
 			/* =========================================================== */
 			lamePrint : function (oItem) {
 				window.print();	
+				// var viewDom = this.getView().getDomRef();
+				// var ctrlString = "width=500px, height = 600px";
+				// var wind = window.open("","PrintWindow", ctrlString);
+				// wind.document.write( viewDom );
+				// wind.print();
+				// wind.close();
 			},
 			
      		/**
