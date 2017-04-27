@@ -37,11 +37,148 @@ sap.ui.define([
 				firstName: "Sachin",
 				lastName: "Tendulkar",
 				department: "Cricket"
-			}, {
+			}, 
+			{
 				firstName: "Lionel",
 				lastName: "Messi",
 				department: "Football"
-			}, {
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
+				firstName: "Lionel",
+				lastName: "Messi",
+				department: "Football"
+			}, 
+			{
 				firstName: "Mohan",
 				lastName: "Lal",
 				department: "Film"
@@ -55,7 +192,9 @@ sap.ui.define([
 			oElement.addContent(new sap.m.Label({
 				text: "type: {CampaignType}"
 			}));
-
+			oElement.addContent(new sap.m.Image({
+				src: "../assets/defaultImg.png", width: "50px"
+			}));
 			if (objectSel === undefined) return;
 
 			switch (objectSel.CampaignType) {
@@ -95,10 +234,10 @@ sap.ui.define([
 						viewName: "portaltest.view.MD.MD_Detail_table",
 						type: "XML"
 					}));
-
-					var oTable = new sap.ui.table.Table({    visibleRowCount: 3		});
+					var length = rowData.length;
+					var oTable = new sap.ui.table.Table({  visibleRowCount: length  		});
 					//var oTable = new sap.m.Table({   mob table does not have column binding!
-					//	visibleRowCount: 3
+					//	visibleRowCount: 3 visibleRowCount: 10
 					//});
 
 					var oModel = new sap.ui.model.json.JSONModel();
@@ -117,9 +256,39 @@ sap.ui.define([
 					});
 
 					oTable.bindRows("/rows");
-					
+					var ot1 = oTable;
+					oElement.addContent(ot1);
 					oElement.addContent(oTable);
-
+					oElement.addContent(new sap.m.Input({
+						value: "{CampaignName}"
+					}));
+					oElement.addContent(new sap.m.Input({
+						value: "{CampaignName}"
+					}));
+					oElement.addContent(new sap.m.Input({
+						value: "{CampaignName}"
+					}));
+					oElement.addContent(new sap.m.Input({
+						value: "{CampaignName}"
+					}));
+					oElement.addContent(new sap.m.Input({
+						value: "{CampaignName}"
+					}));
+					oElement.addContent(new sap.m.Input({
+						value: "{CampaignName}"
+					}));
+					oElement.addContent(new sap.m.Input({ 
+						value: "{CampaignName}"
+					}));
+					oElement.addContent(new sap.m.Input({
+						value: "{CampaignName}"
+					}));
+					oElement.addContent(new sap.m.Input({
+						value: "{CampaignName}"
+					}));
+					oElement.addContent(new sap.m.Input({
+						value: "{CampaignName}"
+					}));
 					break;
 				default:
 			}
@@ -159,10 +328,11 @@ sap.ui.define([
 		    
 	    onPrint : function(oEvent) {
 	        var oTarget = this.getView(),
-	            sTargetId = oEvent.getSource().data("targetId");
+	            // sTargetId = oEvent.getSource().data("targetId");
+	             sTargetId = oEvent.getSource().getText();
 	            
-	        if (sTargetId) {
-	            oTarget = oTarget.byId(sTargetId);
+	        if (sTargetId === "PrintTab") {
+	            oTarget = oTarget.byId("detailContainerMDR");
 	        }
 	        
 	        if (oTarget) {
@@ -170,7 +340,10 @@ sap.ui.define([
 	                sTargetContent = $domTarget.innerHTML,
 	                sOriginalContent = document.body.innerHTML;
 	                
-	            document.body.innerHTML = sTargetContent;
+	            document.body.innerHTML = 'hola <button> hello </button>' 
+	            							+ '<img src="../assets/defaultImg.png" alt="HTML5 Icon" style="width:128px;height:128px;">'
+	            							+ '    <p style="page-break-after:always;"></p>'
+	            							+ sTargetContent;
 	            window.print();
 	            document.body.innerHTML = sOriginalContent;
 	        } else {

@@ -25,7 +25,7 @@
 			<OverflowToolbar id="otbFooter">
                 <ToolbarSpacer/>
                 <OverflowToolbarButton press="onPrint" text="Print" icon="sap-icon://print" type="Emphasized"/>
-				<Button press="onPrint" text="Print Table" icon="sap-icon://print"/>
+				<Button press="onPrint" text="PrintTab" icon="sap-icon://print"/>
                 <Button type="Accept" text="Accept">
                     <layoutData><OverflowToolbarLayoutData moveToOverflow="false" /></layoutData>
                 </Button>
