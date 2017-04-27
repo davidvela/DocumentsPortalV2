@@ -156,6 +156,28 @@ sap.ui.define([
 				objectId: "001"
 			}); // oItem.getBindingContext().getProperty("InfoRecID") });			
 		},
+		    
+	    onPrint : function(oEvent) {
+	        var oTarget = this.getView(),
+	            sTargetId = oEvent.getSource().data("targetId");
+	            
+	        if (sTargetId) {
+	            oTarget = oTarget.byId(sTargetId);
+	        }
+	        
+	        if (oTarget) {
+	            var $domTarget = oTarget.$()[0],
+	                sTargetContent = $domTarget.innerHTML,
+	                sOriginalContent = document.body.innerHTML;
+	                
+	            document.body.innerHTML = sTargetContent;
+	            window.print();
+	            document.body.innerHTML = sOriginalContent;
+	        } else {
+	            jQuery.sap.log.error("onPrint needs a valid target container [view|data:targetId=\"SID\"]");
+	        }
+	    },
+		
 		/**
 		 * Updates the item count within the line item table's header
 		 * @param {object} oEvent an event containing the total number of items in the list
