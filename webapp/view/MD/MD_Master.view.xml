@@ -2,8 +2,10 @@
 	xmlns:semantic="sap.m.semantic">
 	<semantic:MasterPage id="pageMasterMD" title="{ProjectName}" navButtonPress="onNavBack" showNavButton="true">
 		<semantic:content>
+			<BusyDialog id="busyMaster" />
+			<!--<BusyIndicator id="busyMaster" text="... something happens"	class="sapUiSmallMarginBottom" />-->
 			<List id="masterListIdMD" items="{ path: 'CampaignToInfoSet', parameters: {expand: 'CampaignSet'} }"
-				busyIndicatorDelay="{objectView>/delay}" noDataText="{masterView>/noDataText}"
+				busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}"
 				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" selectionChange="onSelectionChange">
 				<items>
 					<ObjectListItem type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" press="onSelectionChange" title="{CampaignSet/CampaignName}"></ObjectListItem>

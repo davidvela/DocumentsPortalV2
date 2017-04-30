@@ -15,10 +15,13 @@ sap.ui.define([
 				// Control state model
 					var oList = this.byId("masterListIdMD"),
 					oViewModel = this._createViewModel(),
-					iOriginalBusyDelay = oList.getBusyIndicatorDelay();
+					busyInd = this.byId("busyMaster");
+				//var iOriginalBusyDelay = oList.getBusyIndicatorDelay();
 
 				//this._oGroupSortState = new GroupSortState(oViewModel, grouper.groupUnitNumber(this.getResourceBundle()));
-		
+				this.busy = busyInd;
+				this.busy.open();
+				
 				this._oList = oList;
 				// keeps the filter and search state
 				this._oListFilterState = {
@@ -28,7 +31,7 @@ sap.ui.define([
 
 				this.setModel(oViewModel, "masterView");
 				oList.attachEventOnce("updateFinished", function(){
-					oViewModel.setProperty("/delay", iOriginalBusyDelay);
+					//oViewModel.setProperty("/delay", iOriginalBusyDelay);
 				});
 
 				this.getView().addEventDelegate({
@@ -171,7 +174,10 @@ sap.ui.define([
 		_bindView: function(sObjectPath) {
 			var oViewModel = this.getModel("masterView");
 			var oDataModel = this.getModel();
-
+			oViewModel.setProperty("/busy", true);
+			
+			var bd = this.busy;//.close();
+			
 			var oList = this.byId("masterListIdMD");
 			if (oList !== undefined)
 				oList.bindElement({
@@ -192,6 +198,7 @@ sap.ui.define([
 					},
 					dataReceived: function() {
 						oViewModel.setProperty("/busy", false);
+						bd.close();
 					}
 				}
 			});
