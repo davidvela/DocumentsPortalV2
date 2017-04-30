@@ -11,6 +11,7 @@ sap.ui.define([
 			// Model used to manipulate control states. The chosen values make sure,
 			// detail page is busy indication immediately so there is no break in
 			// between the busy indication for loading the view's meta data
+ 
 
 			var oViewModel = new JSONModel({
 				busy: false,
@@ -24,8 +25,7 @@ sap.ui.define([
 		},
 
 		buildDynamicScreen: function(pItemSelected) {
-
-			var columnData = [{
+		var columnData = [{
 				columnName: "firstName"
 			}, {
 				columnName: "lastName"
@@ -37,151 +37,6 @@ sap.ui.define([
 				firstName: "Sachin",
 				lastName: "Tendulkar",
 				department: "Cricket"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Lionel",
-				lastName: "Messi",
-				department: "Football"
-			}, 
-			{
-				firstName: "Mohan",
-				lastName: "Lal",
-				department: "Film"
 			}];
 
 			var sPath = "/CampaignSet('" + pItemSelected + "')";

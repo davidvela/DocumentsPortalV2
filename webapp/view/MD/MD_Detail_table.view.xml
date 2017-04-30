@@ -1,5 +1,9 @@
 <mvc:View controllerName="portaltest.controller.MD.MD_Detail_table" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
 	xmlns:semantic="sap.m.semantic">
 	<Label text="WELCOME to my Dynamic table."/>
-	
+				<Panel id="detailContainerMDRT">
+				<content>
+					<Input id="objectDetMDRT" value="{CampaignName}"/>
+				</content>
+			</Panel>
 </mvc:View>
