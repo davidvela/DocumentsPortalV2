@@ -3,7 +3,7 @@
 	<Label text="WELCOME to my Dynamic table."/>
 				<Panel id="detailContainerMDRT">
 				<content>
-					<Input id="objectDetMDRT" value="{CampaignName}"/>
+					<Input id="objectDetMDRT" value="{CampaignName} - hola "/>
 				</content>
 			</Panel>
 </mvc:View>
