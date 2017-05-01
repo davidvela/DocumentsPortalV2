@@ -40,10 +40,10 @@ sap.ui.define([
 				delay: 0
 			});
 			//this.getRouter().getRoute("objectMDR").attachPatternMatched(this._onObjectMatched, this);
-			var sObjectPath = this.getModel().createKey("CampaignSet", {
+				/*var sObjectPath = this.getModel().createKey("CampaignSet", {
 					CampaignID: "001"//sCampId
 				});
-		/*	this.getView().bindElement({  // no model attached to this view... 
+			this.getView().bindElement({  // no model attached to this view... 
 				path: sObjectPath,
 				events: {
 					//change: this._onBindingChange.bind(this),
@@ -54,50 +54,38 @@ sap.ui.define([
 						oViewModel.setProperty("/busy", false);
 					}	}
 				}); */
-			//this.setModel(oViewModel, "detailView");
+			this.setModel(oViewModel, "detailView");
 
 		},
-		
-		_onObjectMatched: function(oEvent) {
-			var sObjectId = oEvent.getParameter("arguments").objectId;
+		buildDynamicScreen: function( ) {
+			var oElement = this.byId("detailContainerMDRT");
+			oElement.removeAllContent();
+				var length = rowData.length;
+					var oTable = new sap.ui.table.Table({  visibleRowCount: length  		});
+					//var oTable = new sap.m.Table({   mob table does not have column binding!
+					//	visibleRowCount: 3 visibleRowCount: 10
+					//});
 
-			//this
-			//this.getView().setModel(oModel, "masterIR");
+					var oModel = new sap.ui.model.json.JSONModel();
+					oModel.setData({
+						rows: rowData,
+						columns: columnData
+					});
+					oTable.setModel(oModel);
 
-			var sCampId = oEvent.getParameter("arguments").campId;
-			this.getModel().metadataLoaded().then(function() {
-				var sObjectPath = this.getModel().createKey("CampaignSet", {
-					CampaignID: sCampId
-				});
-				this._bindView("/" + sObjectPath);
-			}.bind(this));
+					oTable.bindColumns("/columns", function(sId, oContext) {
+						var columnName = oContext.getObject().columnName;
+						return new sap.ui.table.Column({
+							label: columnName,
+							template: columnName
+						});
+					});
 
-			//this.buildDynamicScreen(sCampId);
+					oTable.bindRows("/rows");
+					oElement.addContent(oTable);
 
-		},
-		
-		_bindView: function(sObjectPath) {
-			// Set busy indicator during view binding
-			var oViewModel = this.getModel("detailView");
-			var dyn = this.buildDynamicScreen;
-			// If the view was not bound yet its not busy, only if the binding requests data it is set to busy again
-			oViewModel.setProperty("/busy", false);
-
-			this.getView().bindElement({
-				path: sObjectPath,
-				events: {
-					change: this._onBindingChange.bind(this),
-					dataRequested: function() {
-						oViewModel.setProperty("/busy", true);
-						//setTimeout(function(){ alert("Hello"); }, 3000);
-						//dyn(sObjectPath);
-					},
-					dataReceived: function() {
-						oViewModel.setProperty("/busy", false);
-					}
-				}
-			});
-		},
+			
+		}
 
 	});
 

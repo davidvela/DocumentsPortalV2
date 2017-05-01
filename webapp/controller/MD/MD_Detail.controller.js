@@ -112,7 +112,12 @@ sap.ui.define([
 
 					oTable.bindRows("/rows");
 					var ot1 = oTable;
-					oElement.addContent(ot1);
+					//var shallowCopy = { ...oTable }; // ES6  not working operator ...
+					//var newObject = new sap.ui.table.Table({  visibleRowCount: length  		});
+					//newObject = jQuery.extend(true, {}, oTable);
+					//newObject = JSON.parse(JSON.stringify(oTable));
+
+					//oElement.addContent(newObject);
 					oElement.addContent(oTable);
 					oElement.addContent(new sap.m.Input({
 						value: "{CampaignName}"
