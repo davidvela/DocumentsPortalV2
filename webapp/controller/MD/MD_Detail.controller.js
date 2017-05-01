@@ -44,45 +44,19 @@ sap.ui.define([
 			// var objectSel = this.getView().getModel().getProperty(sPath);
 			var objectSel = this.getModel().getProperty(sPath);
 			oElement.removeAllContent();
-			oElement.addContent(new sap.m.Label({
-				text: "type: {CampaignType}"
-			}));
-			oElement.addContent(new sap.m.Image({
-				src: "../assets/defaultImg.png", width: "50px"
-			}));
-			if (objectSel === undefined) return;
 
+			if (objectSel === undefined) return;
 			switch (objectSel.CampaignType) {
 				case "Application":
-					oElement.addContent(new sap.m.Input({
-						value: "{CampaignName}"
-					}));
+
 					break;
 				case "IoT":
-					oElement.addContent(new sap.m.Input({
-						value: "{CampaignName}"
-					}));
-					oElement.addContent(new sap.m.Button({
-						text: "IoT is cool"
+					oElement.addContent(new sap.ui.core.mvc.XMLView({
+						viewName: "portaltest.view.MD.MD_Detail_table",
+						type: "XML"
 					}));
 
-					var sValues = "yes;no";
-					var aValues = sValues.split(";");
-
-					var cb1 = new sap.m.ComboBox({
-						tooltip: "this is my toolTip!",
-						width: "200px"
-					});
-					///cb1.addStyle("");
-					//cb1.addItem(new sap.ui.core.Item({	text: "Production"	}));
-					function myFunction(item) {
-						cb1.addItem(new sap.ui.core.Item({
-							text: item
-						}));
-					}
-					aValues.forEach(myFunction);
-
-					oElement.addContent(cb1);
+	
 					break;
 				case "Legacy":
 					oElement.addContent(new sap.ui.core.mvc.XMLView({
@@ -119,36 +93,7 @@ sap.ui.define([
 
 					//oElement.addContent(newObject);
 					oElement.addContent(oTable);
-					oElement.addContent(new sap.m.Input({
-						value: "{CampaignName}"
-					}));
-					oElement.addContent(new sap.m.Input({
-						value: "{CampaignName}"
-					}));
-					oElement.addContent(new sap.m.Input({
-						value: "{CampaignName}"
-					}));
-					oElement.addContent(new sap.m.Input({
-						value: "{CampaignName}"
-					}));
-					oElement.addContent(new sap.m.Input({
-						value: "{CampaignName}"
-					}));
-					oElement.addContent(new sap.m.Input({
-						value: "{CampaignName}"
-					}));
-					oElement.addContent(new sap.m.Input({ 
-						value: "{CampaignName}"
-					}));
-					oElement.addContent(new sap.m.Input({
-						value: "{CampaignName}"
-					}));
-					oElement.addContent(new sap.m.Input({
-						value: "{CampaignName}"
-					}));
-					oElement.addContent(new sap.m.Input({
-						value: "{CampaignName}"
-					}));
+
 					break;
 				default:
 			}

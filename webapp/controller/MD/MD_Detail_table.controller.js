@@ -118,11 +118,11 @@ sap.ui.define([
 			var oModel = oItem.getSource().getParent().getParent().getModel(); //.getProperty("/rows");
 			var oRows = oModel.getProperty("/rows");
 			
-			var example = { firstName: "jose", 	lastName: "Lal",	department: "Film"  };
-			var oRow = oModel.getProperty("/rows/0");
-			for(var i in oRow){
+			var example = {}; //= { firstName: "jose", 	lastName: "Lal",	department: "Film"  };
+			var oColumns = oModel.getProperty("/columns");//("/rows/0");
+			for(var i in oColumns){
 				//oRow[i] = "";
-				example[i] = "";
+				example[oColumns[i].columnName] = "put your text here";
 			}
 			
 			oRows.push(example);
@@ -188,6 +188,56 @@ sap.ui.define([
 
 					oTable.bindRows("/rows");
 					oElement.addContent(oTable);
+					
+					this.buildRest(); 
+					
+		},
+		
+		buildRest: function(){
+		
+			var oElement = this.byId("detailContainerMDRT");
+			//*****
+			//INPUT
+			//****
+			oElement.addContent(new sap.m.Input({
+						value: "{CampaignName}"
+					}));
+						oElement.addContent(new sap.m.Button({
+						text: "IoT is cool"
+					}));
+			//*****
+			//COMBOBOX
+			//****
+				var sValues = "yes;no";
+				var aValues = sValues.split(";");
+
+				var cb1 = new sap.m.ComboBox({
+						tooltip: "this is my toolTip!",
+						width: "200px"
+					});
+					///cb1.addStyle("");
+					//cb1.addItem(new sap.ui.core.Item({	text: "Production"	}));
+				function myFunction(item) {
+						cb1.addItem(new sap.ui.core.Item({
+							text: item
+						}));
+				}
+				aValues.forEach(myFunction);
+				oElement.addContent(cb1);		
+			//*****
+			//LABEL
+			//****				
+				oElement.addContent(new sap.m.Label({
+					text: "type: {CampaignType}"
+				}));
+			//*****
+			//IMG
+			//****				
+				oElement.addContent(new sap.m.Image({
+					src: "../assets/defaultImg.png", width: "50px"
+				}));	
+					
+					
 		}
 
 	});
