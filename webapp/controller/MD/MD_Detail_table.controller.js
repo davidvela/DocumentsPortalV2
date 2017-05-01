@@ -143,15 +143,20 @@ sap.ui.define([
 																	}),
 																	new sap.m.ToolbarSpacer(),		
 																	new sap.m.Button({
-																		text : "Edit All",
+																		icon: "sap-icon://edit",
+																		//text: "All",
+																		text : "Edit All Rows",
 																		press :this.onPress_editAll}),
 																	new sap.m.Button({
+																		icon: "sap-icon://edit",
 																		text : "Edit Row",
 																		press :this.onPress_editRow}),
 																	new sap.m.Button({
+																		icon: "sap-icon://add",
 																		text : "New Row",
 																		press :this.onPress_addRow}),
 																	new sap.m.Button({
+																		icon: "sap-icon://delete",
 																		text : "Remove Row",
 																		type : "Reject",
 																		press : this.onPress_removeRow
