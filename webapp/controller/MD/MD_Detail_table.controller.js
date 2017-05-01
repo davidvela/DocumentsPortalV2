@@ -16,19 +16,24 @@ sap.ui.define([
 	var rowData = [{
 		firstName: "Sachin",
 		lastName: "Tendulkar",
-		department: "Cricket"
+		department: "Cricket",
+		edit      : true
 	}, {
 		firstName: "Lionel",
 		lastName: "Messi",
-		department: "Football"
+		department: "Football",
+		edit      : true
 	}, {
 		firstName: "Lionel",
 		lastName: "Messi",
-		department: "Football"
+		department: "Football",
+		edit      : false
 	}, {
 		firstName: "Mohan",
 		lastName: "Lal",
-		department: "Film"
+		department: "Film",
+		edit      : true
+
 	}];
 
 	return BaseController.extend("portaltest.controller.MD.MD_Detail_table", {
@@ -57,6 +62,39 @@ sap.ui.define([
 			this.setModel(oViewModel, "detailView");
 			this.buildDynamicScreen();
 		},
+		onPress_editAll: function(oItem){  //console.log("edit all");
+			var option = true;
+			if(oItem.getSource().getText() !== "Edit All"){
+				option = false; oItem.getSource().setText("Edit All")	;
+			} else oItem.getSource().setText( "Block All")	;
+			
+			var oModel = oItem.getSource().getParent().getParent().getModel(); //.getProperty("/rows");
+			var oRows = oModel.getProperty("/rows");
+			for(var i in oRows){
+				oRows[i].edit = option ;
+			}
+			
+			oModel.setProperty("/rows", oRows);
+
+		}	,
+		onPress_editRow: function(oItem){  //console.log("edit row");
+				var tbl = oItem.getSource().getParent().getParent();
+			    var idx = tbl.getSelectedIndex();
+		        
+		        var oModel = oItem.getSource().getParent().getParent().getModel(); //.getProperty("/rows");
+			
+		        if (idx !== -1) {
+				  var oRow = oModel.getProperty("/rows/"+idx);
+				  oRow.edit = !oRow.edit;
+				  oModel.setProperty("/rows/"+idx, oRow);
+
+		          //sap.m.MessageToast.show(JSON.stringify(removed[0]) +  'is removed');
+		          //tbl.setSelectedIndex(-1);
+		        } else {
+		          sap.m.MessageToast.show('Please select a row');
+		        }
+			
+		}	,
 		onPress_removeRow: function(oItem){  //console.log("Remove row");
 				var tbl = oItem.getSource().getParent().getParent();
 			    var idx = tbl.getSelectedIndex();
@@ -103,7 +141,13 @@ sap.ui.define([
 																	new sap.m.Label({
 																		text : "Table title..."
 																	}),
-																	new sap.m.ToolbarSpacer(),
+																	new sap.m.ToolbarSpacer(),		
+																	new sap.m.Button({
+																		text : "Edit All",
+																		press :this.onPress_editAll}),
+																	new sap.m.Button({
+																		text : "Edit Row",
+																		press :this.onPress_editRow}),
 																	new sap.m.Button({
 																		text : "New Row",
 																		press :this.onPress_addRow}),
@@ -134,7 +178,7 @@ sap.ui.define([
 					oTable.bindColumns("/columns", function(sId, oContext) {
 						var columnName = oContext.getObject().columnName;
 						
-						var template = new sap.m.Input({value: '{' + columnName  + '}'});
+						var template = new sap.m.Input({value: '{' + columnName  + '}', editable: "{edit}"});
 						
 						return new sap.ui.table.Column({
 							label: columnName,
