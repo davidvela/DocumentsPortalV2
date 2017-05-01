@@ -118,7 +118,8 @@ sap.ui.define([
 																	})
 																]			})  
 						
-					});
+					}).addStyleClass('alternate-color');
+
 					//var oTable = new sap.m.Table({   mob table does not have column binding!
 					//	visibleRowCount: 3 visibleRowCount: 10
 					//});
