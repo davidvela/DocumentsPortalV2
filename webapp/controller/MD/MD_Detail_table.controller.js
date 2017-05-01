@@ -42,7 +42,8 @@ sap.ui.define([
 
 			var oViewModel = new JSONModel({
 				busy: false,
-				delay: 0
+				delay: 0, 
+				Tablelength: 5
 			});
 			//this.getRouter().getRoute("objectMDR").attachPatternMatched(this._onObjectMatched, this);
 				/*var sObjectPath = this.getModel().createKey("CampaignSet", {
@@ -59,7 +60,7 @@ sap.ui.define([
 						oViewModel.setProperty("/busy", false);
 					}	}
 				}); */
-			this.setModel(oViewModel, "detailView");
+			this.setModel(oViewModel, "detailView");  
 			this.buildDynamicScreen();
 		},
 		onPress_editAll: function(oItem){  //console.log("edit all");
@@ -128,12 +129,17 @@ sap.ui.define([
 			oRows.push(example);
 			//oRows.push(oRow);
 			oModel.setProperty("/rows", oRows);
-
+			
+			var oModelDT = oItem.getSource().getParent().getParent().getModel("detailView");
+			var dataDT = oModelDT.getData();
+			dataDT.Tablelength++;
+			oModelDT.setData(dataDT);
+			
 		},
 		buildDynamicScreen: function( ) {
 			var oElement = this.byId("detailContainerMDRT");
 			oElement.removeAllContent();
-			var length = 10; // rowData.length;
+			var length = "{detailView>/Tablelength}"; //10; // rowData.length;
 			var oTable = new sap.ui.table.Table({  
 						visibleRowCount: length ,	
 						selectionMode: sap.ui.table.SelectionMode.Single, //Single, MultiTonggle, None
