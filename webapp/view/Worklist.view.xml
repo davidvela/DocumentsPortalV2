@@ -78,6 +78,30 @@
 						viewName="portaltest.view.fragments_views.questionnaire" type="XML"></mvc:XMLView>
 					</content>
 					</IconTabFilter>
+					
+					<!-- Communication CHAT	-->
+					<IconTabFilter text="Communication" > 
+					<content>
+						<FeedInput
+							post="onPost"
+							icon="test-resources/sap/m/images/dronning_victoria.jpg"
+							class="sapUiSmallMarginTopBottom" />
+						<List
+							showSeparators="Inner"
+							items="{/EntryCollection}" >
+							<FeedListItem
+								sender="{Author}"
+								icon="{AuthorPicUrl}"
+								senderPress="onSenderPress"
+								iconPress="onIconPress"
+								iconDensityAware="false"
+								info="{Type}"
+								timestamp="{Date}"
+								text="{Text}" />
+						</List>
+					</content>
+					</IconTabFilter>
+					
 				</items>
 			</IconTabBar>
 			<!-- FOOTER	  -->
