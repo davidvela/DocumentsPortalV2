@@ -6,13 +6,13 @@ sap.ui.define([
 	"use strict";
 
 	return BaseController.extend("portaltest.controller.MD.MD_Detail", {
+//require("portaltest/assets/");
 
 		onInit: function() {
 			// Model used to manipulate control states. The chosen values make sure,
 			// detail page is busy indication immediately so there is no break in
 			// between the busy indication for loading the view's meta data
  
-
 			var oViewModel = new JSONModel({
 				busy: false,
 				delay: 0,
@@ -52,7 +52,8 @@ sap.ui.define([
 					break;
 				case "IoT":
 					oElement.addContent(new sap.ui.core.mvc.XMLView({
-						viewName: "portaltest.view.MD.MD_Detail_table",
+					//	viewName: "portaltest.view.MD.MD_Detail_table",
+						viewName: "portaltest.view.fragments_views.questionnaire",
 						type: "XML"
 					}));
 
@@ -132,6 +133,8 @@ sap.ui.define([
 		},
 		    
 	    onPrint : function(oEvent) {
+	    	//require("portaltest/assets/defaultImg.png");
+
 	        var oTarget = this.getView(),
 	            // sTargetId = oEvent.getSource().data("targetId");
 	             sTargetId = oEvent.getSource().getText();
@@ -145,12 +148,17 @@ sap.ui.define([
 	                sTargetContent = $domTarget.innerHTML,
 	                sOriginalContent = document.body.innerHTML;
 	                
-	            document.body.innerHTML = 'hola <button> hello </button>' 
-	            							+ '<img src="../assets/defaultImg.png" alt="HTML5 Icon" style="width:128px;height:128px;">'
-	            							+ '    <p style="page-break-after:always;"></p>'
-	            							+ sTargetContent;
+	            document.body.innerHTML =   //'<body background="./picture"'  // background can be removed 
+	            							'<div style="width:100%; background-color: red;"> HI '
+	            							+ 'hola <button> hello </button>' 
+	            							+ '<img src="./assets/defaultImg.png" alt="HTML5 Icon" style="width:50px; height:50px;  float: left;">'
+	            							+ '<img src="portaltest/assets/defaultImg.png" alt="HTML5 Icon" style="width:50px; height:50px;  float: rigth; left:20px">'
+	            							+ '<p style="page-break-after:always;">page break</p>'
+	            							+ sTargetContent
+	            							+ '</div>';
+	            							// watermark - DRAFT please fill the questionnaire - not sent - empty or incomplete . 
 	            window.print();
-	            document.body.innerHTML = sOriginalContent;
+	            //document.body.innerHTML = sOriginalContent;
 	        } else {
 	            jQuery.sap.log.error("onPrint needs a valid target container [view|data:targetId=\"SID\"]");
 	        }

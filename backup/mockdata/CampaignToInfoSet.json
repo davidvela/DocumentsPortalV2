@@ -1,0 +1,40 @@
+[{
+	"CampaignID": "001",
+	"InfoRecID": "001"
+}, {
+	"InfoRecID": "001",
+	"CampaignID": "006"
+}, {
+	"InfoRecID": "001",
+	"CampaignID": "004"
+}, {
+	"InfoRecID": "001",
+	"CampaignID": "002"
+}, {
+	"InfoRecID": "002",
+	"CampaignID": "005"
+}, {
+	"InfoRecID": "002",
+	"CampaignID": "006"
+}, {
+	"InfoRecID": "003",
+	"CampaignID": "001"
+}, {
+	"InfoRecID": "003",
+	"CampaignID": "007"
+}, {
+	"InfoRecID": "003",
+	"CampaignID": "008"
+}, {
+	"InfoRecID": "004",
+	"CampaignID": "001"
+}, {
+	"InfoRecID": "004",
+	"CampaignID": "008"
+}, {
+	"InfoRecID": "004",
+	"CampaignID": "009"
+}, {
+	"InfoRecID": "004",
+	"CampaignID": "010"
+}]
