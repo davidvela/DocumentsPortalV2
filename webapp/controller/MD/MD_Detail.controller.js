@@ -45,19 +45,27 @@ sap.ui.define([
 			var objectSel = this.getModel().getProperty(sPath);
 			oElement.removeAllContent();
 			
-			if (objectSel !== undefined)
-			var sElementPath = this.getModel().createKey("CampDynSet", {
+			if (objectSel !== undefined) {
+				/*var sElementPath = this.getModel().createKey("CampDynSet", {
 						CampaignID :  objectSel.CampaignID
 					});
-			
+				var sElementPath2 = "/CampaignDyn('" + objectSel.CampaignID + "')";			
+				var objectSel2 = this.getModel().getProperty(sElementPath2);
+				*/
+				for(var i in objectSel.ToElements.__list) { 
+					console.log(objectSel.ToElements.__list[i]);
+				}
+			} 
 			
 			if (objectSel === undefined) return;
 			switch (objectSel.CampaignType) {
 				case "Application":
-					oElement.addContent(new sap.ui.core.mvc.XMLView({
+					var view = new sap.ui.core.mvc.XMLView({
 						viewName: "portaltest.view.MD.MD_Detail_chapter1",
 						type: "XML"
-					}));
+					});
+					//view.bindElement({path: sPath, parameters: {expand: "ToElements"	}});
+					oElement.addContent(view	);
 					break;
 				case "IoT":
 					oElement.addContent(new sap.ui.core.mvc.XMLView({

@@ -5,7 +5,8 @@
 				<content>
 					<Input id="objectDetMDR_ch1" value="{CampaignName} - hola "/>
 					<Input id="objectDetMDR_ch1t1" value="{ path: 'ToElements/0', parameters: {expand: 'CampDynSet'} }" />
-					<Input id="objectDetMDR_ch1t2" value="{ToElements(CampaignID = '001', elementID='001')/elementType }" />
+					<Input id="objectDetMDR_ch1t2" value="{ToElements/0}" />
+					<Input id="objectDetMDR_ch1t3" value="{ToElements(CampaignID = '001', elementID='001')/elementType }" />
 					
 					
 					<Table	noDataText="no data" id="tabCampaignsfromInfoCH1" 

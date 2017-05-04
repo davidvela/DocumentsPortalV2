@@ -29,12 +29,12 @@ sap.ui.define([
 					}	}
 				}); */
 			this.setModel(oViewModel, "detailView");  
-			//this.buildDynamicScreen();
+			this.buildDynamicScreen();
 		},
 		buildDynamicScreen: function( ) {
-			var oElement = this.byId("detailContainerMDR_ch1");
-			oElement.removeAllContent();
-
+			//var oElement = this.byId("detailContainerMDR_ch1");
+			//oElement.removeAllContent();
+			var model = "test"; 
 					
 		}
 		
