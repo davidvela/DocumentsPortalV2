@@ -1,0 +1,15 @@
+[{
+	"CampDynID": "001",
+	"elementID": "001",
+	"elementType": "title",
+	"elementValueB": "hola",
+	"description": "intro1",
+	"CampaignID": "001"
+}, {
+	"CampDynID": "001",
+	"elementID": "002",
+	"elementType": "input",
+	"elementValueB": "hola Input",
+	"description": "intro_input",
+	"CampaignID": "001"
+}]

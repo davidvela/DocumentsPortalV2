@@ -44,7 +44,13 @@ sap.ui.define([
 			// var objectSel = this.getView().getModel().getProperty(sPath);
 			var objectSel = this.getModel().getProperty(sPath);
 			oElement.removeAllContent();
-
+			
+			if (objectSel !== undefined)
+			var sElementPath = this.getModel().createKey("CampDynSet", {
+						CampaignID :  objectSel.CampaignID
+					});
+			
+			
 			if (objectSel === undefined) return;
 			switch (objectSel.CampaignType) {
 				case "Application":
@@ -208,6 +214,7 @@ sap.ui.define([
 					CampaignID: sCampId
 				});
 				this._bindView("/" + sObjectPath);
+				
 			}.bind(this));
 
 			this.buildDynamicScreen(sCampId);
@@ -229,6 +236,9 @@ sap.ui.define([
 
 			this.getView().bindElement({
 				path: sObjectPath,
+				parameters: {
+					expand: "ToElements"	
+				},
 				events: {
 					change: this._onBindingChange.bind(this),
 					dataRequested: function() {

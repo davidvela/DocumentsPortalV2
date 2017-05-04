@@ -36,6 +36,7 @@
                 <Property Name="CreatedBy" Type="Edm.String"/>
                 <Property Name="FinalizedOn" Type="Edm.String"/>
                 <NavigationProperty FromRole="FromRole_Assoc_CampaignToInfo" Name="ToCampaignInfoRec" Relationship="OData_Portal.Assoc_CampaignToInfo" ToRole="ToRole_Assoc_CampaignToInfo"/>
+                <NavigationProperty FromRole="From_Campaign" Name="ToElements" Relationship="OData_Portal.CampaignCampDyn" ToRole="To_CampDyn"/>
             </EntityType>
             <EntityType Name="CampaignToInfo">
                 <Key>
@@ -83,6 +84,30 @@
                 <Property Name="TitleQuestionnaire" Type="Edm.String"/>
                 <Property Name="IntroQuestionnaire" Type="Edm.String"/>
                 <Property Name="Question" Nullable="false" Type="OData_Portal.CT_Question"/>
+            </EntityType>
+            <EntityType Name="CampDyn">
+                <Key>
+                    <PropertyRef Name="CampaignID"/>
+                    <PropertyRef Name="elementID"/>
+                </Key>
+                <Property Name="CampaignID" Nullable="false" Type="Edm.String"/>
+                <Property Name="elementID" Nullable="false" Type="Edm.String"/>
+                <Property Name="elementType" Type="Edm.String"/>
+                <Property Name="elementValueB" Type="Edm.String"/>
+                <Property Name="description" Type="Edm.String"/>
+                <NavigationProperty FromRole="From_CampDyn" Name="ToTables" Relationship="OData_Portal.CampDynTables" ToRole="To_Tables"/>
+            </EntityType>
+            <EntityType Name="Tables">
+                <Key>
+                    <PropertyRef Name="TablesID"/>
+                    <PropertyRef Name="elementID"/>
+                    <PropertyRef Name="CampaignID"/>
+                </Key>
+                <Property Name="TablesID" Nullable="false" Type="Edm.String"/>
+                <Property Name="elementID" Nullable="false" Type="Edm.String"/>
+                <Property Name="CampaignID" Nullable="false" Type="Edm.String"/>
+                <Property Name="column" Type="Edm.String"/>
+                <Property Name="value" Type="Edm.String"/>
             </EntityType>
             <ComplexType Name="CT_Question">
                 <Property Name="TitleQuestion" Type="Edm.String"/>
@@ -141,11 +166,39 @@
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
+            <Association Name="CampaignCampDyn">
+                <End Multiplicity="1" Role="From_Campaign" Type="OData_Portal.Campaign"/>
+                <End Multiplicity="*" Role="To_CampDyn" Type="OData_Portal.CampDyn"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_Campaign">
+                        <PropertyRef Name="CampaignID"/>
+                    </Principal>
+                    <Dependent Role="To_CampDyn">
+                        <PropertyRef Name="CampaignID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="CampDynTables">
+                <End Multiplicity="1" Role="From_CampDyn" Type="OData_Portal.CampDyn"/>
+                <End Multiplicity="*" Role="To_Tables" Type="OData_Portal.Tables"/>
+                <ReferentialConstraint>
+                    <Principal Role="From_CampDyn">
+                        <PropertyRef Name="CampaignID"/>
+                        <PropertyRef Name="elementID"/>
+                    </Principal>
+                    <Dependent Role="To_Tables">
+                        <PropertyRef Name="CampaignID"/>
+                        <PropertyRef Name="elementID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
             <EntityContainer Name="default" m:IsDefaultEntityContainer="true">
                 <EntitySet EntityType="OData_Portal.InfoRec" Name="InfoRecSet"/>
                 <EntitySet EntityType="OData_Portal.Campaign" Name="CampaignSet"/>
                 <EntitySet EntityType="OData_Portal.Questionnaire" Name="QuestionnaireSet"/>
                 <EntitySet EntityType="OData_Portal.CampaignToInfo" Name="CampaignToInfoSet"/>
+                <EntitySet EntityType="OData_Portal.CampDyn" Name="CampDynSet"/>
+                <EntitySet EntityType="OData_Portal.Tables" Name="TablesSet"/>
                 <AssociationSet Association="OData_Portal.Assoc_CampaignToInfo" Name="Assoc_CampaignToInfo_AssocS">
                     <End EntitySet="CampaignSet" Role="FromRole_Assoc_CampaignToInfo"/>
                     <End EntitySet="CampaignToInfoSet" Role="ToRole_Assoc_CampaignToInfo"/>
@@ -161,6 +214,14 @@
                 <AssociationSet Association="OData_Portal.InfoCampaignToCampaign" Name="CampaignToInfoCampaignSet">
                     <End EntitySet="CampaignToInfoSet" Role="From_CampaignToInfo"/>
                     <End EntitySet="CampaignSet" Role="To_Campaign"/>
+                </AssociationSet>
+                <AssociationSet Association="OData_Portal.CampaignCampDyn" Name="CampaignCampDynSet">
+                    <End EntitySet="CampaignSet" Role="From_Campaign"/>
+                    <End EntitySet="CampDynSet" Role="To_CampDyn"/>
+                </AssociationSet>
+                <AssociationSet Association="OData_Portal.CampDynTables" Name="CampDynTablesSet">
+                    <End EntitySet="CampDynSet" Role="From_CampDyn"/>
+                    <End EntitySet="TablesSet" Role="To_Tables"/>
                 </AssociationSet>
             </EntityContainer>
         </Schema>
