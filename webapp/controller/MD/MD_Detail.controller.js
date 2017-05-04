@@ -54,9 +54,16 @@ sap.ui.define([
 			if (objectSel === undefined) return;
 			switch (objectSel.CampaignType) {
 				case "Application":
-
+					oElement.addContent(new sap.ui.core.mvc.XMLView({
+						viewName: "portaltest.view.MD.MD_Detail_chapter1",
+						type: "XML"
+					}));
 					break;
 				case "IoT":
+					oElement.addContent(new sap.ui.core.mvc.XMLView({
+						viewName: "portaltest.view.MD.MD_Detail_chapter1",
+						type: "XML"
+					}));
 					oElement.addContent(new sap.ui.core.mvc.XMLView({
 					//	viewName: "portaltest.view.MD.MD_Detail_table",
 						viewName: "portaltest.view.fragments_views.questionnaire",
