@@ -1,0 +1,127 @@
+[{
+	"CampaignID": "001",
+	"CampaignName": "Web Portal ",
+	"CampaignType": "Application",
+	"CampaignStatus": "In Track",
+	"CreatedOn": "10.04.2017",
+	"CreatedAt": "UK Headquarters ",
+	"CreatedBy": "David VT",
+	"FinalizedOn": "2020",
+	"__metadata": {
+		"uri": "CampaignSet('CampaignID%201')",
+		"type": "OData_Portal.Campaign"
+	},
+	"ToCampaignInfoRec": {
+		"__deferred": {
+			"uri": "CampaignSet('CampaignID%201')/ToCampaignInfoRec"
+		}
+	}
+}, {
+	"CampaignID": "002",
+	"CampaignName": "Machine Learning components ",
+	"CampaignType": "Big Data",
+	"CampaignStatus": "In Track",
+	"CreatedOn": "10.04.2017",
+	"CreatedAt": "UK Headquarters ",
+	"CreatedBy": "David VT",
+	"FinalizedOn": "2020",
+	"__metadata": {
+		"uri": "CampaignSet('CampaignID%202')",
+		"type": "OData_Portal.Campaign"
+	},
+	"ToCampaignInfoRec": {
+		"__deferred": {
+			"uri": "CampaignSet('CampaignID%202')/ToCampaignInfoRec"
+		}
+	}
+}, {
+	"CampaignID": "004",
+	"CampaignName": "Connect IoT devices to SAP CP – \tSAP Application Enablement Services ",
+	"CampaignType": "IoT",
+	"CampaignStatus": "In Track",
+	"CreatedOn": "10.02.2016",
+	"CreatedAt": "UK Headquarters ",
+	"CreatedBy": "David VT",
+	"FinalizedOn": "2020",
+	"__metadata": {
+		"uri": "CampaignSet('CampaignID%203')",
+		"type": "OData_Portal.Campaign"
+	},
+	"ToCampaignInfoRec": {
+		"__deferred": {
+			"uri": "CampaignSet('CampaignID%203')/ToCampaignInfoRec"
+		}
+	}
+}, {
+	"CampaignID": "005",
+	"CampaignName": "Server Update ",
+	"CampaignType": "Legacy",
+	"CampaignStatus": "Pending",
+	"CreatedOn": "10.02.2016",
+	"CreatedAt": "UK Customer Site V01",
+	"CreatedBy": "David VT",
+	"FinalizedOn": "2020",
+	"__metadata": {
+		"uri": "CampaignSet('CampaignID%204')",
+		"type": "OData_Portal.Campaign"
+	},
+	"ToCampaignInfoRec": {
+		"__deferred": {
+			"uri": "CampaignSet('CampaignID%204')/ToCampaignInfoRec"
+		}
+	}
+}, {
+	"CampaignID": "006",
+	"CampaignName": "HANA and SAP CP Update ",
+	"CampaignType": "Legacy",
+	"CampaignStatus": "Pending",
+	"CreatedOn": "10.02.2016",
+	"CreatedAt": "UK Customer Site ",
+	"CreatedBy": "David VT",
+	"FinalizedOn": "2020",
+	"__metadata": {
+		"uri": "CampaignSet('CampaignID%205')",
+		"type": "OData_Portal.Campaign"
+	},
+	"ToCampaignInfoRec": {
+		"__deferred": {
+			"uri": "CampaignSet('CampaignID%205')/ToCampaignInfoRec"
+		}
+	}
+}, {
+	"CampaignID": "007",
+	"CampaignName": "Web Chat ",
+	"CampaignType": "Application",
+	"CreatedOn": "10.02.2016",
+	"CreatedAt": "UK Customer Site ",
+	"CreatedBy": "David VT",
+	"FinalizedOn": "2020",
+	"CampaignStatus": "Pending"
+}, {
+	"CampaignID": "008",
+	"CampaignType": "Application",
+	"CampaignName": "Transport management ",
+	"CreatedOn": "10.03.2017",
+	"CreatedAt": "UK Customer Site ",
+	"CreatedBy": "David VT",
+	"FinalizedOn": "2020",
+	"CampaignStatus": "Finished"
+}, {
+	"CampaignID": "009",
+	"CampaignType": "IoT",
+	"CampaignName": "Transport localization sensors",
+	"CreatedOn": "10.03.2017",
+	"CreatedAt": "UK Customer Site ",
+	"CreatedBy": "David VT",
+	"FinalizedOn": "2020",
+	"CampaignStatus": "Finished"
+}, {
+	"CampaignID": "010",
+	"CampaignType": "Big Data",
+	"CampaignName": "Transport Analyser – Neural Networks ",
+	"CreatedOn": "10.03.2017",
+	"CreatedAt": "UK Customer Site ",
+	"CreatedBy": "David VT",
+	"FinalizedOn": "2020",
+	"CampaignStatus": "Finished"
+}]
