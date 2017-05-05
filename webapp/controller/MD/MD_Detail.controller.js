@@ -53,7 +53,14 @@ sap.ui.define([
 				var objectSel2 = this.getModel().getProperty(sElementPath2);
 				*/
 				for(var i in objectSel.ToElements.__list) { 
-					console.log(objectSel.ToElements.__list[i]);
+					var sPath2 = "/" + objectSel.ToElements.__list[i]; 
+					//console.log( sPath2 );
+					
+					var objectSel2 = this.getModel().getProperty(sPath2);
+					
+					oElement.addContent(new sap.m.Input({
+						value: "{elementType}"
+					}).bindElement({path: sPath2 }) );
 				}
 			} 
 			

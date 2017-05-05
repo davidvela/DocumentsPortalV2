@@ -4,13 +4,18 @@
 				<Panel id="detailContainerMDR_ch1">
 				<content>
 					<Input id="objectDetMDR_ch1" value="{CampaignName} - hola "/>
+					<Input id="objectDetMDR_ch1t0" value="{elementType}" />
 					<Input id="objectDetMDR_ch1t1" value="{ path: 'ToElements/0', parameters: {expand: 'CampDynSet'} }" />
-					<Input id="objectDetMDR_ch1t2" value="{ToElements/0}" />
-					<Input id="objectDetMDR_ch1t3" value="{ToElements(CampaignID = '001', elementID='001')/elementType }" />
-					
-					
+					<Input id="objectDetMDR_ch1t2" value="{ ToElements[0]/elementType}" />
+					<Input id="objectDetMDR_ch1t3" value="{ /CampDynSet(CampaignID = '001', elementID='001')/elementType }" />
+					<!--
+						<Input id="objectDetMDR_ch1t4" value="{contextPath: 'ToElements(CampaignID = '001', elementID='001')', path:'elementType' }" />
+					-->
+					<Input id="objectDetMDR_ch1t4" value="{ ToElements/(CampaignID = '001', elementID='001')/elementType }" />
+					<Input id="objectDetMDR_ch1t5" value="{ ToElements/0/elementType }" />
+
 					<Table	noDataText="no data" id="tabCampaignsfromInfoCH1" 
-						items= "{ path: 'ToElements', parameters: {expand: 'CampDynSet'} }"			>
+						items= "{ path: 'ToElements' }"			>
 						<columns>
 					        <Column id="__column0_OCH1">
 					            <header><Label text="Name"/></header>
@@ -24,6 +29,25 @@
 					        </ColumnListItem>
 					     </items>
 					</Table> 
+					
+					<Table	noDataText="no data" id="tabCampaignsfromInfoCH1_T" 
+						items= "{ path: 'ToElements' , parameters: {expand: 'CampDynSet'}}"			>
+						<columns>
+					        <Column id="__column0_OCH1_T">
+					            <header><Label text="Name"/></header>
+					        </Column>
+					     </columns>
+					    <items>
+					        <ColumnListItem id="__item0_OT">
+					            <cells>
+					                <Text text="{elementType}"/>
+					            </cells>
+					        </ColumnListItem>
+					     </items>
+					</Table> 
+					
+					
+					
 					
 				</content>
 			</Panel>
