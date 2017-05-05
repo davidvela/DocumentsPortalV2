@@ -1,4 +1,4 @@
-/*global location */
+//*global location */
 sap.ui.define([
 	"portaltest/controller/BaseController",
 	"sap/ui/model/json/JSONModel"
@@ -13,11 +13,12 @@ sap.ui.define([
 				delay: 0, 
 				Tablelength: 5
 			});
-			//this.getRouter().getRoute("objectMDR").attachPatternMatched(this._onObjectMatched, this);
-				/*var sObjectPath = this.getModel().createKey("CampaignSet", {
+			//this.getRouter().getRoute("objectMDR");//.attachPatternMatched(this._onObjectMatched, this);
+			
+			/*	var sObjectPath = this.getModel().createKey("CampaignSet", {
 					CampaignID: "001"//sCampId
 				});
-			this.getView().bindElement({  // no model attached to this view... 
+				this.getView().bindElement({  // no model attached to this view... 
 				path: sObjectPath,
 				events: {
 					//change: this._onBindingChange.bind(this),
@@ -36,6 +37,46 @@ sap.ui.define([
 			//oElement.removeAllContent();
 			var model = "test"; 
 					
+		},
+		_onObjectMatched: function(oEvent) {
+			var sObjectId = oEvent.getParameter("arguments").objectId;
+
+			var sCampId = oEvent.getParameter("arguments").campId;
+			this.getModel().metadataLoaded().then(function() {
+				var sObjectPath = this.getModel().createKey("CampaignSet", {
+					CampaignID: sCampId
+				});
+				this._bindView("/" + sObjectPath);
+			}.bind(this));
+		},
+		_bindView: function(sObjectPath) {
+			this.getView().bindElement({
+				path: sObjectPath,
+				parameters: {
+					expand: "ToElements"	
+				},
+				events: {
+					change: this._onBindingChange.bind(this),
+					dataRequested: function() {
+						//setTimeout(function(){ alert("Hello"); }, 3000);
+						//dyn(sObjectPath);
+					},
+					dataReceived: function() {					}
+				}
+			});
+		},
+
+		_onBindingChange: function() {
+			var oView = this.getView(),
+			oElementBinding = oView.getElementBinding();
+			if (!oElementBinding.getBoundContext()) {
+				this.getRouter().getTargets().display("detailObjectNotFound");
+				return;
+			}
+
+			var sPath = oElementBinding.getPath(),
+				oObject = oView.getModel().getObject(sPath);
+			this.getOwnerComponent().oListSelector.selectAListItem(sPath);
 		}
 		
 	});

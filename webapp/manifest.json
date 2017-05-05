@@ -158,6 +158,14 @@
 					"viewLevel": 4,
 					"controlAggregation": "detailPages",
 					"controlId": "MD_App"
+				},				
+				"ch1": {
+					"parent": "objectMDR",
+					"viewName": "MD.MD_Detail_chapter1",
+					"viewId": "MD_ch1",
+					"viewLevel": 5,
+					"controlAggregation": "detailPages",
+					"controlId": "MD_App"
 				},
 				"objectNotFound": {
 					"viewName": "ObjectNotFound",
