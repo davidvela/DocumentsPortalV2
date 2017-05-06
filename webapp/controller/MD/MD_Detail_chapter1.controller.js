@@ -14,7 +14,6 @@ sap.ui.define([
 				Tablelength: 5
 			});
 			//this.getRouter().getRoute("objectMDR");//.attachPatternMatched(this._onObjectMatched, this);
-			
 			/*	var sObjectPath = this.getModel().createKey("CampaignSet", {
 					CampaignID: "001"//sCampId
 				});
