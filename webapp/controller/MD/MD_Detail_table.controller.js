@@ -224,7 +224,8 @@ sap.ui.define([
 
 				var cb1 = new sap.m.ComboBox({
 						tooltip: "this is my toolTip!",
-						width: "200px"
+						width: "200px", 
+						selectedKey: "1"
 					});
 					///cb1.addStyle("");
 					//cb1.addItem(new sap.ui.core.Item({	text: "Production"	}));

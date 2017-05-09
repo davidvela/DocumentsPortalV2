@@ -33,7 +33,7 @@ sap.ui.define([
 		},
 		buildDynamicScreen: function( ) {
 			var oElement = this.byId("objectDetMDR_ch1t0");
-			oElement.bindElement( { path: "/CampDynSet(CampaignID = '001', elementID='001')" });
+			oElement.bindElement( { path: "/CampDynSet(CampaignID = '001', elementID='002')" });
 			//oElement.removeAllContent();
 			var model = "test"; 
 			
