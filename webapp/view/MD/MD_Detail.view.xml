@@ -19,7 +19,7 @@
 				<IconTabBar selectedKey="firstTab" id="__bar0">
 				<items>
 				<!-- DYNAMIC SCREEN -->
-				<IconTabFilter text="Dynamic Screen" key="firstTab">
+				<IconTabFilter text="DynamicSC" key="firstTab"	icon="sap-icon://hint" >
 					<content>
 							<Panel id="detailContainerMDR">
 							<content>
@@ -28,10 +28,10 @@
 						</Panel>
 					</content>
 					</IconTabFilter>
-				<IconTabFilter text="Attachment">
+				<IconTabFilter text="Attachment" icon="sap-icon://attachment" >
 					<content>
 				</content></IconTabFilter>
-				<IconTabFilter text="Chat">
+				<IconTabFilter text="Chat" icon="sap-icon://jam" >		<!-- notes -->
 					<content>
 				</content></IconTabFilter>
 				</items>

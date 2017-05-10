@@ -50,18 +50,17 @@ sap.ui.define([
 			
 			if (objectSel !== undefined) {
 				for(var i in objectSel.ToElements.__list) { 
-					var sPath2 = "/" + objectSel.ToElements.__list[i]; 
-					//console.log( sPath2 );
-					
+					var sPath2 = "/" + objectSel.ToElements.__list[i]; 		//console.log( sPath2 );
 					var objectSel2 = this.getModel().getProperty(sPath2);
 					if (objectSel === undefined) return;
 					switch (objectSel2.elementType) {
 						case "title":
-							
+							oElement.addContent(new sap.m.Title({
+								text: "{elementValueB}", titleStyle: "H3"  }).bindElement({path: sPath2 }) );
 							break;
 						case "input":
 							oElement.addContent(new sap.m.Input({
-							value: "{elementValueB} " }).bindElement({path: sPath2 }) );
+								value: "{elementValueB}" }).bindElement({path: sPath2 }) );
 							break;
 						case "ComboBox":
 				
@@ -76,6 +75,17 @@ sap.ui.define([
 							} ) );
 							oTable2.bindRows("ToTables"); // items="{ path: 'ToCampaignInfoRec', parameters: {expand: 'ToInfoRec'} }
 							oElement.addContent(oTable2);
+							
+							var ii = 1; 		//TablesSet(TablesID='002',elementID='004',CampaignID='001')
+							/*do{
+								var iTID = ("00" + ii).slice(-3);
+   								var sPath3 = "/TablesSet(TablesID='" + iTID + "'" +
+												      ",elementID='" + objectSel2.elementID +  "'" +
+												    ",CampaignID='"  + objectSel2.CampaignID + "')"; console.log( sPath3 );
+								 var objectSel3 = this.getModel().getProperty(sPath3); 
+								 if (objectSel3 === undefined) ii = -1; else{ console.log(objectSel3.value); ii++;}
+							} while( ii !== -1)
+							*/
 							break;
 					}//end switch
 				}
