@@ -2,7 +2,7 @@
 	"CampDynID": "001",
 	"elementID": "001",
 	"elementType": "title",
-	"elementValueB": "hola",
+	"elementValueB": "This is my title ",
 	"description": "intro1",
 	"CampaignID": "001"
 }, {
@@ -12,4 +12,28 @@
 	"elementValueB": "hola Input",
 	"description": "intro_input",
 	"CampaignID": "001"
+}, {
+	"CampaignID": "001",
+	"elementID": "003",
+	"elementType": "ComboBox",
+	"elementValueB": "001",
+	"description": "Are you Happy?"
+}, {
+	"CampaignID": "002",
+	"elementID": "001 ",
+	"elementType": "title ",
+	"elementValueB": "this is my title 2 ",
+	"description": "hello amigo"
+}, {
+	"CampaignID": "003",
+	"elementID": "001 ",
+	"elementType": "title",
+	"elementValueB": "title 3",
+	"description": "title d"
+}, {
+	"CampaignID": "004",
+	"elementID": "001 ",
+	"elementType": "title",
+	"elementValueB": "title 4",
+	"description": "title d"
 }]
