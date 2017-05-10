@@ -203,7 +203,7 @@ sap.ui.define([
 	            							+ '</div>';
 	            							// watermark - DRAFT please fill the questionnaire - not sent - empty or incomplete . 
 	            window.print();
-	            //document.body.innerHTML = sOriginalContent;
+	            document.body.innerHTML = sOriginalContent;
 	        } else {
 	            jQuery.sap.log.error("onPrint needs a valid target container [view|data:targetId=\"SID\"]");
 	        }

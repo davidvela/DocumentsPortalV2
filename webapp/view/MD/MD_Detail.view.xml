@@ -15,11 +15,28 @@
 					</Menu>
 				</menu>
 			</MenuButton>
-			<Panel id="detailContainerMDR">
-				<content>
-					<Input id="objectDetMDR" value="{CampaignName}"/>
-				</content>
-			</Panel>
+			
+				<IconTabBar selectedKey="firstTab" id="__bar0">
+				<items>
+				<!-- DYNAMIC SCREEN -->
+				<IconTabFilter text="Dynamic Screen" key="firstTab">
+					<content>
+							<Panel id="detailContainerMDR">
+							<content>
+								<Input id="objectDetMDR" value="{CampaignName}"/>
+							</content>
+						</Panel>
+					</content>
+					</IconTabFilter>
+				<IconTabFilter text="Attachment">
+					<content>
+				</content></IconTabFilter>
+				<IconTabFilter text="Chat">
+					<content>
+				</content></IconTabFilter>
+				</items>
+			</IconTabBar>
+			<!-- FOOTER	  -->
 		</semantic:content>
 		<semantic:customFooterContent>
 			<OverflowToolbar id="otbFooter">
