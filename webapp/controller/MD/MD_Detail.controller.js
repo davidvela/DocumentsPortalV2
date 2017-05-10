@@ -4,10 +4,24 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel"
 ], function(BaseController, JSONModel) {
 	"use strict";
+	var columnData = [{
+			columnName: "firstName"
+		}, {
+			columnName: "lastName"
+		}, {
+			columnName: "department"
+		}];
 
+		var rowData = [{
+			firstName: "Sachin",
+			lastName: "Tendulkar",
+			department: "Cricket"
+		}];
 	return BaseController.extend("portaltest.controller.MD.MD_Detail", {
-//require("portaltest/assets/");
-
+	//require("portaltest/assets/");
+/* **************************************************************************************************		
+		INIT 
+   ************************************************************************************************** */
 		onInit: function() {
 			// Model used to manipulate control states. The chosen values make sure,
 			// detail page is busy indication immediately so there is no break in
@@ -23,22 +37,11 @@ sap.ui.define([
 			this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
 
 		},
-
+		
+/* **************************************************************************************************		
+		BUILD DYNAMIC SCREEN 
+   ************************************************************************************************** */		
 		buildDynamicScreen: function(pItemSelected) {
-		var columnData = [{
-				columnName: "firstName"
-			}, {
-				columnName: "lastName"
-			}, {
-				columnName: "department"
-			}];
-
-			var rowData = [{
-				firstName: "Sachin",
-				lastName: "Tendulkar",
-				department: "Cricket"
-			}];
-
 			var sPath = "/CampaignSet('" + pItemSelected + "')";
 			var oElement = this.byId("detailContainerMDR");
 			// var objectSel = this.getView().getModel().getProperty(sPath);
@@ -46,33 +49,47 @@ sap.ui.define([
 			oElement.removeAllContent();
 			
 			if (objectSel !== undefined) {
-				/*var sElementPath = this.getModel().createKey("CampDynSet", {
-						CampaignID :  objectSel.CampaignID
-					});
-				var sElementPath2 = "/CampaignDyn('" + objectSel.CampaignID + "')";			
-				var objectSel2 = this.getModel().getProperty(sElementPath2);
-				*/
 				for(var i in objectSel.ToElements.__list) { 
 					var sPath2 = "/" + objectSel.ToElements.__list[i]; 
 					//console.log( sPath2 );
 					
 					var objectSel2 = this.getModel().getProperty(sPath2);
-					
-					oElement.addContent(new sap.m.Input({
-						value: "{elementType}"
-					}).bindElement({path: sPath2 }) );
+					if (objectSel === undefined) return;
+					switch (objectSel2.elementType) {
+						case "title":
+							
+							break;
+						case "input":
+							oElement.addContent(new sap.m.Input({
+							value: "{elementValueB} " }).bindElement({path: sPath2 }) );
+							break;
+						case "ComboBox":
+				
+							break;
+						case "table":
+							var oTable2 = new sap.ui.table.Table({  visibleRowCount: 3	});
+							oTable2.bindElement({path: sPath2 }); //, parameter: { expand: "ToTables"}
+							oTable2.addColumn(new sap.ui.table.Column({	label: "{elementValueB} ", 
+																		//template: new sap.m.Input({ value: '{ToTables/value}' }) 
+																		template: new sap.m.Input().bindProperty("value","ToTables/0/value") 
+								
+							} ) );
+							oTable2.bindRows("/ToTables"); // items="{ path: 'ToCampaignInfoRec', parameters: {expand: 'ToInfoRec'} }
+							oElement.addContent(oTable2);
+							break;
+					}//end switch
 				}
 			} 
 			
 			if (objectSel === undefined) return;
 			switch (objectSel.CampaignType) {
 				case "Application":
-					var view = new sap.ui.core.mvc.XMLView({
+					/*var view = new sap.ui.core.mvc.XMLView({
 						viewName: "portaltest.view.MD.MD_Detail_chapter1",
 						type: "XML"
-					});
+					}); 
 					//view.bindElement({path: sPath, parameters: {expand: "ToElements"	}});
-					oElement.addContent(view	);
+					oElement.addContent(view	);*/
 					break;
 				case "IoT":
 					oElement.addContent(new sap.ui.core.mvc.XMLView({

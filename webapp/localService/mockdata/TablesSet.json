@@ -1,0 +1,13 @@
+[{
+	"TablesID": "001",
+	"elementID": "004",
+	"CampaignID": "001",
+	"column": "nameT",
+	"value": "nameT"
+}, {
+	"TablesID": "002",
+	"elementID": "004",
+	"CampaignID": "001",
+	"column": "surnameT",
+	"value": "surnameT"
+}]
