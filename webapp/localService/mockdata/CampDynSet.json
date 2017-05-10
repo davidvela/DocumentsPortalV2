@@ -21,7 +21,7 @@
 }, {
 	"CampaignID": "002",
 	"elementID": "001 ",
-	"elementType": "title ",
+	"elementType": "title",
 	"elementValueB": "this is my title 2 ",
 	"description": "hello amigo"
 }, {
@@ -48,4 +48,10 @@
 	"elementType": "table",
 	"elementValueB": "name4",
 	"description": "surname4"
+}, {
+	"CampaignID": "001",
+	"elementID": "005",
+	"elementType": "table",
+	"elementValueB": "holaCol",
+	"description": "holaCol2"
 }]

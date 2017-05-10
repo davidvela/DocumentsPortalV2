@@ -3,7 +3,8 @@
 	<semantic:DetailPage id="OMD_DetailId" title="Area in Detail">
 		<semantic:content>
 			<Label text="WELCOME to two ways data binding - PName:{ProjectName} type: {CampaignType}"/>
-			<Button text="Go to one page M/D" press="onPress" tooltip="hello hello"></Button>
+			<Button text="Go to one page M/D" press="onPress" tooltip="hello hello" ></Button>
+			<Button text="Refresh" press="onPressRefresh" tooltip="Refresh the screen!" icon= "sap-icon://refresh"></Button>
 			<MenuButton text="Insert">
 				<menu>
 					<Menu itemSelected="onMenuAction">
@@ -15,7 +16,22 @@
 					</Menu>
 				</menu>
 			</MenuButton>
-			
+				<Table	noDataText="no data" id="tabCampaignsfromInfoCH1" 
+						items= "{ path: 'ToElements', parameters: {expand: 'ToTable'} }" 	visible = "false" 	>						
+						<columns>
+					        <Column id="__column0_OCH1">
+					            <header><Label text="Name"/></header>
+					        </Column>
+					     </columns>
+					    <items>
+					        <ColumnListItem id="__item0_O" 	visible = "false"	>
+					            <cells>
+					                <Text text="{elementValueB}"/>
+					            </cells>
+					        </ColumnListItem>
+					     </items>
+					</Table> 
+					
 				<IconTabBar selectedKey="firstTab" id="__bar0">
 				<items>
 				<!-- DYNAMIC SCREEN -->

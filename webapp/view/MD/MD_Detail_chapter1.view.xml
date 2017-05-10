@@ -11,15 +11,16 @@
 					<!--
 						<Input id="objectDetMDR_ch1t4" value="{contextPath: 'ToElements(CampaignID = '001', elementID='001')', path:'elementType' }" />
 											items= "{ path: 'ToElements' }"			>						
+						items= "{ path: 'ToElements/1/' , parameters: {expand: 'ToTable'}}"			>
 
 					-->
 					<Input id="objectDetMDR_ch1t4" value="{ ToElements/(CampaignID = '001', elementID='001')/elementValueB }" />
 					<Input id="objectDetMDR_ch1t5" value="{ ToElements/0/elementType }" />
 
 					<Table	noDataText="no data" id="tabCampaignsfromInfoCH1" 
-						items= "{ path: 'ToElements' }"			>						
+						items= "{ path: 'ToElements', parameters: {expand: 'ToTable'} }" visible = "false"		>						
 						<columns>
-					        <Column id="__column0_OCH1">
+					        <Column id="__column0_OCH1" 	>
 					            <header><Label text="Name"/></header>
 					        </Column>
 					     </columns>
@@ -33,7 +34,7 @@
 					</Table> 
 					
 					<Table	noDataText="no data" id="tabCampaignsfromInfoCH1_T" 
-						items= "{ path: 'ToElements/1/' , parameters: {expand: 'ToTable'}}"			>
+							items= "{ path: 'ToElements' }"			>						
 						<columns>
 					        <Column id="__column0_OCH1_T">
 					            <header><Label text="expand"/></header>

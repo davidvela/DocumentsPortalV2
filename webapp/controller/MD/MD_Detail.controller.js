@@ -43,9 +43,16 @@ sap.ui.define([
    ************************************************************************************************** */		
 		buildDynamicScreen: function(pItemSelected) {
 			var sPath = "/CampaignSet('" + pItemSelected + "')";
+			//if (pPath !== undefined) sPath = pPath;
+			
 			var oElement = this.byId("detailContainerMDR");
 			// var objectSel = this.getView().getModel().getProperty(sPath);
-			var objectSel = this.getModel().getProperty(sPath);
+			
+			var objectSel = undefined;
+		//	do {
+				var objectSel = this.getModel().getProperty(sPath);
+		//	} while(objectSel === undefined )
+			
 			oElement.removeAllContent();
 			
 			if (objectSel !== undefined) {
@@ -154,7 +161,7 @@ sap.ui.define([
 				default:
 			}
 		},
-
+		// insert button
 		onMenuAction: function(oEvent) {
 			var oItem = oEvent.getParameter("item");
 			var oElement = this.byId("detailContainerMDR");
@@ -185,6 +192,10 @@ sap.ui.define([
 			this.getRouter().navTo("objectMD", {
 				objectId: "001"
 			}); // oItem.getBindingContext().getProperty("InfoRecID") });			
+		},
+		onPressRefresh: function(oEvent) {
+			var path = this.getView().getBindingContext().getPath();
+			this.buildDynamicScreen("dummy", path);		
 		},
 		    
 	    onPrint : function(oEvent) {
