@@ -68,13 +68,13 @@ sap.ui.define([
 							break;
 						case "table":
 							var oTable2 = new sap.ui.table.Table({  visibleRowCount: 3	});
-							oTable2.bindElement({path: sPath2 }); //, parameter: { expand: "ToTables"}
+							oTable2.bindElement({path: sPath2,  parameter: { expand: "ToTables"} }); 
 							oTable2.addColumn(new sap.ui.table.Column({	label: "{elementValueB} ", 
-																		//template: new sap.m.Input({ value: '{ToTables/value}' }) 
-																		template: new sap.m.Input().bindProperty("value","ToTables/0/value") 
+																		template: new sap.m.Input({ value: '{value}' })//.bindElement({path: sPath2,  parameter: { expand: "ToTables"} }) 
+																		//template: new sap.m.Input().bindProperty("value","ToTables/0/value") 
 								
 							} ) );
-							oTable2.bindRows("/ToTables"); // items="{ path: 'ToCampaignInfoRec', parameters: {expand: 'ToInfoRec'} }
+							oTable2.bindRows("ToTables"); // items="{ path: 'ToCampaignInfoRec', parameters: {expand: 'ToInfoRec'} }
 							oElement.addContent(oTable2);
 							break;
 					}//end switch

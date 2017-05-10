@@ -42,4 +42,10 @@
 	"elementType": "table",
 	"elementValueB": "name",
 	"description": "surname"
+}, {
+	"CampaignID": "004",
+	"elementID": "002",
+	"elementType": "table",
+	"elementValueB": "name4",
+	"description": "surname4"
 }]

@@ -36,11 +36,17 @@ sap.ui.define([
 			oElement.bindElement( { path: "/CampDynSet(CampaignID = '001', elementID='002')" });
 			//oElement.removeAllContent();
 			var model = "test"; 
-			
-			
-			
 					
 		},
+		onItemSelected: function(oEvent) {
+				var oSelectedItem = oEvent.getSource();
+				var oContext = oSelectedItem.getBindingContext();
+				var sPath = oContext.getPath();
+				var oTable = this.byId("tabCampInfoRec");
+				oTable.bindElement({ path: sPath });
+				//this.byId("tabCampInfoRec").setVisible(true); 
+		},
+		
 		_onObjectMatched: function(oEvent) {
 			var sObjectId = oEvent.getParameter("arguments").objectId;
 

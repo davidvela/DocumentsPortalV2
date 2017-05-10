@@ -4,7 +4,7 @@
 				<Panel id="detailContainerMDR_ch1">
 				<content>
 					<Input id="objectDetMDR_ch1" value="{CampaignName} - hola "/>
-					<Input id="objectDetMDR_ch1t0" value="{elementType}" />
+					<Input id="objectDetMDR_ch1t0" value="{elementValueB}" />
 					<Input id="objectDetMDR_ch1t1" value="{ path: 'ToElements/0', parameters: {expand: 'CampDynSet'} }" />
 					<Input id="objectDetMDR_ch1t2" value="{ ToElements[0]/elementType}" />
 					<Input id="objectDetMDR_ch1t3" value="{ /CampDynSet(CampaignID = '001', elementID='001')/elementType }" />
@@ -13,7 +13,7 @@
 											items= "{ path: 'ToElements' }"			>						
 
 					-->
-					<Input id="objectDetMDR_ch1t4" value="{ ToElements/(CampaignID = '001', elementID='001')/elementType }" />
+					<Input id="objectDetMDR_ch1t4" value="{ ToElements/(CampaignID = '001', elementID='001')/elementValueB }" />
 					<Input id="objectDetMDR_ch1t5" value="{ ToElements/0/elementType }" />
 
 					<Table	noDataText="no data" id="tabCampaignsfromInfoCH1" 
@@ -26,23 +26,23 @@
 					    <items>
 					        <ColumnListItem id="__item0_O">
 					            <cells>
-					                <Text text="{elementType}"/>
+					                <Text text="{elementValueB}"/>
 					            </cells>
 					        </ColumnListItem>
 					     </items>
 					</Table> 
 					
 					<Table	noDataText="no data" id="tabCampaignsfromInfoCH1_T" 
-						items= "{ path: 'ToElements' , parameters: {expand: 'CampDynSet'}}"			>
+						items= "{ path: 'ToElements/1/' , parameters: {expand: 'ToTable'}}"			>
 						<columns>
 					        <Column id="__column0_OCH1_T">
-					            <header><Label text="Name"/></header>
+					            <header><Label text="expand"/></header>
 					        </Column>
 					     </columns>
 					    <items>
 					        <ColumnListItem id="__item0_OT">
 					            <cells>
-					                <Text text="{elementType}"/>
+					                <Text text="{elementValueB}"/>
 					            </cells>
 					        </ColumnListItem>
 					     </items>
