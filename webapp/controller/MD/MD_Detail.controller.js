@@ -41,9 +41,9 @@ sap.ui.define([
 /* **************************************************************************************************		
 		BUILD DYNAMIC SCREEN 
    ************************************************************************************************** */		
-		buildDynamicScreen: function(pItemSelected) {
+		buildDynamicScreen: function(pItemSelected, pPath) {
 			var sPath = "/CampaignSet('" + pItemSelected + "')";
-			//if (pPath !== undefined) sPath = pPath;
+			if (pPath !== undefined) sPath = pPath;
 			
 			var oElement = this.byId("detailContainerMDR");
 			// var objectSel = this.getView().getModel().getProperty(sPath);
