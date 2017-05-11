@@ -1,5 +1,5 @@
 <mvc:View controllerName="portaltest.controller.MD.MD_Detail" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
-	xmlns:semantic="sap.m.semantic">
+	xmlns:semantic="sap.m.semantic" xmlns:l="sap.ui.layout">
 	<semantic:DetailPage id="OMD_DetailId" title="Area in Detail">
 		<semantic:content>
 			<Label text="WELCOME to two ways data binding - PName:{ProjectName} type: {CampaignType}"/>
@@ -34,12 +34,15 @@
 					
 				<IconTabBar selectedKey="firstTab" id="__bar0">
 				<items>
-				<!-- DYNAMIC SCREEN -->
+				<!-- DYNAMIC SCREEN 
+								<l:VerticalLayout id="detailContainerMDR" class="sapUiSmallMargin" >
+								</l:VerticalLayout>
+				-->
 				<IconTabFilter text="DynamicSC" key="firstTab"	icon="sap-icon://hint" >
 					<content>
 							<Panel id="detailContainerMDR">
 							<content>
-								<Input id="objectDetMDR" value="{CampaignName}"/>
+									<Input id="objectDetMDR" value="{CampaignName}"/>
 							</content>
 						</Panel>
 					</content>

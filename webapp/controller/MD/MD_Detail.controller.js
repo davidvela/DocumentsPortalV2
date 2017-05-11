@@ -66,8 +66,13 @@ sap.ui.define([
 								text: "{elementValueB}", titleStyle: "H3"  }).bindElement({path: sPath2 }) );
 							break;
 						case "input":
-							oElement.addContent(new sap.m.Input({
-								value: "{elementValueB}" }).bindElement({path: sPath2 }) );
+							oElement.addContent( new sap.ui.layout.HorizontalLayout( {
+							width: "100%",
+							content:[
+								new sap.m.Label({ text: "{elementValueB}" }) ,
+								new sap.m.Input({ value: "{elementValueB}" }) 
+							]}).bindElement({path: sPath2 })   );
+							
 							break;
 						case "comboBox":
 								oElement.addContent(new sap.m.ComboBox({
