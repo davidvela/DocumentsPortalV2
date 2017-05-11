@@ -42,6 +42,9 @@ sap.ui.define([
 		BUILD DYNAMIC SCREEN 
    ************************************************************************************************** */		
 		buildDynamicScreen: function(pItemSelected, pPath) {
+			//var space = new sap.ui.layout.AbsoluteLayout({width: "100px", height: "10px"});
+
+			
 			var sPath = "/CampaignSet('" + pItemSelected + "')";
 			if (pPath !== undefined) sPath = pPath;
 			
@@ -72,7 +75,7 @@ sap.ui.define([
 								new sap.m.Label({ text: "{elementValueB}" }) ,
 								new sap.m.Input({ value: "{elementValueB}" }) 
 							]}).bindElement({path: sPath2 })   );
-							
+						//	oElement.addContent(space );
 							break;
 						case "comboBox":
 								oElement.addContent(new sap.m.ComboBox({
