@@ -15,8 +15,8 @@
 }, {
 	"CampaignID": "001",
 	"elementID": "003",
-	"elementType": "ComboBox",
-	"elementValueB": "001",
+	"elementType": "comboBox",
+	"elementValueB": "yes",
 	"description": "Are you Happy?"
 }, {
 	"CampaignID": "002",
@@ -54,4 +54,8 @@
 	"elementType": "table",
 	"elementValueB": "holaCol",
 	"description": "holaCol2"
+}, {
+	"CampaignID": "001",
+	"elementID": "006",
+	"elementType": "nothing"
 }]

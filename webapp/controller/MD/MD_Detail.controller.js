@@ -69,8 +69,26 @@ sap.ui.define([
 							oElement.addContent(new sap.m.Input({
 								value: "{elementValueB}" }).bindElement({path: sPath2 }) );
 							break;
-						case "ComboBox":
-				
+						case "comboBox":
+								oElement.addContent(new sap.m.ComboBox({
+									tooltip: "this is my toolTip!",
+									width: "200px", 
+									selectedKey: "{elementValueB}",
+									placeholder: "Select...",
+									items  : {	path:  "ToTables",
+												template:  new sap.ui.core.ListItem({text:"{value}" , key: "{column}" })
+									}   /* [ new sap.ui.core.Item({ 
+									               key : "yes",
+									               text : "yes"
+									            }),
+									            new sap.ui.core.Item({
+									               key : "no",
+									               text : "no"
+									            })
+									 ]	*/
+									}).bindElement({path: sPath2 })//,  parameters: {expand: 'ToTable'} })
+									 );
+								//"{ path: 'ToElements', parameters: {expand: 'ToTable'} }" 
 							break;
 						case "table":
 							var oTable2 = new sap.ui.table.Table({  visibleRowCount: 3	});
@@ -161,7 +179,16 @@ sap.ui.define([
 				default:
 			}
 		},
-		// insert button
+		
+//***************************		
+// insert button
+/*
+var oComboBox2 = new sap.ui.commons.ComboBox("ComboBox2", {tooltip:"City", displaySecondaryValues:true, value:"Walldorf", "association:listBox" : oListBox1});
+// Create a Textfield to visualize the CHANGE event
+var oTextField1 = new sap.ui.commons.TextField("TextField1", {tooltip:"Value of Combobox", editable:false, value:oComboBox2.getValue()});
+oComboBox2.attachChange(function(){oTextField1.setValue(oComboBox2.getValue());});
+*/
+//**************************
 		onMenuAction: function(oEvent) {
 			var oItem = oEvent.getParameter("item");
 			var oElement = this.byId("detailContainerMDR");
@@ -176,7 +203,7 @@ sap.ui.define([
 					break;
 				default:
 			}
-			/* 				sItemPath = "";
+			/* 	sItemPath = "";
 			while (oItem instanceof sap.m.MenuItem) {
 				sItemPath = oItem.getText() + " > " + sItemPath;
 				oItem = oItem.getParent();

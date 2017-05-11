@@ -28,4 +28,16 @@
 	"CampaignID": "001",
 	"column": "HolaCell3",
 	"value": "HolaCell4"
+}, {
+	"TablesID": "001",
+	"elementID": "003",
+	"CampaignID": "001",
+	"column": "yes",
+	"value": "yes"
+}, {
+	"TablesID": "002",
+	"elementID": "003",
+	"CampaignID": "001",
+	"column": "no",
+	"value": "no"
 }]
