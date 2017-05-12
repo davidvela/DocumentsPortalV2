@@ -211,7 +211,7 @@ oComboBox2.attachChange(function(){oTextField1.setValue(oComboBox2.getValue());}
 //**************************
 		onMenuAction: function(oEvent) {
 			var oItem = oEvent.getParameter("item");
-			var oElement = this.byId("detailContainerMDR");
+			var oElement = this.byId("DynamicScrMD");
 
 			switch (oItem.getText()) {
 				case "Field":

@@ -24,7 +24,7 @@
 					        </Column>
 					     </columns>
 					    <items>
-					        <ColumnListItem id="__item0_O" 	visible = "false"	>
+					        <ColumnListItem id="__item0_O" 		>
 					            <cells>
 					                <Text text="{elementValueB}"/>
 					            </cells>
@@ -32,7 +32,7 @@
 					     </items>
 					</Table> 
 					
-				<IconTabBar selectedKey="firstTab" id="__bar0">
+				<IconTabBar selectedKey="firstTab" id="__bar">
 				<items>
 				<!-- DYNAMIC SCREEN 
 								<l:VerticalLayout id="detailContainerMDR" class="sapUiSmallMargin" >
@@ -48,18 +48,13 @@
 						</Panel>
 							
 				-->
-				<IconTabFilter text="DynamicSC" key="firstTab"	icon="sap-icon://hint" >
-					<content>
-						<Panel id="detailContainerMDR">
-							<content>
-									<Input id="objectDetMDR" value="{CampaignName}"/>
-							</content>
-						</Panel>
-					</content>
-					</IconTabFilter>
+				<IconTabFilter id="DynamicScrMD" text="DynamicSC" key="firstTab"	icon="sap-icon://hint" ><content>
+						<Panel id="detailContainerMDR" >	<content>
+								<Input id="objectDetMDR" value="{CampaignName}"/>
+						</content>	</Panel>
+					</content></IconTabFilter>
 			<!-- ATTACHMENTS!  -->
-				<IconTabFilter text="Attachment" icon="sap-icon://attachment" >
-					<content>
+				<IconTabFilter text="Attachment" icon="sap-icon://attachment" >	<content>
 				</content></IconTabFilter>
 			<!-- CHAT!  -->
 				<IconTabFilter text="Chat" icon="sap-icon://jam" >		<!-- notes -->
