@@ -69,13 +69,14 @@ sap.ui.define([
 								text: "{elementValueB}", titleStyle: "H3"  }).bindElement({path: sPath2 }) );
 							break;
 						case "input":
-							oElement.addContent( new sap.ui.layout.HorizontalLayout( {
-							width: "100%",
+							oElement.addContent( new sap.ui.layout.Grid( {
+							hSpacing: 2,
+							defaultSpan:"L6 M6 S10",
 							content:[
 								new sap.m.Label({ text: "{elementValueB}" }) ,
 								new sap.m.Input({ value: "{elementValueB}" }) 
-							]}).bindElement({path: sPath2 })   );
-						//	oElement.addContent(space );
+							]}).bindElement({path: sPath2 })  );
+						//	oElement.addContent(space );.addStyleClass("sapUiSmallMargin") 
 							break;
 						case "comboBox":
 								oElement.addContent(new sap.m.ComboBox({

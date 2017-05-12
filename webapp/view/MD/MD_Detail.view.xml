@@ -37,19 +37,31 @@
 				<!-- DYNAMIC SCREEN 
 								<l:VerticalLayout id="detailContainerMDR" class="sapUiSmallMargin" >
 								</l:VerticalLayout>
+								
+					sap.ui.layout.Grid( {
+							hSpacing: 2,
+							defaultSpan:"L6 M6 S10",
+						<Panel id="detailContainerMDR">
+							<content>
+									<Input id="objectDetMDR" value="{CampaignName}"/>
+							</content>
+						</Panel>
+							
 				-->
 				<IconTabFilter text="DynamicSC" key="firstTab"	icon="sap-icon://hint" >
 					<content>
-							<Panel id="detailContainerMDR">
+						<Panel id="detailContainerMDR">
 							<content>
 									<Input id="objectDetMDR" value="{CampaignName}"/>
 							</content>
 						</Panel>
 					</content>
 					</IconTabFilter>
+			<!-- ATTACHMENTS!  -->
 				<IconTabFilter text="Attachment" icon="sap-icon://attachment" >
 					<content>
 				</content></IconTabFilter>
+			<!-- CHAT!  -->
 				<IconTabFilter text="Chat" icon="sap-icon://jam" >		<!-- notes -->
 					<content>
 				</content></IconTabFilter>
