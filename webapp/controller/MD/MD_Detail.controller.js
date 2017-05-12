@@ -4,6 +4,11 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel"
 ], function(BaseController, JSONModel) {
 	"use strict";
+	
+	var comboBoxYesNo = [ new sap.ui.core.Item({ key : "yes",  text : "YES"   }),
+						  new sap.ui.core.Item({  key : "no",  text : "NO"     })
+						];
+	
 	var columnData = [{
 			columnName: "firstName"
 		}, {
@@ -66,25 +71,24 @@ sap.ui.define([
 					switch (objectSel2.elementType) {
 						case "title":
 							oElement.addContent(new sap.m.Title({
-								text: "{elementValueB}", titleStyle: "H3"  }).bindElement({path: sPath2 }) );
+								text: "{elementValueB}", titleStyle: "H3"  })
+							.bindElement({path: sPath2 }).addStyleClass("sapUiSmallMargin") );
 							break;
 						case "input":
-							oElement.addContent( new sap.ui.layout.Grid( {
-							hSpacing: 2,
-							defaultSpan:"L6 M6 S10",
+							oElement.addContent( new sap.ui.layout.Grid( { hSpacing: 2,defaultSpan:"L6 M6 S10",
 							content:[
-								new sap.m.Label({ text: "{elementValueB}" }) ,
+								new sap.m.Label({ text: "{description}" }) ,
 								new sap.m.Input({ value: "{elementValueB}" }) 
 							]}).bindElement({path: sPath2 })  );
 						//	oElement.addContent(space );.addStyleClass("sapUiSmallMargin") 
 							break;
 						case "comboBox":
-								oElement.addContent(new sap.m.ComboBox({
+							var oCombo =	new sap.m.ComboBox({
 									tooltip: "this is my toolTip!",
 									width: "200px", 
 									selectedKey: "{elementValueB}",
-									placeholder: "Select...",
-									items  : {	path:  "ToTables",
+									placeholder: "Select..."
+									/*items  : {	path:  "ToTables",
 												template:  new sap.ui.core.ListItem({text:"{value}" , key: "{column}" })
 									}   /* [ new sap.ui.core.Item({ 
 									               key : "yes",
@@ -95,10 +99,17 @@ sap.ui.define([
 									               text : "no"
 									            })
 									 ]	*/
-									}).bindElement({path: sPath2 })//,  parameters: {expand: 'ToTable'} })
-									 );
-								//"{ path: 'ToElements', parameters: {expand: 'ToTable'} }" 
+									}); //.bindElement({path: sPath2 }); //,  parameters: {expand: 'ToTable'} })
+																	//"{ path: 'ToElements', parameters: {expand: 'ToTable'} }" 
+							if(objectSel2.elementValueB === "yes ") 
+								oCombo.bindItems( {	path:  "ToTables",
+													template:  new sap.ui.core.ListItem({text:"{value}" , key: "{column}" })
+												});
+							else {	oCombo.addItem(comboBoxYesNo[0]); oCombo.addItem(comboBoxYesNo[1]); }
+							oElement.addContent( new sap.ui.layout.Grid( { hSpacing: 2,defaultSpan:"L6 M6 S10",
+								content:[new sap.m.Label({ text: "{description}" }) , oCombo	]})).bindElement({path: sPath2 });
 							break;
+							
 						case "table":
 							var oTable2 = new sap.ui.table.Table({  visibleRowCount: 3	});
 							oTable2.bindElement({path: sPath2,  parameter: { expand: "ToTables"} }); 
@@ -107,7 +118,7 @@ sap.ui.define([
 																		//template: new sap.m.Input().bindProperty("value","ToTables/0/value") 
 								
 							} ) );
-							oTable2.bindRows("ToTables"); // items="{ path: 'ToCampaignInfoRec', parameters: {expand: 'ToInfoRec'} }
+							oTable2.bindRows("ToTables").addStyleClass("sapUiSmallMargin") ; // items="{ path: 'ToCampaignInfoRec', parameters: {expand: 'ToInfoRec'} }
 							oElement.addContent(oTable2);
 							
 							var ii = 1; 		//TablesSet(TablesID='002',elementID='004',CampaignID='001')
