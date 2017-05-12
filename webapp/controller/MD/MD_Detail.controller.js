@@ -116,12 +116,10 @@ sap.ui.define([
 							oTable2.addColumn(new sap.ui.table.Column({	label: "{elementValueB} ", 
 																		template: new sap.m.Input({ value: '{value}' })//.bindElement({path: sPath2,  parameter: { expand: "ToTables"} }) 
 																		//template: new sap.m.Input().bindProperty("value","ToTables/0/value") 
-								
 							} ) );
 							oTable2.bindRows("ToTables").addStyleClass("sapUiSmallMargin") ; // items="{ path: 'ToCampaignInfoRec', parameters: {expand: 'ToInfoRec'} }
-							oElement.addContent(oTable2);
-							
-							var ii = 1; 		//TablesSet(TablesID='002',elementID='004',CampaignID='001')
+							//oElement.addContent(oTable2);
+							//var ii = 1; 		//TablesSet(TablesID='002',elementID='004',CampaignID='001')
 							/*do{
 								var iTID = ("00" + ii).slice(-3);
    								var sPath3 = "/TablesSet(TablesID='" + iTID + "'" +
@@ -131,6 +129,12 @@ sap.ui.define([
 								 if (objectSel3 === undefined) ii = -1; else{ console.log(objectSel3.value); ii++;}
 							} while( ii !== -1)
 							*/
+							break;
+							case "column":
+							oTable2.addColumn(new sap.ui.table.Column({	label: objectSel2.description, //"{description} ",  //the mapping is from the row table 
+																		template: new sap.m.Input({ value: '{' + objectSel2.elementValueB + '}' })
+							} ) );	
+							if(objectSel2.description === "end" )	oElement.addContent(oTable2);
 							break;
 					}//end switch
 				}

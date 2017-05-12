@@ -2,31 +2,31 @@
 	"TablesID": "001",
 	"elementID": "004",
 	"CampaignID": "001",
-	"column": "nameT",
+	"column": "nameTCC",
 	"value": "nameT"
 }, {
 	"TablesID": "002",
 	"elementID": "004",
 	"CampaignID": "001",
-	"column": "surnameT",
+	"column": "surnameTCC",
 	"value": "surnameT"
 }, {
 	"TablesID": "001",
 	"elementID": "002",
 	"CampaignID": "004",
-	"column": "nameT4",
+	"column": "nameT4CC",
 	"value": "nameT4"
 }, {
 	"TablesID": "001",
-	"elementID": "005",
+	"elementID": "006",
 	"CampaignID": "001",
-	"column": "HolaCell1",
+	"column": "HolaCell1CC",
 	"value": "HolaCell2"
 }, {
 	"TablesID": "001",
-	"elementID": "005",
+	"elementID": "006",
 	"CampaignID": "001",
-	"column": "HolaCell3",
+	"column": "HolaCell3CC",
 	"value": "HolaCell4"
 }, {
 	"TablesID": "001",

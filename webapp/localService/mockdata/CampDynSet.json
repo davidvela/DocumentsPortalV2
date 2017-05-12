@@ -40,8 +40,14 @@
 	"CampaignID": "001",
 	"elementID": "004",
 	"elementType": "table",
-	"elementValueB": "name",
+	"elementValueB": "columnName",
 	"description": "surname"
+}, {
+	"CampaignID": "001",
+	"elementID": "005",
+	"elementType": "column",
+	"elementValueB": "column",
+	"description": "end"
 }, {
 	"CampaignID": "004",
 	"elementID": "002",
@@ -50,12 +56,20 @@
 	"description": "surname4"
 }, {
 	"CampaignID": "001",
-	"elementID": "005",
+	"elementID": "006",
 	"elementType": "table",
 	"elementValueB": "holaCol",
 	"description": "holaCol2"
 }, {
 	"CampaignID": "001",
-	"elementID": "006",
-	"elementType": "nothing"
+	"elementID": "007",
+	"elementType": "column",
+	"elementValueB": "column",
+	"description": "hola"
+}, {
+	"CampaignID": "001",
+	"elementID": "008",
+	"elementType": "column",
+	"elementValueB": "column",
+	"description": "end"
 }]
