@@ -10,6 +10,7 @@ sap.ui.define([
 	], function (BaseController, JSONModel, Filter, FilterOperator, GroupHeaderListItem, Device, History) {
 		"use strict";
 		var objID; 
+		
 		return BaseController.extend("portaltest.controller.MD.MD_Master", {
 			onInit : function () {
 				// Control state model
