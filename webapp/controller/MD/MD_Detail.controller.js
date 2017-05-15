@@ -111,7 +111,13 @@ sap.ui.define([
 							break;
 							
 						case "table":
-							var oTable2 = new sap.ui.table.Table({  visibleRowCount: 3	});
+							var oTable2 = new sap.ui.table.Table({  visibleRowCount: 3	,
+								selectionMode: sap.ui.table.SelectionMode.None, //Single, MultiTonggle, None
+								toolbar: new sap.m.Toolbar({content : [ 	
+											new sap.m.Label({ text : "Table title..." }),new sap.m.ToolbarSpacer(),
+											new sap.m.Button({	icon: "sap-icon://add",	text : "New Row",	press :this.onPress_addRow}) 
+										] })
+							});
 							oTable2.bindElement({path: sPath2,  parameter: { expand: "ToTables"} }); 
 							oTable2.addColumn(new sap.ui.table.Column({	label: "{elementValueB} ", 
 																		template: new sap.m.Input({ value: '{value}' })//.bindElement({path: sPath2,  parameter: { expand: "ToTables"} }) 
@@ -302,7 +308,51 @@ oComboBox2.attachChange(function(){oTextField1.setValue(oComboBox2.getValue());}
 				oViewModel.setProperty("/lineItemListTitle", sTitle);
 			}
 		},
+		//dynamic table controller
+		onPress_addRow: function(oItem){ 	
+			//console.log("Add row");
+			//var row = new sap.ui.table.Row({});
+			//oItem.getSource().getParent().getParent().addRow(row);
+			var tTabletmp	=  oItem.getSource().getParent().getParent() ;
+			var oPath		= tTabletmp.getBindingContext().sPath;
+			var oModel		=  tTabletmp.getModel(oPath.sPath); //.getProperty("/rows");
+			//var oRows = oModel.getProperty("/rows");
+			//var oData = oModel.getProperty(sPath);
+			
+			var example = {
+							TablesID	: "003",
+							elementID	: "004",
+							CampaignID	: "001",
+							columnData  : "NewC ",
+							value   	: "New"
+						}; 
 
+			// create new entry in the model
+			oModel.createEntry("/TableSet", {
+				properties: example,
+				success: this._onCreateSuccess//.bind(this)
+			});
+			/*
+			var oColumns = oModel.getProperty("/columns");//("/rows/0");
+			for(var i in oColumns){
+				//oRow[i] = "";
+				example[oColumns[i].columnName] = "put your text here";
+			}
+			
+			oRows.push(example);
+			//oRows.push(oRow);
+			oModel.setProperty("/rows", oRows);
+			
+			var oModelDT = oItem.getSource().getParent().getParent().getModel("detailView");
+			var dataDT = oModelDT.getData();
+			dataDT.Tablelength++;
+			oModelDT.setData(dataDT);*/
+			
+		},
+		_onCreateSuccess: function (oProduct) {
+		
+			console.log("success");
+		},
 		/* =========================================================== */
 		/* begin: internal methods                                     */
 		/* =========================================================== */
