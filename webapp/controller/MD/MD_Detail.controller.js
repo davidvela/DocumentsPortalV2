@@ -68,6 +68,7 @@ sap.ui.define([
 					var sPath2 = "/" + objectSel.ToElements.__list[i]; 		//console.log( sPath2 );
 					var objectSel2 = this.getModel().getProperty(sPath2);
 					if (objectSel === undefined) return;
+				
 					switch (objectSel2.elementType) {
 						case "title":
 							oElement.addContent(new sap.m.Title({
@@ -111,18 +112,48 @@ sap.ui.define([
 							break;
 							
 						case "table":
-							var oTable2 = new sap.ui.table.Table({  visibleRowCount:  { path:"Length",  
-								formatter: function(value){ return parseInt(value); } } , //"{Length}"	,
+							var oTable2 = new sap.ui.table.Table({  visibleRowCount: { path:"Length",  
+											formatter: function(value){ return parseInt(value); } } , //"{Length}"	, (myValue == 'true')
+								
 								selectionMode: sap.ui.table.SelectionMode.None, //Single, MultiTonggle, None
 								toolbar: new sap.m.Toolbar({content : [ 	
 											new sap.m.Label({ text : "Table title..." }),new sap.m.ToolbarSpacer(),
-											new sap.m.Button({	icon: "sap-icon://add",	text : "New Row",	press :this.onPress_addRow}) 
+											new sap.m.Button({	icon: "sap-icon://add",	text : "New Row",	press :this.onPress_addRow}) ,
+											new sap.m.Button({	icon: "sap-icon://edit",	text : "",	press :this.onPress_editRow}) 
 										] })
 							});
+						
 							oTable2.bindElement({path: sPath2,  parameter: { expand: "ToTables"} }); 
-							oTable2.addColumn(new sap.ui.table.Column({	label: "{elementValueB} ", 
-																		template: new sap.m.Input({ value: '{value}' })//.bindElement({path: sPath2,  parameter: { expand: "ToTables"} }) 
+							/*oTable2.addColumn(new sap.ui.table.Column({	label: "{elementValueB} ", 
+																		template: new sap.m.Input({ value: '{value}', editable: "{Edit}" })//.bindElement({path: sPath2,  parameter: { expand: "ToTables"} }) 
 																		//template: new sap.m.Input().bindProperty("value","ToTables/0/value") 
+							} ) );*/
+							
+								var oCombo2 =	new sap.m.ComboBox({
+									tooltip: "this is my toolTip!",
+									width: "200px", 
+									editable: { path:"Edit",  formatter: function(value){ if (value == 'true') return true; else return true; } } , 
+									selectedKey: "{value}",
+									placeholder: "Select...",
+									items  : [ new sap.ui.core.Item({ 
+									               key : "yes",
+									               text : "yes"
+									            }),
+									            new sap.ui.core.Item({
+									               key : "no",
+									               text : "no"
+									            })
+									 ]	
+									}); 
+
+							oTable2.addColumn(new sap.ui.table.Column({	label: "{elementValueB} ", 
+																		template: oCombo2
+							} ) );
+							
+							oTable2.addColumn(new sap.ui.table.Column({	label: "Delete ",
+																		visible:  "{Edit}",
+																		width: "10%",
+																		template: new sap.m.Button({ icon: "sap-icon://delete" , text:"{TablesID}", press: this.onPress_delRow })
 							} ) );
 							oTable2.bindRows("ToTables").addStyleClass("sapUiSmallMargin") ; // items="{ path: 'ToCampaignInfoRec', parameters: {expand: 'ToInfoRec'} }
 							//oElement.addContent(oTable2);
@@ -312,8 +343,20 @@ oComboBox2.attachChange(function(){oTextField1.setValue(oComboBox2.getValue());}
 			}
 		},
 		//dynamic table controller
+		onPress_editRow: function(oItem){
+			var tTabletmp	= oItem.getSource().getParent().getParent() ;
+			var oPath		= tTabletmp.getBindingContext();//.sPath;
+			var oModel		= tTabletmp.getModel();
+			var oElement    = oModel.getProperty(oPath.sPath);
+			oElement.Edit   = !oElement.Edit; 
+			//oModel.setProperty(oPath.sPath, oElement,false);
+			oModel.update(oPath.sPath, oElement);
+		},
 		onPress_delRow: function(oItem){
-		
+			//var tTabletmp	= oItem.getSource().getParent().getParent() ;
+			var sPath		= oItem.getSource().getBindingContext().sPath;
+			var oModel		= this.getModel();
+			oModel.remove(sPath);
 		},
 		onPress_addRow: function(oItem){ 	
 			//console.log("Add row");
@@ -332,7 +375,10 @@ oComboBox2.attachChange(function(){oTextField1.setValue(oComboBox2.getValue());}
 			//Error - the update only works the first time! fix: https://archive.sap.com/discussions/thread/3730383
 			//still error! 
 			
-			oModel.setProperty(oPath.sPath, oElement);
+			//tTabletmp.getVisi
+			
+			
+			//oModel.setProperty(oPath.sPath, oElement);
 			//tTabletmp.setModel(oModel);
 			//oModel.submitChanges();
 			
@@ -377,7 +423,7 @@ oComboBox2.attachChange(function(){oTextField1.setValue(oComboBox2.getValue());}
 		},
 		_onCreateSuccess: function (oProduct) {
 		
-			console.log("success");
+			//console.log("success");
 		},
 		/* =========================================================== */
 		/* begin: internal methods                                     */
