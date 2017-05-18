@@ -5,21 +5,16 @@
 	"Position": "1",
 	"Question": {
 		"SpaceLine_act": false,
-
 		"TitleQuestion_act": true,
 		"TitleQuestion": "4.0 Ingredient for Coffee ",
 		"IntroQuestion_act": false,
-
 		"IntroQuestion": "",
-
 		"InputDropBox_act": false,
 		"LabelDropBox": "",
 		"InputDropBox": "",
-
 		"InputComment_act": false,
 		"LabelComment": "",
 		"InputComment": "",
-
 		"InputRadioBtn_act": false,
 		"LabelRadioBtn": "",
 		"InputRadioBtnY": false,
@@ -55,7 +50,7 @@
 		"uri": "QuestionnaireSet('QuestionnaireID%202')",
 		"type": "OData_Portal.Questionnaire"
 	}
-},{
+}, {
 	"QuestionnaireID": "00002_1_3",
 	"TitleQuestionnaire": " ",
 	"IntroQuestionnaire": " ",
@@ -81,28 +76,23 @@
 		"uri": "QuestionnaireSet('QuestionnaireID%204')",
 		"type": "OData_Portal.Questionnaire"
 	}
-},{
+}, {
 	"QuestionnaireID": "00001_1_1",
 	"TitleQuestionnaire": " ",
 	"IntroQuestionnaire": " ",
 	"Position": "1",
 	"Question": {
 		"SpaceLine_act": false,
-
 		"TitleQuestion_act": true,
 		"TitleQuestion": "3.1 What is your name? ",
 		"IntroQuestion_act": false,
-
 		"IntroQuestion": "",
-
 		"InputDropBox_act": false,
 		"LabelDropBox": "",
 		"InputDropBox": "",
-
 		"InputComment_act": false,
 		"LabelComment": "",
 		"InputComment": "",
-
 		"InputRadioBtn_act": false,
 		"LabelRadioBtn": "",
 		"InputRadioBtnY": false,

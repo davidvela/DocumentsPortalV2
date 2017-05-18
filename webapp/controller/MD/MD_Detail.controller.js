@@ -111,7 +111,8 @@ sap.ui.define([
 							break;
 							
 						case "table":
-							var oTable2 = new sap.ui.table.Table({  visibleRowCount: 3	,
+							var oTable2 = new sap.ui.table.Table({  visibleRowCount:  { path:"Length",  
+								formatter: function(value){ return parseInt(value); } } , //"{Length}"	,
 								selectionMode: sap.ui.table.SelectionMode.None, //Single, MultiTonggle, None
 								toolbar: new sap.m.Toolbar({content : [ 	
 											new sap.m.Label({ text : "Table title..." }),new sap.m.ToolbarSpacer(),
@@ -140,7 +141,9 @@ sap.ui.define([
 							oTable2.addColumn(new sap.ui.table.Column({	label: objectSel2.description, //"{description} ",  //the mapping is from the row table 
 																		template: new sap.m.Input({ value: '{' + objectSel2.elementValueB + '}' })
 							} ) );	
-							if(objectSel2.description === "end" )	oElement.addContent(oTable2);
+							if(objectSel2.description === "end" ){	
+								oElement.addContent(oTable2);
+							}
 							break;
 					}//end switch
 				}
@@ -309,20 +312,41 @@ oComboBox2.attachChange(function(){oTextField1.setValue(oComboBox2.getValue());}
 			}
 		},
 		//dynamic table controller
+		onPress_delRow: function(oItem){
+		
+		},
 		onPress_addRow: function(oItem){ 	
 			//console.log("Add row");
 			//var row = new sap.ui.table.Row({});
 			//oItem.getSource().getParent().getParent().addRow(row);
-			var tTabletmp	=  oItem.getSource().getParent().getParent() ;
-			var oPath		= tTabletmp.getBindingContext().sPath;
-			var oModel		=  tTabletmp.getModel(oPath.sPath); //.getProperty("/rows");
+			var tTabletmp	= oItem.getSource().getParent().getParent() ;
+			var oPath		= tTabletmp.getBindingContext();//.sPath;
+			var oModel		= tTabletmp.getModel(); //.getProperty("/rows");
 			//var oRows = oModel.getProperty("/rows");
 			//var oData = oModel.getProperty(sPath);
 			
+			var oElement = oModel.getProperty( oPath.sPath);
+			oElement.Length = parseInt(oElement.Length) + 1; 
+			oElement.Length = "" + oElement.Length; 
+			
+			//Error - the update only works the first time! fix: https://archive.sap.com/discussions/thread/3730383
+			//still error! 
+			
+			oModel.setProperty(oPath.sPath, oElement);
+			//tTabletmp.setModel(oModel);
+			//oModel.submitChanges();
+			
+			/*var sPathIDs = oPath.sPath.slice(11,60);
+			sPathIDs = sPathIDs.replace(/'/g, "");
+			sPathIDs = sPathIDs.replace(")", "");
+			var oObjs = sPathIDs.split(",");
+			oObjs[0] = oObjs[0].split("=");
+			oObjs[1] = oObjs[1].split("="); */
+			
 			var example = {
-							TablesID	: "003",
-							elementID	: "004",
-							CampaignID	: "001",
+							TablesID	: oElement.Length, //"003",
+							elementID	: oElement.elementID, //oObjs[1][1],
+							CampaignID	: oElement.CampaignID, //oObjs[0][1],
 							columnData  : "NewC ",
 							value   	: "New"
 						}; 

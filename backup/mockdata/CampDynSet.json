@@ -4,84 +4,72 @@
 	"elementType": "title",
 	"elementValueB": "This is my title ",
 	"description": "intro1",
-	"CampaignID": "001",
-	"Length": 0
+	"CampaignID": "001"
 }, {
 	"CampDynID": "001",
 	"elementID": "002",
 	"elementType": "input",
 	"elementValueB": "hola Input",
 	"description": "intro_input",
-	"CampaignID": "001",
-	"Length": 0
+	"CampaignID": "001"
 }, {
 	"CampaignID": "001",
 	"elementID": "003",
 	"elementType": "comboBox",
 	"elementValueB": "yes",
-	"description": "Are you Happy?",
-	"Length": 0
+	"description": "Are you Happy?"
 }, {
 	"CampaignID": "002",
 	"elementID": "001 ",
 	"elementType": "title",
 	"elementValueB": "this is my title 2 ",
-	"description": "hello amigo",
-	"Length": 0
+	"description": "hello amigo"
 }, {
 	"CampaignID": "003",
 	"elementID": "001 ",
 	"elementType": "title",
 	"elementValueB": "title 3",
-	"description": "title d",
-	"Length": 0
+	"description": "title d"
 }, {
 	"CampaignID": "004",
 	"elementID": "001 ",
 	"elementType": "title",
 	"elementValueB": "title 4",
-	"description": "title d",
-	"Length": 0
+	"description": "title d"
 }, {
 	"CampaignID": "001",
 	"elementID": "004",
 	"elementType": "table",
 	"elementValueB": "columnName",
-	"description": "surname",
-	"Length": "2"
+	"description": "surname"
 }, {
 	"CampaignID": "001",
 	"elementID": "005",
 	"elementType": "column",
 	"elementValueB": "column",
-	"description": "end",
-	"Length": 0
+	"description": "end"
 }, {
 	"CampaignID": "004",
 	"elementID": "002",
 	"elementType": "table",
 	"elementValueB": "name4",
-	"description": "surname4",
-	"Length": 4
+	"description": "surname4"
 }, {
 	"CampaignID": "001",
 	"elementID": "006",
 	"elementType": "table",
 	"elementValueB": "holaCol",
-	"description": "holaCol2",
-	"Length": 4
+	"description": "holaCol2"
 }, {
 	"CampaignID": "001",
 	"elementID": "007",
 	"elementType": "column",
 	"elementValueB": "column",
-	"description": "hola",
-	"Length": 0
+	"description": "hola"
 }, {
 	"CampaignID": "001",
 	"elementID": "008",
 	"elementType": "column",
 	"elementValueB": "column",
-	"description": "end",
-	"Length": 0
+	"description": "end"
 }]
