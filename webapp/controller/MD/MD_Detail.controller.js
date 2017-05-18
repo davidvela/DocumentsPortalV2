@@ -69,6 +69,7 @@ sap.ui.define([
 					var objectSel2 = this.getModel().getProperty(sPath2);
 					if (objectSel === undefined) return;
 				
+				// element Object
 					switch (objectSel2.elementType) {
 						case "title":
 							oElement.addContent(new sap.m.Title({
@@ -102,14 +103,28 @@ sap.ui.define([
 									 ]	*/
 									}); //.bindElement({path: sPath2 }); //,  parameters: {expand: 'ToTable'} })
 																	//"{ path: 'ToElements', parameters: {expand: 'ToTable'} }" 
+							
+							var method1 = this.combo1;
+							if(objectSel2.elementID == "003") // if method is not initial ... 
+								oCombo.attachChange(method1);
+						//	else break;
+								
 							if(objectSel2.elementValueB === "yes ") 
 								oCombo.bindItems( {	path:  "ToTables",
 													template:  new sap.ui.core.ListItem({text:"{value}" , key: "{column}" })
 												});
-							else {	oCombo.addItem(comboBoxYesNo[0]); oCombo.addItem(comboBoxYesNo[1]); }
+							else {	
+								 oCombo.addItem(new sap.ui.core.Item({ key : "yes",  text : "YES"   }));
+								 oCombo.addItem( new sap.ui.core.Item({  key : "no",  text : "NO"     }));
+
+								//oCombo.addItem(comboBoxYesNo[0]); 
+								//oCombo.addItem(comboBoxYesNo[1]); 
+								
+							}
 							oElement.addContent( new sap.ui.layout.Grid( { hSpacing: 2,defaultSpan:"L6 M6 S10",
 								content:[new sap.m.Label({ text: "{description}" }) , oCombo	]})).bindElement({path: sPath2 });
 							break;
+							  
 							
 						case "table":
 							var oTable2 = new sap.ui.table.Table({  visibleRowCount: { path:"Length",  
@@ -275,10 +290,26 @@ oComboBox2.attachChange(function(){oTextField1.setValue(oComboBox2.getValue());}
 			sItemPath = sItemPath.substr(0, sItemPath.lastIndexOf(" > "));
 			sap.m.MessageToast.show("Action triggered on item: " + sItemPath); */
 		},
-
+//***************************		
+//***************************		
 		/* =========================================================== */
 		/* event handlers                                              */
 		/* =========================================================== */
+//***************************		
+//***************************		
+		combo1: function(oEvent){
+			//console.log("Hola Combo1 ");	
+			var oElement = this.getModel().getProperty("/CampDynSet(CampaignID='001',elementID='004')");
+			oElement.Edit   = !oElement.Edit; 
+			
+			if(oEvent.getSource().getSelectedKey() == "yes" && oElement.Edit == false )
+			{	oElement.Edit = true; 
+				this.getModel().update("/CampDynSet(CampaignID='001',elementID='004')", oElement);
+			}else if(oEvent.getSource().getSelectedKey() == "no" && oElement.Edit == true )
+			{	oElement.Edit = false;
+				this.getModel().update("/CampDynSet(CampaignID='001',elementID='004')", oElement);
+			}
+		},
 		onPress: function(oEvent) {
 			this.getRouter().navTo("objectMD", {
 				objectId: "001"

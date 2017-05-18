@@ -96,4 +96,11 @@
 	"description": "end",
 	"Length": 0,
 	"Edit": true
+}, {
+	"CampaignID": "001",
+	"elementID": "009",
+	"elementType": "comboBox",
+	"elementValueB": "no",
+	"description": "Do you want to develop in React? ",
+	"Length": "0"
 }]
