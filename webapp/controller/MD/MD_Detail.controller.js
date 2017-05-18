@@ -328,10 +328,12 @@ oComboBox2.attachChange(function(){oTextField1.setValue(oComboBox2.getValue());}
 						}; 
 
 			// create new entry in the model
-			oModel.createEntry("/TableSet", {
+			oModel.create("/TablesSet",  example, null);
+
+			/*oModel.createEntry("/TablesSet", {
 				properties: example,
 				success: this._onCreateSuccess//.bind(this)
-			});
+			});*/
 			/*
 			var oColumns = oModel.getProperty("/columns");//("/rows/0");
 			for(var i in oColumns){
