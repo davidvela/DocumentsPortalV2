@@ -138,7 +138,7 @@ sap.ui.define([
 
 							//oTable2.addColumn(new sap.ui.table.Column({	label: "{elementValueB} ",	template: oCombo2 }));
 							oTable2.addColumn(new sap.ui.table.Column({label: "Delete ",	visible: "{Edit}", width: "10%", 
-								template: new sap.m.Button({	icon: "sap-icon://delete",	text: "{TablesID}", press: this.onPress_delRow	})
+								template: new sap.m.Button({	icon: "sap-icon://delete",	text: "{tablesID}", press: this.onPress_delRow	})
 							}));
 							oTable2.bindRows("ToTables").addStyleClass("sapUiSmallMargin"); 
 
@@ -369,9 +369,10 @@ sap.ui.define([
 			oElement.length = parseInt(oElement.length) + 1;
 			oElement.length = "" + oElement.length;
 			var example = {
-				CampaignID: oElement.CampaignID, //oObjs[0][1],
+				CampainID: oElement.CampaignID, //typo in the model =S
+				//CampaignID: oElement.CampaignID, //oObjs[0][1],
 				elementID: oElement.elementID, //oObjs[1][1],
-				tablesID: oElement.Length, //"003",
+				tablesID: oElement.length, //"003",
 				value1: "NewC ",
 				value2: "New",
 				value3: "New",
