@@ -1,43 +1,39 @@
 [{
-	"TablesID": "001",
+	"CampainID": "001",
 	"elementID": "004",
-	"CampaignID": "001",
-	"column": "nameTCC",
-	"value": "nameT"
+	"tablesID": "1",
+	"value1": "David ",
+	"value2": "Developer",
+	"value3": "10"
 }, {
-	"TablesID": "002",
+	"CampainID": "001",
 	"elementID": "004",
-	"CampaignID": "001",
-	"column": "surnameTCC",
-	"value": "surnameT"
+	"tablesID": "2",
+	"value1": "Jose",
+	"value2": "PM",
+	"value3": "3"
 }, {
-	"TablesID": "001",
-	"elementID": "002",
-	"CampaignID": "004",
-	"column": "nameT4CC",
-	"value": "nameT4"
-}, {
-	"TablesID": "001",
-	"elementID": "006",
-	"CampaignID": "001",
-	"column": "HolaCell1CC",
-	"value": "HolaCell2"
-}, {
-	"TablesID": "001",
-	"elementID": "006",
-	"CampaignID": "001",
-	"column": "HolaCell3CC",
-	"value": "HolaCell4"
-}, {
-	"TablesID": "001",
 	"elementID": "003",
-	"CampaignID": "001",
-	"column": "yes",
-	"value": "yes"
+	"tablesID": "1",
+	"CampainID": "001",
+	"value1": "yes",
+	"value2": "si "
 }, {
-	"TablesID": "002",
 	"elementID": "003",
-	"CampaignID": "001",
-	"column": "no",
-	"value": "no"
+	"tablesID": "2",
+	"CampainID": "001",
+	"value1": "no",
+	"value2": "no"
+}, {
+	"CampainID": "001",
+	"elementID": "012",
+	"tablesID": "1",
+	"value1": "yes",
+	"value2": "no block"
+}, {
+	"CampainID": "001",
+	"elementID": "012",
+	"tablesID": "2",
+	"value1": "no",
+	"value2": "block"
 }]

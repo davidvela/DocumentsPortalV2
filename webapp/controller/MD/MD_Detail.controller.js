@@ -11,7 +11,6 @@ sap.ui.define([
 	}, {
 		columnName: "department"
 	}];
-
 	var rowData = [{
 		firstName: "Sachin",
 		lastName: "Tendulkar",
@@ -41,27 +40,40 @@ sap.ui.define([
 			switch (pObj.elementType) {
 				case "title":
 					return new sap.m.Title({	text: "{elementValueB}",	titleStyle: "H3"	});
+				case "inputC":
+						return new sap.m.Input({value:  '{' + pObj.elementValueB + '}'	});
 				case "input":
 					return new sap.ui.layout.Grid({	hSpacing: 2, defaultSpan: "L6 M6 S10",
 						content: [	new sap.m.Label({text: "{description}"		}),
 									new sap.m.Input({value: "{elementValueB}"	})
 								] });
 				case "comboBox":
-					var oCombo = new sap.m.ComboBox({	tooltip: "this is my toolTip!",	width: "200px",
+				
+					var oCombo ;
+					if (pObj.columnSubType === "column") 
+					oCombo = new sap.m.ComboBox({	tooltip: "this is my toolTip!",	width: "200px",
+						selectedKey: '{' + pObj.elementValueB + '}',	placeholder: "Select..."	});
+					else
+					oCombo = new sap.m.ComboBox({	tooltip: "this is my toolTip!",	width: "200px",
 						selectedKey: "{elementValueB}",	placeholder: "Select..."	});
+					
+
+					
 					var method1;
 					if (pObj.elementID === "003") {
 						method1 = this.combo1;
 						oCombo.attachChange(method1);
 					}
-
-					if (pObj.elementValueB === "yes ")
-						oCombo.bindItems({	path: "ToTables",	
-											template: new sap.ui.core.ListItem({	text: "{value}",	key: "{column}" })
-						});
-					else {
-						oCombo.addItem(new sap.ui.core.Item({	key: "yes",	text: "YES"	}));
-						oCombo.addItem(new sap.ui.core.Item({	key: "no",	text: "NO"	}));
+					
+					switch (pObj.subType) {
+						case "table":
+							oCombo.bindItems({	path: "ToTables",	
+							template: new sap.ui.core.ListItem({	text: "{value2}",	key: "{value1}" }) });
+						break;
+						case "cbYESNO":
+							oCombo.addItem(new sap.ui.core.Item({	key: "yes",	text: "YES"	}));
+							oCombo.addItem(new sap.ui.core.Item({	key: "no",	text: "NO"	}));
+						break;
 					}
 					return oCombo;
 			}
@@ -86,121 +98,64 @@ sap.ui.define([
 							oElement.addContent(this.buildBasisTypes(objectSel2).bindElement({	path: sPath2	}).addStyleClass("sapUiSmallMargin"));
 							break;
 						case "input":
-							oElement.addContent(this.buildBasisTypes(objectSel2).bindElement({
-								path: sPath2
-							}));
+							oElement.addContent(this.buildBasisTypes(objectSel2).bindElement({	path: sPath2  }));
 							break;
 						case "comboBox":
-							oElement.addContent(new sap.ui.layout.Grid({
-								hSpacing: 2,
-								defaultSpan: "L6 M6 S10",
-								content: [new sap.m.Label({
-									text: "{description}"
-								}), this.buildBasisTypes(objectSel2)]
-							})).bindElement({
-								path: sPath2
-							});
+							oElement.addContent(	
+								new sap.ui.layout.Grid({	hSpacing: 2,	defaultSpan: "L6 M6 S10",
+								content: [	new sap.m.Label({	text: "{description}"	}) ,
+											this.buildBasisTypes(objectSel2)
+										] }).bindElement({ path: sPath2	})
+								);
 							break;
 						case "table":
 							var oTable2 = new sap.ui.table.Table({
-								visibleRowCount: {
-									path: "Length",
-									formatter: function(value) {
-										return parseInt(value);
-									}
-								}, //"{Length}"	, (myValue == 'true')
-
+								visibleRowCount: {	path: "length", 
+													formatter: function(value) {	return parseInt(value); }}, 
 								selectionMode: sap.ui.table.SelectionMode.None, //Single, MultiTonggle, None
 								toolbar: new sap.m.Toolbar({
 									content: [
-										new sap.m.Label({
-											text: "Table title..."
-										}), new sap.m.ToolbarSpacer(),
-										new sap.m.Button({
-											icon: "sap-icon://add",
-											text: "New Row",
-											press: this.onPress_addRow
-										}),
-										new sap.m.Button({
-											icon: "sap-icon://edit",
-											text: "",
-											press: this.onPress_editRow
-										})
-									]
-								})
-							});
-
-							oTable2.bindElement({
-								path: sPath2,
-								parameter: {
-									expand: "ToTables"
-								}
-							});
+										new sap.m.Label({ text: "{description}"	}), 
+										new sap.m.ToolbarSpacer(),
+										new sap.m.Button({	icon: "sap-icon://add",	 text: "New Row",	press: this.onPress_addRow	}),
+										new sap.m.Button({	icon: "sap-icon://edit", text: "",	press: this.onPress_editRow })
+									]	})
+							});	oTable2.bindElement({	path: sPath2, parameter: {	expand: "ToTables"	}	});
 							/*oTable2.addColumn(new sap.ui.table.Column({	label: "{elementValueB} ", 
 																		template: new sap.m.Input({ value: '{value}', editable: "{Edit}" })//.bindElement({path: sPath2,  parameter: { expand: "ToTables"} }) 
 																		//template: new sap.m.Input().bindProperty("value","ToTables/0/value") 
 							} ) );*/
 
-							var oCombo2 = new sap.m.ComboBox({
-								tooltip: "this is my toolTip!",
-								width: "200px",
-								editable: {
-									path: "Edit",
-									formatter: function(value) {
+							var oCombo2 = new sap.m.ComboBox({	tooltip: "this is my toolTip!",
+								width: "200px",	editable: {	path: "Edit",	
+								formatter: function(value) {
 										if (value == 'true') return true;
 										else return true;
 									}
-								},
-								selectedKey: "{value}",
-								placeholder: "Select...",
-								items: [new sap.ui.core.Item({
-										key: "yes",
-										text: "yes"
-									}),
-									new sap.ui.core.Item({
-										key: "no",
-										text: "no"
-									})
-								]
-							});
+								},	selectedKey: "{value}", placeholder: "Select...",
+								items: [new sap.ui.core.Item({	key: "yes",	text: "yes"	}),
+										new sap.ui.core.Item({	key: "no",	text: "no"	}) ] });
 
-							oTable2.addColumn(new sap.ui.table.Column({
-								label: "{elementValueB} ",
-								template: oCombo2
+							//oTable2.addColumn(new sap.ui.table.Column({	label: "{elementValueB} ",	template: oCombo2 }));
+							oTable2.addColumn(new sap.ui.table.Column({label: "Delete ",	visible: "{Edit}", width: "10%", 
+								template: new sap.m.Button({	icon: "sap-icon://delete",	text: "{TablesID}", press: this.onPress_delRow	})
 							}));
+							oTable2.bindRows("ToTables").addStyleClass("sapUiSmallMargin"); 
 
-							oTable2.addColumn(new sap.ui.table.Column({
-								label: "Delete ",
-								visible: "{Edit}",
-								width: "10%",
-								template: new sap.m.Button({
-									icon: "sap-icon://delete",
-									text: "{TablesID}",
-									press: this.onPress_delRow
-								})
-							}));
-							oTable2.bindRows("ToTables").addStyleClass("sapUiSmallMargin"); // items="{ path: 'ToCampaignInfoRec', parameters: {expand: 'ToInfoRec'} }
-							//oElement.addContent(oTable2);
-							//var ii = 1; 		//TablesSet(TablesID='002',elementID='004',CampaignID='001')
-							/*do{
-								var iTID = ("00" + ii).slice(-3);
-   								var sPath3 = "/TablesSet(TablesID='" + iTID + "'" +
-												      ",elementID='" + objectSel2.elementID +  "'" +
-												    ",CampaignID='"  + objectSel2.CampaignID + "')"; console.log( sPath3 );
-								 var objectSel3 = this.getModel().getProperty(sPath3); 
-								 if (objectSel3 === undefined) ii = -1; else{ console.log(objectSel3.value); ii++;}
-							} while( ii !== -1)
-							*/
 							break;
 						case "column":
-							oTable2.addColumn(new sap.ui.table.Column({
-								label: objectSel2.description, //"{description} ",  //the mapping is from the row table 
-								template: new sap.m.Input({
-									value: '{' + objectSel2.elementValueB + '}'
-								})
-							}));
 							if (objectSel2.description === "end") {
 								oElement.addContent(oTable2);
+							} else {
+								var columnObject = objectSel2;
+								columnObject.elementType	= objectSel2.columnSubType;
+								columnObject.columnSubType = "column";
+
+							oTable2.addColumn(new sap.ui.table.Column({
+								label: objectSel2.description, //"{description} ",  //the mapping is from the row table 
+								template: 	this.buildBasisTypes(columnObject)
+								//new sap.m.Input({	value: '{' + objectSel2.elementValueB + '}' })
+							}));
 							}
 							break;
 					} //end switch
@@ -411,14 +366,19 @@ sap.ui.define([
 			//var oData = oModel.getProperty(sPath);
 
 			var oElement = oModel.getProperty(oPath.sPath);
-			oElement.Length = parseInt(oElement.Length) + 1;
-			oElement.Length = "" + oElement.Length;
+			oElement.length = parseInt(oElement.length) + 1;
+			oElement.length = "" + oElement.length;
 			var example = {
-				TablesID: oElement.Length, //"003",
-				elementID: oElement.elementID, //oObjs[1][1],
 				CampaignID: oElement.CampaignID, //oObjs[0][1],
-				columnData: "NewC ",
-				value: "New"
+				elementID: oElement.elementID, //oObjs[1][1],
+				tablesID: oElement.Length, //"003",
+				value1: "NewC ",
+				value2: "New",
+				value3: "New",
+				value4: "New",
+				value5: "New",
+				value6: "New",
+				value7: "New"
 			};
 
 			// create new entry in the model
