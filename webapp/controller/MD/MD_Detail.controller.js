@@ -297,19 +297,6 @@ oComboBox2.attachChange(function(){oTextField1.setValue(oComboBox2.getValue());}
 		/* =========================================================== */
 //***************************		
 //***************************		
-		combo1: function(oEvent){
-			//console.log("Hola Combo1 ");	
-			var oElement = this.getModel().getProperty("/CampDynSet(CampaignID='001',elementID='004')");
-			oElement.Edit   = !oElement.Edit; 
-			
-			if(oEvent.getSource().getSelectedKey() == "yes" && oElement.Edit == false )
-			{	oElement.Edit = true; 
-				this.getModel().update("/CampDynSet(CampaignID='001',elementID='004')", oElement);
-			}else if(oEvent.getSource().getSelectedKey() == "no" && oElement.Edit == true )
-			{	oElement.Edit = false;
-				this.getModel().update("/CampDynSet(CampaignID='001',elementID='004')", oElement);
-			}
-		},
 		onPress: function(oEvent) {
 			this.getRouter().navTo("objectMD", {
 				objectId: "001"
@@ -371,6 +358,19 @@ oComboBox2.attachChange(function(){oTextField1.setValue(oComboBox2.getValue());}
 					sTitle = this.getResourceBundle().getText("detailLineItemTableHeading");
 				}
 				oViewModel.setProperty("/lineItemListTitle", sTitle);
+			}
+		},
+		combo1: function(oEvent){
+			//console.log("Hola Combo1 ");	
+			var oElement = this.getModel().getProperty("/CampDynSet(CampaignID='001',elementID='004')");
+			oElement.Edit   = !oElement.Edit; 
+			
+			if(oEvent.getSource().getSelectedKey() == "yes" && oElement.Edit == false )
+			{	oElement.Edit = true; 
+				this.getModel().update("/CampDynSet(CampaignID='001',elementID='004')", oElement);
+			}else if(oEvent.getSource().getSelectedKey() == "no" && oElement.Edit == true )
+			{	oElement.Edit = false;
+				this.getModel().update("/CampDynSet(CampaignID='001',elementID='004')", oElement);
 			}
 		},
 		//dynamic table controller
@@ -453,7 +453,6 @@ oComboBox2.attachChange(function(){oTextField1.setValue(oComboBox2.getValue());}
 			
 		},
 		_onCreateSuccess: function (oProduct) {
-		
 			//console.log("success");
 		},
 		/* =========================================================== */

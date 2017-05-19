@@ -95,6 +95,8 @@
                 <Property Name="elementType" Type="Edm.String"/>
                 <Property Name="elementValueB" Type="Edm.String"/>
                 <Property Name="description" Type="Edm.String"/>
+                <Property Name="Length" Type="Edm.String"/>
+                <Property Name="Edit" Type="Edm.Boolean"/>
                 <NavigationProperty FromRole="From_CampDyn" Name="ToTables" Relationship="OData_Portal.CampDynTables" ToRole="To_Tables"/>
             </EntityType>
             <EntityType Name="Tables">
