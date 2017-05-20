@@ -43,6 +43,7 @@ sap.ui.define([
 				case "inputC":
 						return new sap.m.Input({value:  '{' + pObj.elementValueB + '}'	});
 				case "input":
+					
 					return new sap.ui.layout.Grid({	hSpacing: 2, defaultSpan: "L6 M6 S10",
 						content: [	new sap.m.Label({text: "{description}"		}),
 									new sap.m.Input({value: "{elementValueB}"	})
