@@ -3,7 +3,12 @@ sap.ui.define([
 		"use strict";
 
 		return {
-
+			
+			toBoolean : function(sValue){
+				if (sValue === 'true') return true;
+				else return false;	
+			},
+			
 			/**
 			 * Rounds the number unit value to 2 digits
 			 * @public

@@ -20,7 +20,7 @@
 	"elementType": "comboBox",
 	"elementValueB": "yes",
 	"description": "Are you Happy?",
-	"Edit": true,
+	"Edit": false,
 	"subType": "table",
 	"columnSubType": ""
 }, {
@@ -80,13 +80,15 @@
 	"elementType": "comboBox",
 	"elementValueB": "no",
 	"description": "Are you the developer? ",
-	"subType": "cbYESNO"
+	"subType": "cbYESNO",
+	"Edit": true
 }, {
 	"CampaignID": "001",
 	"elementID": "012",
 	"elementType": "table",
 	"description": "experimental table",
-	"length": "3"
+	"length": "3",
+	"Edit": true
 }, {
 	"CampaignID": "001",
 	"elementID": "013",
@@ -94,14 +96,16 @@
 	"elementValueB": "value1",
 	"description": "blocker",
 	"columnSubType": "comboBox",
-	"subType": "cbYESNO"
+	"subType": "cbYESNO",
+	"Edit": true
 }, {
 	"CampaignID": "001",
 	"elementID": "014",
 	"elementType": "column",
 	"elementValueB": "value2",
 	"description": "value to be block",
-	"columnSubType": "inputC"
+	"columnSubType": "inputC",
+	"Edit": true
 }, {
 	"CampaignID": "001",
 	"elementID": "015",

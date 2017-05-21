@@ -1,15 +1,14 @@
 /*global location */
 sap.ui.define([
 	"portaltest/controller/BaseController",
-	"sap/ui/model/json/JSONModel"
-], function(BaseController, JSONModel) {
+	"sap/ui/model/json/JSONModel",
+	"portaltest/model/formatter"
+], function(BaseController, JSONModel, formatter) {
 	"use strict";
 	var columnData = [{
-		columnName: "firstName"
-	}, {
-		columnName: "lastName"
-	}, {
-		columnName: "department"
+			columnName: "firstName"
+	}, {	columnName: "lastName"
+	}, {	columnName: "department"
 	}];
 	var rowData = [{
 		firstName: "Sachin",
@@ -18,9 +17,12 @@ sap.ui.define([
 	}];
 	return BaseController.extend("portaltest.controller.MD.MD_Detail", {
 		//require("portaltest/assets/");
+		
+		formatter: formatter,
+
 		/* **************************************************************************************************		
-				INIT 
-		   ************************************************************************************************** */
+			INIT 
+		************************************************************************************************** */
 		onInit: function() {
 			var oViewModel = new JSONModel({
 				busy: false,
@@ -37,7 +39,11 @@ sap.ui.define([
 				BUILD DYNAMIC SCREEN 
 		   ************************************************************************************************** */
 		buildBasisTypes: function(pObj) {
-			switch (pObj.elementType) {
+			var sElementType; 
+			if (pObj.elementType === "column") sElementType = pObj.columnSubType;
+			else sElementType = pObj.elementType;
+									
+			switch (sElementType) {
 				case "title":
 					return new sap.m.Title({	text: "{elementValueB}",	titleStyle: "H3"	});
 				case "inputC":
@@ -51,12 +57,20 @@ sap.ui.define([
 				case "comboBox":
 				
 					var oCombo ;
-					if (pObj.columnSubType === "column") 
+					if (pObj.elementType === "column") 
 					oCombo = new sap.m.ComboBox({	tooltip: "this is my toolTip!",	width: "200px",
-						selectedKey: '{' + pObj.elementValueB + '}',	placeholder: "Select..."	});
+						selectedKey: '{' + pObj.elementValueB + '}',	placeholder: "Select..."
+					});
 					else
 					oCombo = new sap.m.ComboBox({	tooltip: "this is my toolTip!",	width: "200px",
-						selectedKey: "{elementValueB}",	placeholder: "Select..."	});
+						selectedKey: "{elementValueB}",	placeholder: "Select...",
+						editable: {	path: "Edit",	
+								formatter: function(value) {
+									if(value === undefined) return true; 
+									if (value.toString() === 'true') return true;
+										else return false;
+						}} 
+					});
 					
 
 					
@@ -126,18 +140,6 @@ sap.ui.define([
 																		template: new sap.m.Input({ value: '{value}', editable: "{Edit}" })//.bindElement({path: sPath2,  parameter: { expand: "ToTables"} }) 
 																		//template: new sap.m.Input().bindProperty("value","ToTables/0/value") 
 							} ) );*/
-
-							var oCombo2 = new sap.m.ComboBox({	tooltip: "this is my toolTip!",
-								width: "200px",	editable: {	path: "Edit",	
-								formatter: function(value) {
-										if (value == 'true') return true;
-										else return true;
-									}
-								},	selectedKey: "{value}", placeholder: "Select...",
-								items: [new sap.ui.core.Item({	key: "yes",	text: "yes"	}),
-										new sap.ui.core.Item({	key: "no",	text: "no"	}) ] });
-
-							//oTable2.addColumn(new sap.ui.table.Column({	label: "{elementValueB} ",	template: oCombo2 }));
 							oTable2.addColumn(new sap.ui.table.Column({label: "Delete ",	visible: "{Edit}", width: "10%", 
 								template: new sap.m.Button({	icon: "sap-icon://delete",	text: "{tablesID}", press: this.onPress_delRow	})
 							}));
@@ -148,14 +150,10 @@ sap.ui.define([
 							if (objectSel2.description === "end") {
 								oElement.addContent(oTable2);
 							} else {
-								var columnObject = objectSel2;
-								columnObject.elementType	= objectSel2.columnSubType;
-								columnObject.columnSubType = "column";
-
+	
 							oTable2.addColumn(new sap.ui.table.Column({
 								label: objectSel2.description, //"{description} ",  //the mapping is from the row table 
-								template: 	this.buildBasisTypes(columnObject)
-								//new sap.m.Input({	value: '{' + objectSel2.elementValueB + '}' })
+								template: 	this.buildBasisTypes(objectSel2)
 							}));
 							}
 							break;
