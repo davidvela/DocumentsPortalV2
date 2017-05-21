@@ -4,36 +4,42 @@
 	"tablesID": "1",
 	"value1": "David ",
 	"value2": "Developer",
-	"value3": "10"
+	"value3": "10",
+	"value4": "true"
 }, {
 	"CampainID": "001",
 	"elementID": "004",
 	"tablesID": "2",
 	"value1": "Jose",
 	"value2": "PM",
-	"value3": "3"
+	"value3": "3",
+	"value4": "false"
 }, {
 	"elementID": "003",
 	"tablesID": "1",
 	"CampainID": "001",
 	"value1": "yes",
-	"value2": "si "
+	"value2": "si ",
+	"value4": "true"
 }, {
 	"elementID": "003",
 	"tablesID": "2",
 	"CampainID": "001",
 	"value1": "no",
-	"value2": "no"
+	"value2": "no",
+	"value4": "true"
 }, {
 	"CampainID": "001",
 	"elementID": "012",
 	"tablesID": "1",
 	"value1": "yes",
-	"value2": "no block"
+	"value2": "no block",
+	"value4": "true"
 }, {
 	"CampainID": "001",
 	"elementID": "012",
 	"tablesID": "2",
 	"value1": "no",
-	"value2": "block"
+	"value2": "block",
+	"value4": "true"
 }]

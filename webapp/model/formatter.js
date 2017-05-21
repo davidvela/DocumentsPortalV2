@@ -3,8 +3,17 @@ sap.ui.define([
 		"use strict";
 
 		return {
+			toInt : function(value){
+					return parseInt( value );	
+			},
 			
-			toBoolean : function(sValue){
+			toBoolean : function(value){
+				if(value === undefined) return true; 
+				
+				var sValue;
+				if(typeof value === 'boolean')	sValue = value.toString();
+				if(typeof value === 'string')	sValue = value;
+
 				if (sValue === 'true') return true;
 				else return false;	
 			},

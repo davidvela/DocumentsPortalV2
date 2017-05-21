@@ -47,33 +47,27 @@ sap.ui.define([
 				case "title":
 					return new sap.m.Title({	text: "{elementValueB}",	titleStyle: "H3"	});
 				case "inputC":
-						return new sap.m.Input({value:  '{' + pObj.elementValueB + '}'	});
+						return new sap.m.Input({value:  '{' + pObj.elementValueB + '}'
+							,editable: {	path: "value4", formatter: formatter.toBoolean}	//row level
+						});
 				case "input":
-					
 					return new sap.ui.layout.Grid({	hSpacing: 2, defaultSpan: "L6 M6 S10",
 						content: [	new sap.m.Label({text: "{description}"		}),
-									new sap.m.Input({value: "{elementValueB}"	})
+									new sap.m.Input({value: "{elementValueB}" })//,editable: {	path: "Edit", formatter: formatter.toBoolean}})
 								] });
 				case "comboBox":
-				
 					var oCombo ;
 					if (pObj.elementType === "column") 
 					oCombo = new sap.m.ComboBox({	tooltip: "this is my toolTip!",	width: "200px",
 						selectedKey: '{' + pObj.elementValueB + '}',	placeholder: "Select..."
+						//,editable: {	path: "Edit", formatter: formatter.toBoolean}	per row!
 					});
 					else
 					oCombo = new sap.m.ComboBox({	tooltip: "this is my toolTip!",	width: "200px",
-						selectedKey: "{elementValueB}",	placeholder: "Select...",
-						editable: {	path: "Edit",	
-								formatter: function(value) {
-									if(value === undefined) return true; 
-									if (value.toString() === 'true') return true;
-										else return false;
-						}} 
+						selectedKey: "{elementValueB}",	placeholder: "Select..."
+						//,editable: {	path: "Edit", formatter: formatter.toBoolean}	
 					});
-					
-
-					
+				
 					var method1;
 					if (pObj.elementID === "003") {
 						method1 = this.combo1;
@@ -123,10 +117,12 @@ sap.ui.define([
 										] }).bindElement({ path: sPath2	})
 								);
 							break;
+						case "mtable":
+								var oTableM = new sap.m.Table({ });
+							break;
 						case "table":
 							var oTable2 = new sap.ui.table.Table({
-								visibleRowCount: {	path: "length", 
-													formatter: function(value) {	return parseInt(value); }}, 
+								visibleRowCount: {	path: "length",	formatter: formatter.toInt},
 								selectionMode: sap.ui.table.SelectionMode.None, //Single, MultiTonggle, None
 								toolbar: new sap.m.Toolbar({
 									content: [
@@ -136,10 +132,6 @@ sap.ui.define([
 										new sap.m.Button({	icon: "sap-icon://edit", text: "",	press: this.onPress_editRow })
 									]	})
 							});	oTable2.bindElement({	path: sPath2, parameter: {	expand: "ToTables"	}	});
-							/*oTable2.addColumn(new sap.ui.table.Column({	label: "{elementValueB} ", 
-																		template: new sap.m.Input({ value: '{value}', editable: "{Edit}" })//.bindElement({path: sPath2,  parameter: { expand: "ToTables"} }) 
-																		//template: new sap.m.Input().bindProperty("value","ToTables/0/value") 
-							} ) );*/
 							oTable2.addColumn(new sap.ui.table.Column({label: "Delete ",	visible: "{Edit}", width: "10%", 
 								template: new sap.m.Button({	icon: "sap-icon://delete",	text: "{tablesID}", press: this.onPress_delRow	})
 							}));
@@ -149,12 +141,9 @@ sap.ui.define([
 						case "column":
 							if (objectSel2.description === "end") {
 								oElement.addContent(oTable2);
-							} else {
-	
-							oTable2.addColumn(new sap.ui.table.Column({
-								label: objectSel2.description, //"{description} ",  //the mapping is from the row table 
-								template: 	this.buildBasisTypes(objectSel2)
-							}));
+							} else { 
+							   oTable2.addColumn(new sap.ui.table.Column({
+								label: objectSel2.description, 	template: 	this.buildBasisTypes(objectSel2) }));
 							}
 							break;
 					} //end switch
@@ -352,7 +341,12 @@ sap.ui.define([
 			//var tTabletmp	= oItem.getSource().getParent().getParent() ;
 			var sPath = oItem.getSource().getBindingContext().sPath;
 			var oModel = this.getModel();
-			oModel.remove(sPath);
+			//oModel.remove(sPath);
+			var oElement = oModel.getProperty(sPath);
+			if(oElement.value4 === "true") oElement.value4 = "false";
+			else oElement.value4 = "true";
+			oModel.update(sPath, oElement);
+
 		},
 		onPress_addRow: function(oItem) {
 			//console.log("Add row");

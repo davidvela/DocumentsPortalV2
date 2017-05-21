@@ -13,7 +13,7 @@
 	"elementValueB": "Myself",
 	"description": "customer:",
 	"CampaignID": "001",
-	"Edit": true
+	"Edit": false
 }, {
 	"CampaignID": "001",
 	"elementID": "003",
@@ -88,7 +88,7 @@
 	"elementType": "table",
 	"description": "experimental table",
 	"length": "3",
-	"Edit": true
+	"Edit": false
 }, {
 	"CampaignID": "001",
 	"elementID": "013",
@@ -97,7 +97,7 @@
 	"description": "blocker",
 	"columnSubType": "comboBox",
 	"subType": "cbYESNO",
-	"Edit": true
+	"Edit": false
 }, {
 	"CampaignID": "001",
 	"elementID": "014",
