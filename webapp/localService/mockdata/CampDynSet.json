@@ -126,7 +126,8 @@
 	"elementType": "mColumn",
 	"CampaignID": "004",
 	"elementValueB": "value1",
-	"columnSubType": "inputC"
+	"columnSubType": "inputC",
+	"description": "Column Name - ABC"
 }, {
 	"elementID": "004",
 	"elementType": "mColumn",

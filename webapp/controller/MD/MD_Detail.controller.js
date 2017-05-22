@@ -119,7 +119,14 @@ sap.ui.define([
 							break;
 						case "mTable":
 								var oTableM = new sap.m.Table({	headerText : "{description}"  });
+								var oTableTemp = new sap.m.ColumnListItem({  cells: [      ]   });
 								oTableM.bindElement({	path: sPath2, parameter: {	expand: "ToTables"	}	});
+								oTableM.bindAggregation("items", {
+							        path: "ToTables",
+							        template: oTableTemp
+							    }).addStyleClass("sapUiSmallMargin");	
+							    oTableTemp.addCell(  new sap.m.Label({ text: "{value1}" })   );
+								
 							break;
 						case "table":
 							var oTable2 = new sap.ui.table.Table({
@@ -151,7 +158,7 @@ sap.ui.define([
 							if (objectSel2.description === "end") {
 								oElement.addContent(oTableM);
 							} else  {
- 							   oTableM.addColumn(new sap.m.Column({ Text: objectSel2.description  }) );
+ 							   oTableM.addColumn(new sap.m.Column({  header:new sap.m.Label({ text:  objectSel2.description })   }) );
 							//	label: objectSel2.description, 	template: 	this.buildBasisTypes(objectSel2) }));
 							}
 							break;
