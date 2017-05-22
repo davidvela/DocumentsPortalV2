@@ -117,8 +117,9 @@ sap.ui.define([
 										] }).bindElement({ path: sPath2	})
 								);
 							break;
-						case "mtable":
-								var oTableM = new sap.m.Table({ });
+						case "mTable":
+								var oTableM = new sap.m.Table({	headerText : "{description}"  });
+								oTableM.bindElement({	path: sPath2, parameter: {	expand: "ToTables"	}	});
 							break;
 						case "table":
 							var oTable2 = new sap.ui.table.Table({
@@ -144,6 +145,14 @@ sap.ui.define([
 							} else { 
 							   oTable2.addColumn(new sap.ui.table.Column({
 								label: objectSel2.description, 	template: 	this.buildBasisTypes(objectSel2) }));
+							}
+							break;
+						case "mColumn":
+							if (objectSel2.description === "end") {
+								oElement.addContent(oTableM);
+							} else  {
+ 							   oTableM.addColumn(new sap.m.Column({ Text: objectSel2.description  }) );
+							//	label: objectSel2.description, 	template: 	this.buildBasisTypes(objectSel2) }));
 							}
 							break;
 					} //end switch
