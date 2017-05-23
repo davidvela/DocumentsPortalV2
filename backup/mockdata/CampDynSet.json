@@ -2,105 +2,135 @@
 	"CampDynID": "001",
 	"elementID": "001",
 	"elementType": "title",
-	"elementValueB": "This is my title ",
-	"description": "intro1",
+	"elementValueB": "WEB PORTAL",
+	"description": "",
 	"CampaignID": "001",
-	"Length": 0,
 	"Edit": true
 }, {
 	"CampDynID": "001",
 	"elementID": "002",
 	"elementType": "input",
-	"elementValueB": "hola Input",
-	"description": "intro_input",
+	"elementValueB": "Myself",
+	"description": "customer:",
 	"CampaignID": "001",
-	"Length": 0,
-	"Edit": true
+	"Edit": false
 }, {
 	"CampaignID": "001",
 	"elementID": "003",
 	"elementType": "comboBox",
 	"elementValueB": "yes",
 	"description": "Are you Happy?",
-	"Length": 0,
-	"Edit": true
-}, {
-	"CampaignID": "002",
-	"elementID": "001 ",
-	"elementType": "title",
-	"elementValueB": "this is my title 2 ",
-	"description": "hello amigo",
-	"Length": 0,
-	"Edit": true
-}, {
-	"CampaignID": "003",
-	"elementID": "001 ",
-	"elementType": "title",
-	"elementValueB": "title 3",
-	"description": "title d",
-	"Length": 0,
-	"Edit": true
-}, {
-	"CampaignID": "004",
-	"elementID": "001 ",
-	"elementType": "title",
-	"elementValueB": "title 4",
-	"description": "title d",
-	"Length": 0,
-	"Edit": true
+	"Edit": false,
+	"subType": "table",
+	"columnSubType": ""
 }, {
 	"CampaignID": "001",
 	"elementID": "004",
 	"elementType": "table",
-	"elementValueB": "columnName",
-	"description": "surname",
-	"Length": "2",
-	"Edit": true
+	"elementValueB": "",
+	"description": "List of Developers",
+	"Edit": true,
+	"columnSubType": "",
+	"length": "2"
 }, {
 	"CampaignID": "001",
 	"elementID": "005",
 	"elementType": "column",
-	"elementValueB": "column",
-	"description": "end",
-	"Length": 0,
-	"Edit": true
-}, {
-	"CampaignID": "004",
-	"elementID": "002",
-	"elementType": "table",
-	"elementValueB": "name4",
-	"description": "surname4",
-	"Length": 4,
-	"Edit": true
+	"elementValueB": "value1",
+	"description": "name",
+	"Edit": true,
+	"columnSubType": "inputC"
 }, {
 	"CampaignID": "001",
 	"elementID": "006",
-	"elementType": "table",
-	"elementValueB": "holaCol",
-	"description": "holaCol2",
-	"Length": 4,
-	"Edit": false
+	"elementType": "column",
+	"elementValueB": "value2",
+	"description": "position",
+	"Edit": false,
+	"columnSubType": "inputC"
 }, {
 	"CampaignID": "001",
 	"elementID": "007",
 	"elementType": "column",
-	"elementValueB": "column",
-	"description": "hola",
-	"Length": 0,
-	"Edit": true
+	"elementValueB": "value3",
+	"description": "years",
+	"Edit": true,
+	"columnSubType": "inputC"
 }, {
 	"CampaignID": "001",
 	"elementID": "008",
 	"elementType": "column",
-	"elementValueB": "column",
+	"elementValueB": "",
 	"description": "end",
-	"Length": 0,
 	"Edit": true
 }, {
 	"CampaignID": "001",
 	"elementID": "009",
+	"elementType": "title",
+	"elementValueB": "WEB PORTAL 2"
+}, {
+	"CampaignID": "001",
+	"elementID": "010",
+	"elementType": "input",
+	"description": "Customer 2 :",
+	"elementValueB": "Rhema"
+}, {
+	"CampaignID": "001",
+	"elementID": "011",
 	"elementType": "comboBox",
 	"elementValueB": "no",
-	"description": "Do you want to develop in React? ",
-	"Length": "0"
+	"description": "Are you the developer? ",
+	"subType": "cbYESNO",
+	"Edit": true
+}, {
+	"CampaignID": "001",
+	"elementID": "012",
+	"elementType": "table",
+	"description": "experimental table",
+	"length": "3",
+	"Edit": false
+}, {
+	"CampaignID": "001",
+	"elementID": "013",
+	"elementType": "column",
+	"elementValueB": "value1",
+	"description": "blocker",
+	"columnSubType": "comboBox",
+	"subType": "cbYESNO",
+	"Edit": false
+}, {
+	"CampaignID": "001",
+	"elementID": "014",
+	"elementType": "column",
+	"elementValueB": "value2",
+	"description": "value to be block",
+	"columnSubType": "inputC",
+	"Edit": true
+}, {
+	"CampaignID": "001",
+	"elementID": "015",
+	"elementType": "column",
+	"description": "end"
+}, {
+	"CampaignID": "004",
+	"elementID": "001",
+	"elementType": "title",
+	"elementValueB": "Hola title 4 "
+}, {
+	"CampaignID": "004",
+	"elementID": "002",
+	"elementType": "mTable",
+	"description": "Table title"
+}, {
+	"elementID": "003",
+	"elementType": "mColumn",
+	"CampaignID": "004",
+	"elementValueB": "value1",
+	"columnSubType": "inputC",
+	"description": "Column Name - ABC"
+}, {
+	"elementID": "004",
+	"elementType": "mColumn",
+	"description": "end",
+	"CampaignID": "004"
 }]

@@ -53,7 +53,7 @@ sap.ui.define([
 				case "input":
 					return new sap.ui.layout.Grid({	hSpacing: 2, defaultSpan: "L6 M6 S10",
 						content: [	new sap.m.Label({text: "{description}"		}),
-									new sap.m.Input({value: "{elementValueB}" })//,editable: {	path: "Edit", formatter: formatter.toBoolean}})
+									new sap.m.Input({value: "{elementValueB}",editable: {	path: "Edit", formatter: formatter.toBoolean}})
 								] });
 				case "comboBox":
 					var oCombo ;
@@ -69,6 +69,7 @@ sap.ui.define([
 					});
 				
 					var method1;
+					//if(pObj.method !== undefined) 
 					if (pObj.elementID === "003") {
 						method1 = this.combo1;
 						oCombo.attachChange(method1);
@@ -98,6 +99,7 @@ sap.ui.define([
 			oElement.removeAllContent();
 
 			if (objectSel !== undefined) {
+				
 				for (var i in objectSel.ToElements.__list) {
 					var sPath2 = "/" + objectSel.ToElements.__list[i]; //console.log( sPath2 );
 					var objectSel2 = this.getModel().getProperty(sPath2);

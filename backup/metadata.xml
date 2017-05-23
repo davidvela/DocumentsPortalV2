@@ -95,21 +95,33 @@
                 <Property Name="elementType" Type="Edm.String"/>
                 <Property Name="elementValueB" Type="Edm.String"/>
                 <Property Name="description" Type="Edm.String"/>
-                <Property Name="Length" Type="Edm.String"/>
+                <Property Name="length"  Nullable="true" Type="Edm.String"/>
                 <Property Name="Edit" Type="Edm.Boolean"/>
+                <Property Name="visible" Type="Edm.String"/>
+                <Property Name="method" Type="Edm.String"/>
+                <Property Name="subType" Type="Edm.String"/>
+                <Property Name="toolTip" Type="Edm.String"/>
+                <Property Name="placeHolder" Type="Edm.String"/>
+                <Property Name="width" Type="Edm.String"/>
+                <Property Name="columnSubType" Type="Edm.String"/>
                 <NavigationProperty FromRole="From_CampDyn" Name="ToTables" Relationship="OData_Portal.CampDynTables" ToRole="To_Tables"/>
             </EntityType>
             <EntityType Name="Tables">
                 <Key>
-                    <PropertyRef Name="TablesID"/>
+                    <PropertyRef Name="CampainID"/>
                     <PropertyRef Name="elementID"/>
-                    <PropertyRef Name="CampaignID"/>
+                    <PropertyRef Name="tablesID"/>
                 </Key>
-                <Property Name="TablesID" Nullable="false" Type="Edm.String"/>
+                <Property Name="CampainID" Nullable="false" Type="Edm.String"/>
                 <Property Name="elementID" Nullable="false" Type="Edm.String"/>
-                <Property Name="CampaignID" Nullable="false" Type="Edm.String"/>
-                <Property Name="column" Type="Edm.String"/>
-                <Property Name="value" Type="Edm.String"/>
+                <Property Name="tablesID" Nullable="false" Type="Edm.String"/>
+                <Property Name="value1" Type="Edm.String"/>
+                <Property Name="value2" Type="Edm.String"/>
+                <Property Name="value3" Type="Edm.String"/>
+                <Property Name="value4" Type="Edm.String"/>
+                <Property Name="value5" Type="Edm.String"/>
+                <Property Name="value6" Type="Edm.String"/>
+                <Property Name="value7" Type="Edm.String"/>
             </EntityType>
             <ComplexType Name="CT_Question">
                 <Property Name="TitleQuestion" Type="Edm.String"/>
@@ -189,7 +201,7 @@
                         <PropertyRef Name="elementID"/>
                     </Principal>
                     <Dependent Role="To_Tables">
-                        <PropertyRef Name="CampaignID"/>
+                        <PropertyRef Name="CampainID"/>
                         <PropertyRef Name="elementID"/>
                     </Dependent>
                 </ReferentialConstraint>
