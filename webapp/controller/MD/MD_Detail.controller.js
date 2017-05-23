@@ -51,10 +51,15 @@ sap.ui.define([
 							,editable: {	path: "value4", formatter: formatter.toBoolean}	//row level
 						});
 				case "input":
-					var oInput = new sap.m.Input({value: "{elementValueB}",editable: {	path: "Edit", formatter: formatter.toBoolean}});
+					var oInput = new sap.m.Input({value: "{elementValueB}",
+									editable: {	path: "Edit", formatter: formatter.toBoolean},
+									required : {	path: "required", formatter: formatter.toBooleanF}		
+					});
+					if (pObj.required === "true") {
+						oInput.attachChange( this.onEmptyValidation);
+					}
 					return new sap.ui.layout.Grid({	hSpacing: 2, defaultSpan: "L6 M6 S10",
-						content: [	new sap.m.Label({text: "{description}", 
-										required : {	path: "required", formatter: formatter.toBooleanF}		}),
+						content: [	new sap.m.Label({text: "{description}" , labelFor: oInput }),
 									oInput
 								] });
 				case "maskInput":
@@ -342,6 +347,11 @@ sap.ui.define([
 				}
 				oViewModel.setProperty("/lineItemListTitle", sTitle);
 			}
+		},
+		onEmptyValidation: function(oEvent){
+			 if (this.getValue() === "") 
+				this.setValueState(sap.ui.core.ValueState.Error);  
+			else this.setValueState(sap.ui.core.ValueState.None);
 		},
 		combo1: function(oEvent) {
 			//console.log("Hola Combo1 ");	
