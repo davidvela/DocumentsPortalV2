@@ -51,10 +51,18 @@ sap.ui.define([
 							,editable: {	path: "value4", formatter: formatter.toBoolean}	//row level
 						});
 				case "input":
+					var oInput = new sap.m.Input({value: "{elementValueB}",editable: {	path: "Edit", formatter: formatter.toBoolean}});
+					return new sap.ui.layout.Grid({	hSpacing: 2, defaultSpan: "L6 M6 S10",
+						content: [	new sap.m.Label({text: "{description}", 
+										required : {	path: "required", formatter: formatter.toBooleanF}		}),
+									oInput
+								] });
+				case "maskInput":
 					return new sap.ui.layout.Grid({	hSpacing: 2, defaultSpan: "L6 M6 S10",
 						content: [	new sap.m.Label({text: "{description}"		}),
-									new sap.m.Input({value: "{elementValueB}",editable: {	path: "Edit", formatter: formatter.toBoolean}})
-								] });
+									new sap.m.MaskInput({value: "{elementValueB}", 
+									mask: "{mask}", placeholderSymbol: "_", placeholder: "{placeHolder}"})
+								] });				 
 				case "comboBox":
 					var oCombo ;
 					if (pObj.elementType === "column") 
@@ -111,6 +119,9 @@ sap.ui.define([
 						case "input":
 							oElement.addContent(this.buildBasisTypes(objectSel2).bindElement({	path: sPath2  }));
 							break;
+						case "maskInput":
+							oElement.addContent(this.buildBasisTypes(objectSel2).bindElement({	path: sPath2  }));
+							break; 
 						case "comboBox":
 							oElement.addContent(	
 								new sap.ui.layout.Grid({	hSpacing: 2,	defaultSpan: "L6 M6 S10",

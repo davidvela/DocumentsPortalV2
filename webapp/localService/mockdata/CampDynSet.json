@@ -133,4 +133,25 @@
 	"elementType": "mColumn",
 	"description": "end",
 	"CampaignID": "004"
+}, {
+	"CampaignID": "002",
+	"elementID": "001",
+	"elementType": "maskInput",
+	"description": "ISBN:",
+	"Edit": true,
+	"placeHolder": "enter ISBN",
+	"mask": "999-99-999-9999-9"
+}, {
+	"CampaignID": "002",
+	"elementID": "002",
+	"elementType": "input",
+	"description": "test mandatory field",
+	"required": "true"
+}, {
+	"CampaignID": "002",
+	"elementID": "003",
+	"elementType": "comboBox",
+	"description": "Question: ",
+	"method": "combo2",
+	"subType": "cbYESNO"
 }]

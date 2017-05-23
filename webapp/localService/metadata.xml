@@ -95,7 +95,7 @@
                 <Property Name="elementType" Type="Edm.String"/>
                 <Property Name="elementValueB" Type="Edm.String"/>
                 <Property Name="description" Type="Edm.String"/>
-                <Property Name="length"  Nullable="true" Type="Edm.String"/>
+                <Property Name="length" Type="Edm.String"/>
                 <Property Name="Edit" Type="Edm.Boolean"/>
                 <Property Name="visible" Type="Edm.String"/>
                 <Property Name="method" Type="Edm.String"/>
@@ -104,6 +104,8 @@
                 <Property Name="placeHolder" Type="Edm.String"/>
                 <Property Name="width" Type="Edm.String"/>
                 <Property Name="columnSubType" Type="Edm.String"/>
+                <Property Name="mask" Type="Edm.String"/>
+                <Property Name="required" Type="Edm.String"/>
                 <NavigationProperty FromRole="From_CampDyn" Name="ToTables" Relationship="OData_Portal.CampDynTables" ToRole="To_Tables"/>
             </EntityType>
             <EntityType Name="Tables">
@@ -122,6 +124,10 @@
                 <Property Name="value5" Type="Edm.String"/>
                 <Property Name="value6" Type="Edm.String"/>
                 <Property Name="value7" Type="Edm.String"/>
+                <Property Name="v1edit" Type="Edm.String"/>
+                <Property Name="v1req" Type="Edm.String"/>
+                <Property Name="v2edit" Type="Edm.String"/>
+                <Property Name="v2req" Type="Edm.String"/>
             </EntityType>
             <ComplexType Name="CT_Question">
                 <Property Name="TitleQuestion" Type="Edm.String"/>

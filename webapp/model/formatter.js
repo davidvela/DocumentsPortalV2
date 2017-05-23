@@ -17,7 +17,16 @@ sap.ui.define([
 				if (sValue === 'true') return true;
 				else return false;	
 			},
-			
+			toBooleanF : function(value){
+				if(value === undefined) return false; 
+				
+				var sValue;
+				if(typeof value === 'boolean')	sValue = value.toString();
+				if(typeof value === 'string')	sValue = value;
+
+				if (sValue === 'true') return true;
+				else return false;	
+			},
 			/**
 			 * Rounds the number unit value to 2 digits
 			 * @public
