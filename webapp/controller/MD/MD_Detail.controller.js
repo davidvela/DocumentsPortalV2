@@ -163,6 +163,20 @@ sap.ui.define([
 								oTables[intTable] =  this.buildBasisTypes(objectSel2).bindElement({	path: sPath2	});
 							}
 							intTable = 0;
+							
+							
+							// test to get the items
+							///CampDynSet(CampaignID='001',elementID='004')/ToTables"  //objectSel2.ToTables.__deferred.uri
+					var oItems= this.getModel().getProperty( "/CampDynSet(CampaignID='001',elementID='004')" ,null, {"$expand": "ToTables"}, true,
+				                     function(response) {
+				                                    alert(response);
+				                     } ,
+				                     function() {
+				                               alert('error occured');
+				                     }
+				                 );
+							
+							
 							break;
 						case "column":
 							if (objectSel2.description === "end") {
@@ -380,6 +394,7 @@ sap.ui.define([
 		onAcceptButton: function(oItem){
 			console.log("acept");
 			var model = this.getView().getModel();
+			var element = this.getView().byId("titleID1"); 
 		},
 		//dynamic table controller
 		onPress_editRow: function(oItem) {
@@ -510,7 +525,7 @@ sap.ui.define([
 			this.getView().bindElement({
 				path: sObjectPath,
 				parameters: {
-					expand: "ToElements"
+					expand: "ToElements,ToCampaignInfoRec"
 				},
 				events: {
 					change: this._onBindingChange.bind(this),
