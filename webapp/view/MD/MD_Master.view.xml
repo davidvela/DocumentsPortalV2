@@ -12,5 +12,11 @@
 				</items>
 			</List>
 		</semantic:content>
+		<semantic:customFooterContent>
+			<OverflowToolbar id="otbMFooter">
+                <ToolbarSpacer/>
+                <Button type="Accept" text="Accept All" press="onAcceptButton">   </Button>
+            </OverflowToolbar>
+		</semantic:customFooterContent>
 	</semantic:MasterPage>
 </mvc:View>

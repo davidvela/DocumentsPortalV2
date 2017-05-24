@@ -69,7 +69,7 @@
                 <ToolbarSpacer/>
                 <OverflowToolbarButton press="onPrint" text="Print" icon="sap-icon://print" type="Emphasized"/>
 				<Button press="onPrint" text="PrintTab" icon="sap-icon://print"/>
-                <Button type="Accept" text="Accept">
+                <Button type="Accept" text="Accept" press="onAcceptButton">
                     <layoutData><OverflowToolbarLayoutData moveToOverflow="false" /></layoutData>
                 </Button>
                 <OverflowToolbarButton text="Delete" icon="sap-icon://delete"/>

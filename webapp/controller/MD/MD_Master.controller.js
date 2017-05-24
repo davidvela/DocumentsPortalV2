@@ -56,6 +56,10 @@ sap.ui.define([
 				this._updateListItemCount(oEvent.getParameter("total"));
 				this.byId("pullToRefresh").hide();
 			},
+			onAcceptButton: function(){
+				console.log("accept Master");
+				var model = this.getView().getModel();
+			},
 			/**
 			 * Event handler for refresh event. Keeps filter, sort
 			 * and group settings and refreshes the list binding.

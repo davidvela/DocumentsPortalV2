@@ -3,9 +3,11 @@
 	"elementID": "001",
 	"elementType": "title",
 	"elementValueB": "WEB PORTAL",
-	"description": "",
+	"description": "titleID1",
 	"CampaignID": "001",
-	"Edit": true
+	"Edit": true,
+	"visible": " ",
+	"length": " "
 }, {
 	"CampDynID": "001",
 	"elementID": "002",
@@ -13,7 +15,9 @@
 	"elementValueB": "Myself",
 	"description": "customer:",
 	"CampaignID": "001",
-	"Edit": false
+	"Edit": false,
+	"length": " ",
+	"visible": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "003",
@@ -22,16 +26,19 @@
 	"description": "Are you Happy?",
 	"Edit": false,
 	"subType": "table",
-	"columnSubType": ""
+	"columnSubType": "",
+	"length": " ",
+	"visible": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "004",
 	"elementType": "table",
-	"elementValueB": "",
+	"elementValueB": " ",
 	"description": "List of Developers",
 	"Edit": true,
 	"columnSubType": "",
-	"length": "2"
+	"length": "2",
+	"visible": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "005",
@@ -39,7 +46,9 @@
 	"elementValueB": "value1",
 	"description": "name",
 	"Edit": true,
-	"columnSubType": "inputC"
+	"columnSubType": "inputC",
+	"length": " ",
+	"visible": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "006",
@@ -47,7 +56,9 @@
 	"elementValueB": "value2",
 	"description": "position",
 	"Edit": false,
-	"columnSubType": "inputC"
+	"columnSubType": "inputC",
+	"length": " ",
+	"visible": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "007",
@@ -55,25 +66,34 @@
 	"elementValueB": "value3",
 	"description": "years",
 	"Edit": true,
-	"columnSubType": "inputC"
+	"columnSubType": "inputC",
+	"length": " ",
+	"visible": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "008",
 	"elementType": "column",
-	"elementValueB": "",
+	"elementValueB": " ",
 	"description": "end",
-	"Edit": true
+	"Edit": true,
+	"length": " ",
+	"visible": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "009",
 	"elementType": "title",
-	"elementValueB": "WEB PORTAL 2"
+	"elementValueB": "WEB PORTAL 2",
+	"length": " ",
+	"visible": " ",
+	"description": "titleID2"
 }, {
 	"CampaignID": "001",
 	"elementID": "010",
 	"elementType": "input",
 	"description": "Customer 2 :",
-	"elementValueB": "Rhema"
+	"elementValueB": "Rhema",
+	"length": " ",
+	"visible": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "011",
@@ -81,14 +101,18 @@
 	"elementValueB": "no",
 	"description": "Are you the developer? ",
 	"subType": "cbYESNO",
-	"Edit": true
+	"Edit": true,
+	"length": " ",
+	"visible": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "012",
 	"elementType": "table",
 	"description": "experimental table",
 	"length": "3",
-	"Edit": false
+	"Edit": false,
+	"visible": " ",
+	"elementValueB": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "013",
@@ -97,7 +121,9 @@
 	"description": "blocker",
 	"columnSubType": "comboBox",
 	"subType": "cbYESNO",
-	"Edit": false
+	"Edit": false,
+	"length": " ",
+	"visible": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "014",
@@ -105,34 +131,49 @@
 	"elementValueB": "value2",
 	"description": "value to be block",
 	"columnSubType": "inputC",
-	"Edit": true
+	"Edit": true,
+	"length": " ",
+	"visible": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "015",
 	"elementType": "column",
-	"description": "end"
+	"description": "end",
+	"length": " ",
+	"visible": " ",
+	"elementValueB": " "
 }, {
 	"CampaignID": "004",
 	"elementID": "001",
 	"elementType": "title",
-	"elementValueB": "Hola title 4 "
+	"elementValueB": "Hola title 4 ",
+	"length": " ",
+	"visible": " "
 }, {
 	"CampaignID": "004",
 	"elementID": "002",
 	"elementType": "mTable",
-	"description": "Table title"
+	"description": "Table title",
+	"length": " ",
+	"visible": " ",
+	"elementValueB": " "
 }, {
 	"elementID": "003",
 	"elementType": "mColumn",
 	"CampaignID": "004",
 	"elementValueB": "value1",
 	"columnSubType": "inputC",
-	"description": "Column Name - ABC"
+	"description": "Column Name - ABC",
+	"length": " ",
+	"visible": " "
 }, {
 	"elementID": "004",
 	"elementType": "mColumn",
 	"description": "end",
-	"CampaignID": "004"
+	"CampaignID": "004",
+	"length": " ",
+	"visible": " ",
+	"elementValueB": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "001",
@@ -140,18 +181,76 @@
 	"description": "ISBN:",
 	"Edit": true,
 	"placeHolder": "enter ISBN",
-	"mask": "999-99-999-9999-9"
+	"mask": "999-99-999-9999-9",
+	"length": " ",
+	"visible": " ",
+	"elementValueB": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "002",
 	"elementType": "input",
 	"description": "test mandatory field",
-	"required": "true"
+	"required": "true",
+	"length": " ",
+	"visible": " ",
+	"elementValueB": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "003",
 	"elementType": "comboBox",
 	"description": "Question: ",
 	"method": "combo2",
-	"subType": "cbYESNO"
+	"subType": "cbYESNO",
+	"length": " ",
+	"visible": " ",
+	"elementValueB": " "
+}, {
+	"CampaignID": "002",
+	"elementID": "004",
+	"elementType": "table",
+	"description": "Machine Learning Algorithms ",
+	"length": "3",
+	"Edit": true,
+	"visible": "true",
+	"method": " ",
+	"required": "2",
+	"elementValueB": " "
+}, {
+	"CampaignID": "002",
+	"elementID": "005",
+	"elementType": "column",
+	"elementValueB": "value1",
+	"description": "algorithm",
+	"columnSubType": "inputC",
+	"length": " "
+}, {
+	"CampaignID": "002",
+	"elementID": "006",
+	"elementType": "column",
+	"elementValueB": " ",
+	"description": "end",
+	"length": " "
+}, {
+	"CampaignID": "002",
+	"elementID": "007",
+	"elementType": "column",
+	"elementValueB": "value1",
+	"description": "algorithm",
+	"columnSubType": "inputC",
+	"length": " "
+}, {
+	"CampaignID": "002",
+	"elementID": "008",
+	"elementType": "column",
+	"elementValueB": "value2",
+	"description": "complexity ",
+	"columnSubType": "inputC",
+	"length": " "
+}, {
+	"CampaignID": "002",
+	"elementID": "009",
+	"elementType": "column",
+	"elementValueB": " ",
+	"description": "end",
+	"length": " "
 }]

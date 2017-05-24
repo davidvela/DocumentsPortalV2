@@ -45,10 +45,11 @@ sap.ui.define([
 									
 			switch (sElementType) {
 				case "title":
-					return new sap.m.Title({	text: "{elementValueB}",	titleStyle: "H3"	});
+					return new sap.m.Title({id: pObj.description,	text: "{elementValueB}",	titleStyle: "H3"	});
 				case "inputC":
 						return new sap.m.Input({value:  '{' + pObj.elementValueB + '}'
-							,editable: {	path: "value4", formatter: formatter.toBoolean}	//row level
+							,editable: {	path: "value4", formatter: formatter.toBoolean	}	//row level
+							//,placeholder: '{' + pObj.elementValueB + '}'
 						});
 				case "input":
 					var oInput = new sap.m.Input({value: "{elementValueB}",
@@ -102,7 +103,7 @@ sap.ui.define([
 				case "table":
 					var oTable2 = new sap.ui.table.Table({
 						visibleRowCount: {	path: "length",	formatter: formatter.toInt},
-						selectionMode: sap.ui.table.SelectionMode.None, //Single, MultiTonggle, None
+						selectionMode: sap.ui.table.SelectionMode.Single, //Single, MultiTonggle, None
 						toolbar: new sap.m.Toolbar({
 							content: [
 								new sap.m.Label({ text: "{description}"	}), 
@@ -157,17 +158,19 @@ sap.ui.define([
 							var oTables = [];
 							
 							oTables[intTable] =  this.buildBasisTypes(objectSel2).bindElement({	path: sPath2	});
-							if( objectSel2.TableNumber === '2'){
+							if( objectSel2.required === '2'){
 								intTable = 1;
 								oTables[intTable] =  this.buildBasisTypes(objectSel2).bindElement({	path: sPath2	});
 							}
+							intTable = 0;
 							break;
 						case "column":
 							if (objectSel2.description === "end") {
 								oElement.addContent(oTables[intTable]);
+								intTable = 1;
 							} else { 
 							   oTables[intTable].addColumn(new sap.ui.table.Column({
-								label: objectSel2.description, 	template: 	this.buildBasisTypes(objectSel2) }));
+								label: objectSel2.description, 	template: this.buildBasisTypes(objectSel2) }));
 							}
 							break;
 						case "mTable":
@@ -373,6 +376,10 @@ sap.ui.define([
 				oElement.Edit = false;
 				this.getModel().update("/CampDynSet(CampaignID='001',elementID='004')", oElement);
 			}
+		},
+		onAcceptButton: function(oItem){
+			console.log("acept");
+			var model = this.getView().getModel();
 		},
 		//dynamic table controller
 		onPress_editRow: function(oItem) {
