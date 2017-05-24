@@ -40,7 +40,7 @@ sap.ui.define([
 		   ************************************************************************************************** */
 		buildBasisTypes: function(pObj) {
 			var sElementType; 
-			if (pObj.elementType === "column") sElementType = pObj.columnSubType;
+			if (pObj.elementType === "column" || pObj.elementType === "mColumn") sElementType = pObj.columnSubType;
 			else sElementType = pObj.elementType;
 									
 			switch (sElementType) {
@@ -99,6 +99,23 @@ sap.ui.define([
 						break;
 					}
 					return oCombo;
+				case "table":
+					var oTable2 = new sap.ui.table.Table({
+						visibleRowCount: {	path: "length",	formatter: formatter.toInt},
+						selectionMode: sap.ui.table.SelectionMode.None, //Single, MultiTonggle, None
+						toolbar: new sap.m.Toolbar({
+							content: [
+								new sap.m.Label({ text: "{description}"	}), 
+								new sap.m.ToolbarSpacer(),
+								new sap.m.Button({	icon: "sap-icon://add",	 text: "New Row",	press: this.onPress_addRow	}),
+								new sap.m.Button({	icon: "sap-icon://edit", text: "",	press: this.onPress_editRow })
+							]	})
+					});	
+					oTable2.addColumn(new sap.ui.table.Column({label: "Delete ",	visible: "{Edit}", width: "10%", 
+						template: new sap.m.Button({	icon: "sap-icon://delete",	text: "{tablesID}", press: this.onPress_delRow	})
+					}));
+					oTable2.bindRows("ToTables").addStyleClass("sapUiSmallMargin"); 
+					return oTable2;
 			}
 		},
 		buildDynamicScreen: function(pItemSelected, pPath) {
@@ -135,49 +152,40 @@ sap.ui.define([
 										] }).bindElement({ path: sPath2	})
 								);
 							break;
-						case "mTable":
-								var oTableM = new sap.m.Table({	headerText : "{description}"  });
-								var oTableTemp = new sap.m.ColumnListItem({  cells: [      ]   });
-								oTableM.bindElement({	path: sPath2, parameter: {	expand: "ToTables"	}	});
-								oTableM.bindAggregation("items", {
-							        path: "ToTables",
-							        template: oTableTemp
-							    }).addStyleClass("sapUiSmallMargin");	
-							    oTableTemp.addCell(  new sap.m.Label({ text: "{value1}" })   );
-								
-							break;
 						case "table":
-							var oTable2 = new sap.ui.table.Table({
-								visibleRowCount: {	path: "length",	formatter: formatter.toInt},
-								selectionMode: sap.ui.table.SelectionMode.None, //Single, MultiTonggle, None
-								toolbar: new sap.m.Toolbar({
-									content: [
-										new sap.m.Label({ text: "{description}"	}), 
-										new sap.m.ToolbarSpacer(),
-										new sap.m.Button({	icon: "sap-icon://add",	 text: "New Row",	press: this.onPress_addRow	}),
-										new sap.m.Button({	icon: "sap-icon://edit", text: "",	press: this.onPress_editRow })
-									]	})
-							});	oTable2.bindElement({	path: sPath2, parameter: {	expand: "ToTables"	}	});
-							oTable2.addColumn(new sap.ui.table.Column({label: "Delete ",	visible: "{Edit}", width: "10%", 
-								template: new sap.m.Button({	icon: "sap-icon://delete",	text: "{tablesID}", press: this.onPress_delRow	})
-							}));
-							oTable2.bindRows("ToTables").addStyleClass("sapUiSmallMargin"); 
-
+							var intTable = 0;
+							var oTables = [];
+							
+							oTables[intTable] =  this.buildBasisTypes(objectSel2).bindElement({	path: sPath2	});
+							if( objectSel2.TableNumber === '2'){
+								intTable = 1;
+								oTables[intTable] =  this.buildBasisTypes(objectSel2).bindElement({	path: sPath2	});
+							}
 							break;
 						case "column":
 							if (objectSel2.description === "end") {
-								oElement.addContent(oTable2);
+								oElement.addContent(oTables[intTable]);
 							} else { 
-							   oTable2.addColumn(new sap.ui.table.Column({
+							   oTables[intTable].addColumn(new sap.ui.table.Column({
 								label: objectSel2.description, 	template: 	this.buildBasisTypes(objectSel2) }));
 							}
+							break;
+						case "mTable":
+								var oTableM = new sap.m.Table({	headerText : "{description}"  });
+								
+								var oTableTemp = new sap.m.ColumnListItem({  cells: [      ]   });
+								oTableM.bindAggregation("items", {path: "ToTables", template: oTableTemp });
+							    
+   								oTableM.bindElement({path: sPath2, parameter: {	expand: "ToTables"}}).addStyleClass("sapUiSmallMargin");
 							break;
 						case "mColumn":
 							if (objectSel2.description === "end") {
 								oElement.addContent(oTableM);
 							} else  {
  							   oTableM.addColumn(new sap.m.Column({  header:new sap.m.Label({ text:  objectSel2.description })   }) );
-							//	label: objectSel2.description, 	template: 	this.buildBasisTypes(objectSel2) }));
+ 							   oTableTemp.addCell( this.buildBasisTypes(objectSel2)    );
+ 							   //oTableTemp.addCell(  new sap.m.Label({ text: "{value1}" })   );
+							   //template: 	this.buildBasisTypes(objectSel2) }));
 							}
 							break;
 					} //end switch
