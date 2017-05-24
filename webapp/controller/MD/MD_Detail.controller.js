@@ -415,20 +415,44 @@ sap.ui.define([
 			var oElement = oModel.getProperty(oPath.sPath);
 			oElement.length = parseInt(oElement.length) + 1;
 			oElement.length = "" + oElement.length;
-			var example = {
-				CampainID: oElement.CampaignID, //typo in the model =S
-				//CampaignID: oElement.CampaignID, //oObjs[0][1],
-				elementID: oElement.elementID, //oObjs[1][1],
-				tablesID: oElement.length, //"003",
-				value1: "NewC ",
-				value2: "New",
-				value3: "New",
-				value4: "New",
-				value5: "New",
-				value6: "New",
-				value7: "New"
-			};
-
+			
+			 var idx = tTabletmp.getSelectedIndex();
+		     var example = {};
+		     if (idx !== -1) { 		     // copy row
+		     	var rows = tTabletmp.getRows();
+		    	var row = rows[idx];
+		    	
+		    	if	(row !== undefined)
+		    		var oRPath = row._getBindingContext();
+		    		var oSElement = oModel.getProperty(oRPath.sPath);	
+		    		example = {
+		    			CampainID: oSElement.CampainID, //typo in the model =S
+						elementID: oSElement.elementID, //oObjs[1][1],
+						tablesID: oElement.length, //"003",
+						value1: oSElement.value1,
+						value2: oSElement.value2,
+						value3: oSElement.value3,
+						value4: oSElement.value4,
+						value5: oSElement.value5,
+						value6: oSElement.value6,
+						value7: oSElement.value7
+		    		}; 
+		     	
+		     }else{
+				example = {
+					CampainID: oElement.CampaignID, //typo in the model =S
+					//CampaignID: oElement.CampaignID, //oObjs[0][1],
+					elementID: oElement.elementID, //oObjs[1][1],
+					tablesID: oElement.length, //"003",
+					value1: "NewC ",
+					value2: "New",
+					value3: "New",
+					value4: "New",
+					value5: "New",
+					value6: "New",
+					value7: "New"
+				};
+		     }
 			// create new entry in the model
 			oModel.create("/TablesSet", example, null);
 
