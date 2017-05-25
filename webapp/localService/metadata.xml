@@ -106,6 +106,7 @@
                 <Property Name="columnSubType" Type="Edm.String"/>
                 <Property Name="mask" Type="Edm.String"/>
                 <Property Name="required" Type="Edm.String"/>
+                <Property Name="status" Type="Edm.String"/>
                 <NavigationProperty FromRole="From_CampDyn" Name="ToTables" Relationship="OData_Portal.CampDynTables" ToRole="To_Tables"/>
             </EntityType>
             <EntityType Name="Tables">
@@ -128,6 +129,8 @@
                 <Property Name="v1req" Type="Edm.String"/>
                 <Property Name="v2edit" Type="Edm.String"/>
                 <Property Name="v2req" Type="Edm.String"/>
+                <Property Name="v1st" Type="Edm.String"/>
+                <Property Name="v2st" Type="Edm.String"/>
             </EntityType>
             <ComplexType Name="CT_Question">
                 <Property Name="TitleQuestion" Type="Edm.String"/>

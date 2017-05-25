@@ -7,7 +7,10 @@
 	"CampaignID": "001",
 	"Edit": true,
 	"visible": " ",
-	"length": " "
+	"length": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampDynID": "001",
 	"elementID": "002",
@@ -17,7 +20,10 @@
 	"CampaignID": "001",
 	"Edit": false,
 	"length": " ",
-	"visible": " "
+	"visible": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "003",
@@ -28,7 +34,9 @@
 	"subType": "table",
 	"columnSubType": "",
 	"length": " ",
-	"visible": " "
+	"visible": " ",
+	"method": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "004",
@@ -38,7 +46,10 @@
 	"Edit": true,
 	"columnSubType": "",
 	"length": "2",
-	"visible": " "
+	"visible": " true",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "005",
@@ -48,7 +59,10 @@
 	"Edit": true,
 	"columnSubType": "inputC",
 	"length": " ",
-	"visible": " "
+	"visible": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "006",
@@ -58,7 +72,10 @@
 	"Edit": false,
 	"columnSubType": "inputC",
 	"length": " ",
-	"visible": " "
+	"visible": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "007",
@@ -68,7 +85,10 @@
 	"Edit": true,
 	"columnSubType": "inputC",
 	"length": " ",
-	"visible": " "
+	"visible": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "008",
@@ -77,7 +97,10 @@
 	"description": "end",
 	"Edit": true,
 	"length": " ",
-	"visible": " "
+	"visible": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "009",
@@ -85,7 +108,10 @@
 	"elementValueB": "WEB PORTAL 2",
 	"length": " ",
 	"visible": " ",
-	"description": "titleID2"
+	"description": "titleID2",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "010",
@@ -93,7 +119,10 @@
 	"description": "Customer 2 :",
 	"elementValueB": "Rhema",
 	"length": " ",
-	"visible": " "
+	"visible": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "011",
@@ -103,7 +132,9 @@
 	"subType": "cbYESNO",
 	"Edit": true,
 	"length": " ",
-	"visible": " "
+	"visible": " ",
+	"method": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "012",
@@ -111,8 +142,11 @@
 	"description": "experimental table",
 	"length": "3",
 	"Edit": false,
-	"visible": " ",
-	"elementValueB": " "
+	"visible": "  true",
+	"elementValueB": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "013",
@@ -123,7 +157,9 @@
 	"subType": "cbYESNO",
 	"Edit": false,
 	"length": " ",
-	"visible": " "
+	"visible": " ",
+	"method": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "014",
@@ -133,7 +169,10 @@
 	"columnSubType": "inputC",
 	"Edit": true,
 	"length": " ",
-	"visible": " "
+	"visible": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "015",
@@ -141,14 +180,20 @@
 	"description": "end",
 	"length": " ",
 	"visible": " ",
-	"elementValueB": " "
+	"elementValueB": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "004",
 	"elementID": "001",
 	"elementType": "title",
 	"elementValueB": "Hola title 4 ",
 	"length": " ",
-	"visible": " "
+	"visible": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "004",
 	"elementID": "002",
@@ -156,7 +201,10 @@
 	"description": "Table title",
 	"length": " ",
 	"visible": " ",
-	"elementValueB": " "
+	"elementValueB": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"elementID": "003",
 	"elementType": "mColumn",
@@ -165,7 +213,10 @@
 	"columnSubType": "inputC",
 	"description": "Column Name - ABC",
 	"length": " ",
-	"visible": " "
+	"visible": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"elementID": "004",
 	"elementType": "mColumn",
@@ -173,7 +224,10 @@
 	"CampaignID": "004",
 	"length": " ",
 	"visible": " ",
-	"elementValueB": " "
+	"elementValueB": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "001",
@@ -184,7 +238,10 @@
 	"mask": "999-99-999-9999-9",
 	"length": " ",
 	"visible": " ",
-	"elementValueB": " "
+	"elementValueB": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "002",
@@ -193,7 +250,10 @@
 	"required": "true",
 	"length": " ",
 	"visible": " ",
-	"elementValueB": " "
+	"elementValueB": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "003",
@@ -203,7 +263,8 @@
 	"subType": "cbYESNO",
 	"length": " ",
 	"visible": " ",
-	"elementValueB": " "
+	"elementValueB": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "004",
@@ -214,7 +275,9 @@
 	"visible": "true",
 	"method": " ",
 	"required": "2",
-	"elementValueB": " "
+	"elementValueB": " ",
+	"toolTip": " ",
+	"subType": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "005",
@@ -222,14 +285,22 @@
 	"elementValueB": "value1",
 	"description": "algorithm",
 	"columnSubType": "inputC",
-	"length": " "
+	"length": " ",
+	"visible": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "006",
 	"elementType": "column",
 	"elementValueB": " ",
 	"description": "end",
-	"length": " "
+	"length": " ",
+	"visible": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "007",
@@ -237,7 +308,11 @@
 	"elementValueB": "value1",
 	"description": "algorithm",
 	"columnSubType": "inputC",
-	"length": " "
+	"length": " ",
+	"visible": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "008",
@@ -245,12 +320,20 @@
 	"elementValueB": "value2",
 	"description": "complexity ",
 	"columnSubType": "inputC",
-	"length": " "
+	"length": " ",
+	"visible": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "009",
 	"elementType": "column",
 	"elementValueB": " ",
 	"description": "end",
-	"length": " "
+	"length": " ",
+	"visible": " ",
+	"method": " ",
+	"subType": " ",
+	"toolTip": " "
 }]

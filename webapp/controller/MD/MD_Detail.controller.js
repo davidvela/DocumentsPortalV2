@@ -167,13 +167,9 @@ sap.ui.define([
 							
 							// test to get the items
 							///CampDynSet(CampaignID='001',elementID='004')/ToTables"  //objectSel2.ToTables.__deferred.uri
-					var oItems= this.getModel().getProperty( "/CampDynSet(CampaignID='001',elementID='004')" ,null, {"$expand": "ToTables"}, true,
-				                     function(response) {
-				                                    alert(response);
-				                     } ,
-				                     function() {
-				                               alert('error occured');
-				                     }
+					var oItems= this.getModel().getProperty( "/CampDynSet(CampaignID='001',elementID='004')/ToTables" ,null, {"$expand": "ToTables"}, true,
+				                     function(response) {console.log(response); } ,
+				                     function() {console.log('error occured');  }
 				                 );
 							
 							
