@@ -10,7 +10,13 @@
 	"length": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"width": " ",
+	"columnSubType": " ",
+	"mask": " ",
+	"required": " ",
+	"status": " ",
+	"placeHolder": " "
 }, {
 	"CampDynID": "001",
 	"elementID": "002",
@@ -23,7 +29,13 @@
 	"visible": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"placeHolder": " ",
+	"width": " ",
+	"columnSubType": " ",
+	"mask": " ",
+	"required": " ",
+	"status": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "003",
@@ -32,11 +44,16 @@
 	"description": "Are you Happy?",
 	"Edit": false,
 	"subType": "table",
-	"columnSubType": "",
+	"columnSubType": " ",
 	"length": " ",
 	"visible": " ",
 	"method": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"placeHolder": " ",
+	"width": " ",
+	"mask": " ",
+	"required": " ",
+	"status": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "004",
@@ -44,12 +61,17 @@
 	"elementValueB": " ",
 	"description": "List of Developers",
 	"Edit": true,
-	"columnSubType": "",
+	"columnSubType": " ",
 	"length": "2",
 	"visible": " true",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"placeHolder": " ",
+	"width": " ",
+	"mask": " ",
+	"required": " ",
+	"status": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "005",
@@ -62,7 +84,12 @@
 	"visible": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"placeHolder": " ",
+	"width": " ",
+	"mask": " ",
+	"required": " ",
+	"status": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "006",
@@ -75,7 +102,12 @@
 	"visible": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"placeHolder": " ",
+	"width": " ",
+	"mask": " ",
+	"required": " ",
+	"status": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "007",
@@ -88,7 +120,12 @@
 	"visible": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"placeHolder": " ",
+	"width": " ",
+	"mask": " ",
+	"required": " ",
+	"status": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "008",
@@ -100,7 +137,13 @@
 	"visible": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"placeHolder": " ",
+	"width": " ",
+	"columnSubType": " ",
+	"mask": " ",
+	"required": " ",
+	"status": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "009",
@@ -111,7 +154,13 @@
 	"description": "titleID2",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"placeHolder": " ",
+	"width": " ",
+	"columnSubType": " ",
+	"mask": " ",
+	"required": " ",
+	"status": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "010",
@@ -122,7 +171,13 @@
 	"visible": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"placeHolder": " ",
+	"width": " ",
+	"columnSubType": " ",
+	"mask": " ",
+	"required": " ",
+	"status": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "011",
@@ -134,7 +189,13 @@
 	"length": " ",
 	"visible": " ",
 	"method": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"status": "  ",
+	"placeHolder": " ",
+	"width": " ",
+	"columnSubType": " ",
+	"mask": " ",
+	"required": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "012",
@@ -146,20 +207,31 @@
 	"elementValueB": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"placeHolder": " ",
+	"width": " ",
+	"columnSubType": " ",
+	"mask": " ",
+	"required": " ",
+	"status": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "013",
 	"elementType": "column",
 	"elementValueB": "value1",
 	"description": "blocker",
-	"columnSubType": "comboBox",
+	"columnSubType": "comboBox ",
 	"subType": "cbYESNO",
 	"Edit": false,
 	"length": " ",
 	"visible": " ",
 	"method": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"status": " ",
+	"placeHolder": " ",
+	"width": " ",
+	"mask": " ",
+	"required": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "014",
@@ -172,7 +244,12 @@
 	"visible": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"placeHolder": " ",
+	"width": " ",
+	"mask": " ",
+	"required": " ",
+	"status": " "
 }, {
 	"CampaignID": "001",
 	"elementID": "015",
@@ -183,7 +260,13 @@
 	"elementValueB": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"placeHolder": " ",
+	"width": " ",
+	"columnSubType": " ",
+	"mask": " ",
+	"required": " ",
+	"status": " "
 }, {
 	"CampaignID": "004",
 	"elementID": "001",
@@ -193,7 +276,14 @@
 	"visible": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"description": " ",
+	"placeHolder": " ",
+	"width": " ",
+	"columnSubType": " ",
+	"mask": " ",
+	"required": " ",
+	"status": " "
 }, {
 	"CampaignID": "004",
 	"elementID": "002",
@@ -204,7 +294,13 @@
 	"elementValueB": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"placeHolder": " ",
+	"width": " ",
+	"columnSubType": " ",
+	"mask": " ",
+	"required": " ",
+	"status": " "
 }, {
 	"elementID": "003",
 	"elementType": "mColumn",
@@ -216,7 +312,12 @@
 	"visible": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"mask": " ",
+	"width": " ",
+	"placeHolder": " ",
+	"required": " ",
+	"status": " "
 }, {
 	"elementID": "004",
 	"elementType": "mColumn",
@@ -227,7 +328,13 @@
 	"elementValueB": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"placeHolder": " ",
+	"width": " ",
+	"columnSubType": " ",
+	"required": " ",
+	"mask": " ",
+	"status": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "001",
@@ -241,7 +348,11 @@
 	"elementValueB": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"width": " ",
+	"columnSubType": " ",
+	"required": " ",
+	"status": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "002",
@@ -253,7 +364,12 @@
 	"elementValueB": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"placeHolder": " ",
+	"width": " ",
+	"columnSubType": " ",
+	"mask": " ",
+	"status": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "003",
@@ -264,7 +380,13 @@
 	"length": " ",
 	"visible": " ",
 	"elementValueB": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"width": " ",
+	"placeHolder": " ",
+	"columnSubType": " ",
+	"mask": " ",
+	"required": " ",
+	"status": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "004",
@@ -277,7 +399,12 @@
 	"required": "2",
 	"elementValueB": " ",
 	"toolTip": " ",
-	"subType": " "
+	"subType": " ",
+	"status": " ",
+	"mask": " ",
+	"columnSubType": " ",
+	"width": " ",
+	"placeHolder": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "005",
@@ -289,7 +416,12 @@
 	"visible": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"status": " ",
+	"required": " ",
+	"mask": " ",
+	"width": " ",
+	"placeHolder": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "006",
@@ -300,7 +432,13 @@
 	"visible": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"status": " ",
+	"required": " ",
+	"mask": " ",
+	"columnSubType": " ",
+	"width": " ",
+	"placeHolder": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "007",
@@ -312,7 +450,12 @@
 	"visible": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"status": " ",
+	"required": " ",
+	"mask": " ",
+	"width": " ",
+	"placeHolder": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "008",
@@ -324,7 +467,12 @@
 	"visible": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"status": " ",
+	"required": " ",
+	"mask": " ",
+	"width": " ",
+	"placeHolder": " "
 }, {
 	"CampaignID": "002",
 	"elementID": "009",
@@ -335,5 +483,11 @@
 	"visible": " ",
 	"method": " ",
 	"subType": " ",
-	"toolTip": " "
+	"toolTip": " ",
+	"required": " ",
+	"status": " ",
+	"mask": " ",
+	"columnSubType": " ",
+	"width": " ",
+	"placeHolder": " "
 }]

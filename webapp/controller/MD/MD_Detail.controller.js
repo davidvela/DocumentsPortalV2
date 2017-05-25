@@ -385,7 +385,7 @@ sap.ui.define([
 			} else if (oEvent.getSource().getSelectedKey() == "no" && oElement.vi == true) {
 				oElement.Edit = false;
 				this.getModel().update("/CampDynSet(CampaignID='001',elementID='004')", oElement);
-			}
+			} 
 		},
 		onAcceptButton: function(oItem){
 			//console.log("acept");
