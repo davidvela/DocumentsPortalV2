@@ -382,14 +382,25 @@ sap.ui.define([
 			if (oEvent.getSource().getSelectedKey() == "yes" && oElement.Edit == false) {
 				oElement.Edit = true;
 				this.getModel().update("/CampDynSet(CampaignID='001',elementID='004')", oElement);
-			} else if (oEvent.getSource().getSelectedKey() == "no" && oElement.Edit == true) {
+			} else if (oEvent.getSource().getSelectedKey() == "no" && oElement.vi == true) {
 				oElement.Edit = false;
 				this.getModel().update("/CampDynSet(CampaignID='001',elementID='004')", oElement);
 			}
 		},
 		onAcceptButton: function(oItem){
-			console.log("acept");
-			var model = this.getView().getModel();
+			//console.log("acept");
+			var oModel = this.getView().getModel();
+			var oElement = oModel.getProperty(this.getView().getBindingContext().sPath);
+			if	(oElement !== undefined ){
+				for (var i in oElement.ToElements.__list) {
+					var sPath2 = "/" + oElement.ToElements.__list[i]; 
+					var objectSel2 = this.getModel().getProperty(sPath2);
+					
+					
+					
+				}
+			}
+			
 			var element = this.getView().byId("titleID1"); 
 		},
 		//dynamic table controller
