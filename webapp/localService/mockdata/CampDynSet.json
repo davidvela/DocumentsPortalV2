@@ -24,7 +24,7 @@
 	"elementValueB": "Myself",
 	"description": "customer:",
 	"CampaignID": "001",
-	"Edit": false,
+	"Edit": true,
 	"length": " ",
 	"visible": " ",
 	"method": " ",
@@ -42,7 +42,7 @@
 	"elementType": "comboBox",
 	"elementValueB": "yes",
 	"description": "Are you Happy?",
-	"Edit": false,
+	"Edit": true,
 	"subType": "table",
 	"columnSubType": " ",
 	"length": " ",
@@ -96,7 +96,7 @@
 	"elementType": "column",
 	"elementValueB": "value2",
 	"description": "position",
-	"Edit": false,
+	"Edit": true,
 	"columnSubType": "inputC",
 	"length": " ",
 	"visible": " ",
@@ -160,7 +160,8 @@
 	"columnSubType": " ",
 	"mask": " ",
 	"required": " ",
-	"status": " "
+	"status": " ",
+	"Edit": true
 }, {
 	"CampaignID": "001",
 	"elementID": "010",
@@ -177,7 +178,8 @@
 	"columnSubType": " ",
 	"mask": " ",
 	"required": " ",
-	"status": " "
+	"status": " ",
+	"Edit": true
 }, {
 	"CampaignID": "001",
 	"elementID": "011",
@@ -203,7 +205,7 @@
 	"description": "experimental table",
 	"length": "3",
 	"Edit": false,
-	"visible": "  true",
+	"visible": "true",
 	"elementValueB": " ",
 	"method": " ",
 	"subType": " ",
@@ -220,7 +222,7 @@
 	"elementType": "column",
 	"elementValueB": "value1",
 	"description": "blocker",
-	"columnSubType": "comboBox ",
+	"columnSubType": "comboBox",
 	"subType": "cbYESNO",
 	"Edit": false,
 	"length": " ",
@@ -266,7 +268,8 @@
 	"columnSubType": " ",
 	"mask": " ",
 	"required": " ",
-	"status": " "
+	"status": " ",
+	"Edit": true
 }, {
 	"CampaignID": "004",
 	"elementID": "001",
@@ -277,13 +280,14 @@
 	"method": " ",
 	"subType": " ",
 	"toolTip": " ",
-	"description": " ",
+	"description": "title0104",
 	"placeHolder": " ",
 	"width": " ",
 	"columnSubType": " ",
 	"mask": " ",
 	"required": " ",
-	"status": " "
+	"status": " ",
+	"Edit": true
 }, {
 	"CampaignID": "004",
 	"elementID": "002",
@@ -300,7 +304,8 @@
 	"columnSubType": " ",
 	"mask": " ",
 	"required": " ",
-	"status": " "
+	"status": " ",
+	"Edit": true
 }, {
 	"elementID": "003",
 	"elementType": "mColumn",
@@ -317,7 +322,8 @@
 	"width": " ",
 	"placeHolder": " ",
 	"required": " ",
-	"status": " "
+	"status": " ",
+	"Edit": true
 }, {
 	"elementID": "004",
 	"elementType": "mColumn",
@@ -334,7 +340,8 @@
 	"columnSubType": " ",
 	"required": " ",
 	"mask": " ",
-	"status": " "
+	"status": " ",
+	"Edit": true
 }, {
 	"CampaignID": "002",
 	"elementID": "001",
@@ -369,7 +376,8 @@
 	"width": " ",
 	"columnSubType": " ",
 	"mask": " ",
-	"status": " "
+	"status": " ",
+	"Edit": true
 }, {
 	"CampaignID": "002",
 	"elementID": "003",
@@ -386,7 +394,8 @@
 	"columnSubType": " ",
 	"mask": " ",
 	"required": " ",
-	"status": " "
+	"status": " ",
+	"Edit": true
 }, {
 	"CampaignID": "002",
 	"elementID": "004",
@@ -421,7 +430,8 @@
 	"required": " ",
 	"mask": " ",
 	"width": " ",
-	"placeHolder": " "
+	"placeHolder": " ",
+	"Edit": true
 }, {
 	"CampaignID": "002",
 	"elementID": "006",
@@ -438,7 +448,8 @@
 	"mask": " ",
 	"columnSubType": " ",
 	"width": " ",
-	"placeHolder": " "
+	"placeHolder": " ",
+	"Edit": true
 }, {
 	"CampaignID": "002",
 	"elementID": "007",
@@ -455,7 +466,8 @@
 	"required": " ",
 	"mask": " ",
 	"width": " ",
-	"placeHolder": " "
+	"placeHolder": " ",
+	"Edit": true
 }, {
 	"CampaignID": "002",
 	"elementID": "008",
@@ -472,7 +484,8 @@
 	"required": " ",
 	"mask": " ",
 	"width": " ",
-	"placeHolder": " "
+	"placeHolder": " ",
+	"Edit": true
 }, {
 	"CampaignID": "002",
 	"elementID": "009",
@@ -489,5 +502,6 @@
 	"mask": " ",
 	"columnSubType": " ",
 	"width": " ",
-	"placeHolder": " "
+	"placeHolder": " ",
+	"Edit": true
 }]

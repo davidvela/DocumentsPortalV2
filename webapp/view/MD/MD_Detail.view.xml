@@ -66,12 +66,11 @@
 		</semantic:content>
 		<semantic:customFooterContent>
 			<OverflowToolbar id="otbFooter">
+				<Button icon="sap-icon://message-popup" text="{/messagesLength}" type="Emphasized"/>
                 <ToolbarSpacer/>
                 <OverflowToolbarButton press="onPrint" text="Print" icon="sap-icon://print" type="Emphasized"/>
 				<Button press="onPrint" text="PrintTab" icon="sap-icon://print"/>
-                <Button type="Accept" text="Accept" press="onAcceptButton">
-                    <layoutData><OverflowToolbarLayoutData moveToOverflow="false" /></layoutData>
-                </Button>
+                <Button type="Accept" text="Accept" press="onAcceptButton"/>
                 <OverflowToolbarButton text="Delete" icon="sap-icon://delete"/>
                 <OverflowToolbarButton text="Edit" icon="sap-icon://edit"/>
                 <OverflowToolbarButton text="Add" icon="sap-icon://add"/>
