@@ -2,7 +2,9 @@
 sap.ui.define([
 	"portaltest/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
-	"portaltest/model/formatter"
+	"portaltest/model/formatter",
+	'sap/m/MessagePopover',
+	'sap/m/MessagePopoverItem'
 ], function(BaseController, JSONModel, formatter) {
 	"use strict";
 	var columnData = [{
