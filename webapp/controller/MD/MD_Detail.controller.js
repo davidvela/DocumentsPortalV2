@@ -4,8 +4,9 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"portaltest/model/formatter",
 	'sap/m/MessagePopover',
+	'sap/m/Link',
 	'sap/m/MessagePopoverItem'
-], function(BaseController, JSONModel, formatter) {
+], function(BaseController, JSONModel, formatter, MessagePopover, Link, MessagePopoverItem ) {
 	"use strict";
 	var columnData = [{
 			columnName: "firstName"
@@ -17,6 +18,28 @@ sap.ui.define([
 		lastName: "Tendulkar",
 		department: "Cricket"
 	}];
+	
+	// MESSAGEPOPOVER
+	var oLink = new Link({
+		text: "Show more information",
+		href: "http://sap.com",
+		target: "_blank"
+	});
+	var oMessageTemplate = new MessagePopoverItem({
+		type: '{type}',
+		title: '{title}',
+		description: '{description}',
+		subtitle: '{subtitle}',
+		counter: '{counter}',
+		link: oLink
+	});
+	var oMessagePopover = new MessagePopover({
+		items: {
+			path: '/',
+			template: oMessageTemplate
+		}
+	});
+	
 	return BaseController.extend("portaltest.controller.MD.MD_Detail", {
 		//require("portaltest/assets/");
 		
@@ -26,15 +49,17 @@ sap.ui.define([
 			INIT 
 		************************************************************************************************** */
 		onInit: function() {
+			var aMessageMockup = this.getMsgMockups();
+			this.setMsgModel(aMessageMockup);
+			
 			var oViewModel = new JSONModel({
 				busy: false,
 				delay: 0,
 				lineItemListTitle: this.getResourceBundle().getText("detailLineItemTableHeading")
-			});
-			this.getRouter().getRoute("objectMDR").attachPatternMatched(this._onObjectMatched, this);
-			this.setModel(oViewModel, "detailView");
-			this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
+			});			this.setModel(oViewModel, "detailView");
 
+			this.getRouter().getRoute("objectMDR").attachPatternMatched(this._onObjectMatched, this);
+			this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
 		},
 
 		/* **************************************************************************************************		
@@ -393,22 +418,103 @@ sap.ui.define([
 			//console.log("acept");
 			var oModel = this.getView().getModel();
 			var oElement = oModel.getProperty(this.getView().getBindingContext().sPath);
+			var omsModel = oMessagePopover.getModel( );
+			var aMessages =  [];
+			var sPath2;
+			var objectSel2;
 			if	(oElement !== undefined ){
 				for (var i in oElement.ToElements.__list) {
-					var sPath2 = "/" + oElement.ToElements.__list[i]; 
-					var objectSel2 = this.getModel().getProperty(sPath2);
 					
-					if( formatter.toBoolean(objectSel2.required) === true ){
+					var msg = {
+						type: 'Error',
+						title: 'Error message',
+						description: 'description',
+						subtitle: 'Example of subtitle',
+						counter: ''
+					};
+					sPath2		= "/" + oElement.ToElements.__list[i]; 
+					objectSel2	= this.getModel().getProperty(sPath2);
+					
+					if( formatter.toBoolean(objectSel2.required) === true ) {
+						msg.title = objectSel2.description;
+						msg.type = 'Success';
+						aMessages.push(msg);
 						
 					}else if( objectSel2.required === "/"){
-						
-					} 
+						msg.title = objectSel2.type;
+						msg.type = 'Warning';
+						aMessages.push(msg);
+
+					} else {
+						msg.title = objectSel2.description + "dsa";
+						aMessages.push(msg);
+					}
 					
 				}//end for
 			}
 			
+			this.setMsgModel(aMessages);
+			var messBton = this.getView().byId("messageButtonID"); 
+			oMessagePopover.openBy(messBton );
 			var element = this.getView().byId("titleID1"); 
 		},
+		handleMessagePopoverPress: function(oEvent){
+			oMessagePopover.openBy(oEvent.getSource());
+		},
+		
+		setMsgModel: function(oDataMsg){
+			var oModel = new JSONModel();
+			oModel.setData(oDataMsg);
+			oMessagePopover.setModel(oModel);
+			
+			var oViewModel = new JSONModel({
+				messagesLength: oDataMsg.length + ''
+			});			
+			this.getView().setModel(oViewModel, "detailViewMsg");
+		},
+		
+		getMsgMockups: function(){
+			
+			var sErrorDescription = 'First Error message description. \n' +
+				'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod' +
+				'tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,' +
+				'quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo' +
+				'consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse' +
+				'cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non' +
+				'proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'; 
+			
+			var aMockMessages =  [{
+					type: 'Error',
+					title: 'Error message',
+					description: sErrorDescription,
+					subtitle: 'Example of subtitle',
+					counter: 1
+				}, {
+					type: 'Warning',
+					title: 'Warning without description',
+					description: ''
+				}, {
+					type: 'Success',
+					title: 'Success message',
+					description: 'First Success message description',
+					subtitle: 'Example of subtitle',
+					counter: 1
+				}, {
+					type: 'Error',
+					title: 'Error message',
+					description: 'Second Error message description',
+					subtitle: 'Example of subtitle',
+					counter: 2
+				}, {
+					type: 'Information',
+					title: 'Information message',
+					description: 'First Information message description',
+					subtitle: 'Example of subtitle',
+					counter: 1
+				}];	
+			return aMockMessages;
+		},
+		
 		//dynamic table controller
 		onPress_editRow: function(oItem) {
 			var tTabletmp = oItem.getSource().getParent().getParent();
