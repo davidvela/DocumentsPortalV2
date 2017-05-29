@@ -130,6 +130,7 @@ sap.ui.define([
 				case "table":
 					var oTable2 = new sap.ui.table.Table({
 						visibleRowCount: {	path: "length",	formatter: formatter.toInt},
+						visible:  {	path: "visible",	formatter: formatter.toBoolean},
 						selectionMode: sap.ui.table.SelectionMode.Single, //Single, MultiTonggle, None
 						toolbar: new sap.m.Toolbar({
 							content: [
@@ -404,13 +405,13 @@ sap.ui.define([
 		combo1: function(oEvent) {
 			//console.log("Hola Combo1 ");	
 			var oElement = this.getModel().getProperty("/CampDynSet(CampaignID='001',elementID='004')");
-			oElement.Edit = !oElement.Edit;
+			oElement.visible = !oElement.visible;
 
-			if (oEvent.getSource().getSelectedKey() == "yes" && oElement.Edit == false) {
-				oElement.Edit = true;
+			if (oEvent.getSource().getSelectedKey() == "yes" && oElement.visble == false) {
+				oElement.visble = true;
 				this.getModel().update("/CampDynSet(CampaignID='001',elementID='004')", oElement);
 			} else if (oEvent.getSource().getSelectedKey() == "no" && oElement.vi == true) {
-				oElement.Edit = false;
+				oElement.visble = false;
 				this.getModel().update("/CampDynSet(CampaignID='001',elementID='004')", oElement);
 			} 
 		},
@@ -428,25 +429,28 @@ sap.ui.define([
 					var msg = {
 						type: 'Error',
 						title: 'Error message',
-						description: 'description',
-						subtitle: 'Example of subtitle',
-						counter: ''
+						//description: 'long description - please fill all the required fields',
+						subtitle: 'field not mandatory',
+						counter: 1
 					};
 					sPath2		= "/" + oElement.ToElements.__list[i]; 
 					objectSel2	= this.getModel().getProperty(sPath2);
 					
 					if( formatter.toBoolean(objectSel2.required) === true ) {
 						msg.title = objectSel2.description;
-						msg.type = 'Success';
+						if (objectSel2.elementValueB === "" || objectSel2.elementValueB === undefined || objectSel2.elementValueB === " ") 
+							msg.subtitle = "Please fill this field";
+						else msg.subtitle = "The field is filled";
 						aMessages.push(msg);
 						
 					}else if( objectSel2.required === "/"){
-						msg.title = objectSel2.type;
+						msg.title = objectSel2.description;
 						msg.type = 'Warning';
 						aMessages.push(msg);
 
 					} else {
-						msg.title = objectSel2.description + "dsa";
+						msg.title = objectSel2.description;
+						msg.type = 'Success';
 						aMessages.push(msg);
 					}
 					
