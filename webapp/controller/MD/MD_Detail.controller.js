@@ -398,9 +398,13 @@ sap.ui.define([
 					var sPath2 = "/" + oElement.ToElements.__list[i]; 
 					var objectSel2 = this.getModel().getProperty(sPath2);
 					
+					if( formatter.toBoolean(objectSel2.required) === true ){
+						
+					}else if( objectSel2.required === "/"){
+						
+					} 
 					
-					
-				}
+				}//end for
 			}
 			
 			var element = this.getView().byId("titleID1"); 
