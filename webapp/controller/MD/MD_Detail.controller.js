@@ -207,6 +207,17 @@ sap.ui.define([
 								oElement.addContent(oTables[intTable]);
 								intTable = 1;
 							} else { 
+							   if( objectSel2.placeHolder === "inputYesNo"){
+			   						var oMenuButton = new sap.m.MenuButton({ text: objectSel2.description, 
+			   								menu: new sap.m.Menu({ itemSelected: this.onMenuAction2, items: [ 
+			   									new sap.m.MenuItem({ text:"YES"}),
+									          	new sap.m.MenuItem({ text:"NO"})
+			   									]})} );
+			   						oElement.addContent(oMenuButton);
+
+			   						oTables[intTable].addColumn(new sap.ui.table.Column({
+										label: oMenuButton, 	template: this.buildBasisTypes(objectSel2) }));
+							   }  else
 							   oTables[intTable].addColumn(new sap.ui.table.Column({
 								label: objectSel2.description, 	template: this.buildBasisTypes(objectSel2) }));
 							}
@@ -223,8 +234,10 @@ sap.ui.define([
 							if (objectSel2.description === "end") {
 								oElement.addContent(oTableM);
 							} else  {
- 							   oTableM.addColumn(new sap.m.Column({  header:new sap.m.Label({ text:  objectSel2.description })   }) );
- 							   oTableTemp.addCell( this.buildBasisTypes(objectSel2)    );
+ 							   oTableM.addColumn(new sap.m.Column({  
+ 							   	//header:new sap.m.Label({ text:  objectSel2.description })   }) );
+ 							   	header:new sap.m.Button({ text:  objectSel2.description })   }) );
+ 								oTableTemp.addCell( this.buildBasisTypes(objectSel2)    );
  							   //oTableTemp.addCell(  new sap.m.Label({ text: "{value1}" })   );
 							   //template: 	this.buildBasisTypes(objectSel2) }));
 							}
@@ -308,6 +321,11 @@ sap.ui.define([
 		oComboBox2.attachChange(function(){oTextField1.setValue(oComboBox2.getValue());});
 		*/
 		//**************************
+		onMenuAction2: function(oEvent) {
+			var oItem = oEvent.getParameter("item");
+
+			
+		},
 		onMenuAction: function(oEvent) {
 			var oItem = oEvent.getParameter("item");
 			var oElement = this.byId("DynamicScrMD");

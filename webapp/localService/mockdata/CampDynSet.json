@@ -484,7 +484,7 @@
 	"required": " ",
 	"mask": " ",
 	"width": " ",
-	"placeHolder": " ",
+	"placeHolder": "inputYesNo",
 	"Edit": true
 }, {
 	"CampaignID": "002",
