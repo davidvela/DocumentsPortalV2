@@ -1,6 +1,6 @@
-   .alternate-color .sapUiTableRowEven {
-        background-color: #0c0;
-    }
+	.alternate-color .sapUiTableRowEven {
+	        background-color: #0c0;
+	}
 
     .alternate-color .sapUiTableRowEven:hover td {
         background-color: #0f0 !important;

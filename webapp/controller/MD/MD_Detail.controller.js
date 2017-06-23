@@ -556,6 +556,7 @@ sap.ui.define([
 			if(oElement.value4 === "true") oElement.value4 = "false";
 			else oElement.value4 = "true";
 			oModel.update(sPath, oElement);
+			//submitAllChanges
 
 		},
 		onPress_addRow: function(oItem) {
