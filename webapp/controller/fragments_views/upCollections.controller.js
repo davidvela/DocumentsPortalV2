@@ -10,16 +10,13 @@ sap.ui.define([
 	function(BaseController, JSONModel, History, formatter, Filter, FilterOperator, MessageToast) {
 		"use strict";
 		return BaseController.extend("portaltest.controller.fragments_views.upCollections", {
+			formatter: formatter,
 			onInit: function() {
 				//console.log("init Collections");	
-
 				var oModel = new JSONModel(jQuery.sap.getModulePath("portaltest.localService", "/questionnaire.json"));
 				this.getView().setModel(oModel, "screens");
 
 			},
-
-			formatter: formatter,
-
 			onPressTest2: function(oEvent) {
 				sap.m.MessageToast.show("Fragment button own controller");
 			},
@@ -29,11 +26,12 @@ sap.ui.define([
 			onPressTest4: function(oEvent) {
 				sap.m.MessageToast.show("Fragment button own controller JS");
 			},
-
-			// ON VALUE HELP
+			
+	//************************************************************
+	// ON VALUE HELP
+	//************************************************************
 			onValueHelpRequest: function() {
 			/*	var that = this;
-
 				var oValueHelpDialog = new sap.ui.comp.valuehelpdialog.ValueHelpDialog({
 					basicSearchText: this.theTokenInput.getValue(),
 					title: "Company",
@@ -48,8 +46,9 @@ sap.ui.define([
 			*/
 
 			},
-
-			// SPLIT CONTAINER 
+	//************************************************************		
+	// SPLIT CONTAINER 
+	//************************************************************
 			onBeforeRendering: function() {
 				//this.getView().byId("DSCWidthSlider").setVisible(!sap.ui.Device.system.phone);
 				//this.getView().byId("DSCWidthHintText").setVisible(!sap.ui.Device.system.phone);
