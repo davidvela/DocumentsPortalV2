@@ -21,3 +21,26 @@
     .alternate-color .sapUiTableRowOdd:hover  input {
         color: blue;
     }
+
+    @media print {
+    	body { font-size: 10pt }
+    	.alternate-color .sapUiTableRowOdd {
+        	background-color: #0cc;
+    	}
+    	.alternate-color .sapUiTableRowOdd input {
+        	color: yellow;
+    	}
+    	.titleUI5 {
+    		font-size: 50pt;
+    		font-weight: bold
+    	}
+    	.inputUI5 .sapMInputBaseInner {
+    		border: 0px;
+    	}
+	}
+	@media screen {
+    	body { font-size: 13px }
+	}
+	@media screen, print {
+    	body { line-height: 1.2 }
+	}

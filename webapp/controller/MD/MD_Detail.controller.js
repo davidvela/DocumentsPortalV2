@@ -72,7 +72,7 @@ sap.ui.define([
 									
 			switch (sElementType) {
 				case "title":
-					return new sap.m.Title({id: pObj.description,	text: "{elementValueB}",	titleStyle: "H3"	});
+					return new sap.m.Title({id: pObj.description,text: "{elementValueB}",titleStyle: "H3"}).addStyleClass("titleUI5");
 				case "inputC":
 						return new sap.m.Input({value:  '{' + pObj.elementValueB + '}'
 							,editable: {	path: "value4", formatter: formatter.toBoolean	}	//row level
@@ -82,7 +82,7 @@ sap.ui.define([
 					var oInput = new sap.m.Input({value: "{elementValueB}",
 									editable: {	path: "Edit", formatter: formatter.toBoolean},
 									required : {	path: "required", formatter: formatter.toBooleanF}		
-					});
+					}).addStyleClass("inputUI5");
 					if (pObj.required === "true") {
 						oInput.attachChange( this.onEmptyValidation);
 					}
@@ -143,7 +143,8 @@ sap.ui.define([
 					oTable2.addColumn(new sap.ui.table.Column({label: "Delete ",	visible: "{Edit}", width: "10%", 
 						template: new sap.m.Button({	icon: "sap-icon://delete",	text: "{tablesID}", press: this.onPress_delRow	})
 					}));
-					oTable2.bindRows("ToTables").addStyleClass("sapUiSmallMargin"); 
+					oTable2.bindRows("ToTables").addStyleClass("sapUiSmallMargin");
+					oTable2.addStyleClass("sapUiSmallMargin");
 					return oTable2;
 			}
 		},
@@ -382,7 +383,7 @@ sap.ui.define([
 					sOriginalContent = document.body.innerHTML;
 
 				document.body.innerHTML = //'<body background="./picture"'  // background can be removed 
-					'<div style="width:100%; background-color: red;"> HI ' + 'hola <button> hello </button>' +
+					'<div style="width:100%; background-color: white;"> HI ' + 'hola <button> hello </button>' +
 					'<img src="./assets/defaultImg.png" alt="HTML5 Icon" style="width:50px; height:50px;  float: left;">' +
 					'<img src="portaltest/assets/defaultImg.png" alt="HTML5 Icon" style="width:50px; height:50px;  float: rigth; left:20px">' +
 					'<p style="page-break-after:always;">page break</p>' + sTargetContent + '</div>';
