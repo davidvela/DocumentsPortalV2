@@ -13,8 +13,8 @@ sap.ui.define([
 			formatter: formatter,
 			onInit: function() {
 				//console.log("init Collections");	
-				var oModel = new JSONModel(jQuery.sap.getModulePath("portaltest.localService", "/questionnaire.json"));
-				this.getView().setModel(oModel, "screens");
+				var oModel = new JSONModel(jQuery.sap.getModulePath("portaltest.localService", "/itemsDOC.json"));
+				this.getView().setModel(oModel, "dcs");
 
 			},
 			onPressTest2: function(oEvent) {
