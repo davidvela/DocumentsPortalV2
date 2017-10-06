@@ -16,16 +16,16 @@
 			</OverflowToolbar>
 		</toolbar>
 		<items>
-			<UploadCollectionItem documentId="{documentId}" fileName="{fileName}" mimeType="{mimeType}" thumbnailUrl="{thumbnailUrl}" url="{url}"
+			<UploadCollectionItem documentId="{dcs>documentId}" fileName="{dcs>fileName}" mimeType="{dcs>mimeType}" thumbnailUrl="{dcs>thumbnailUrl}" url="{dcs>url}"
 				enableEdit="false" enableDelete="false" visibleDelete="false" visibleEdit="false"
 				attributes="{path : 'dcs>attributes', templateShareable : 'true'}" 
 				statuses="{path : 'dcs>statuses', templateShareable : 'true'}"
-				selected="{selected}">
+				selected="{dcs>selected}">
 				<attributes>
-					<ObjectAttribute title="{dcs>title}" text="{parts : ['text', 'type'], formatter : '.formatAttribute'}" active="{dcs>active}"/>
+					<ObjectAttribute title="{dcs>title}" text="{parts : ['dcs>text', 'type'], formatter : '.formatAttribute'}" active="{dcs>active}"/>
 				</attributes>
 				<statuses>
-					<ObjectStatus title="{dcs>title}" text="{dcs>text}" state="{dcs>state}" icon="{dcs>icon}" iconDensityAware="{iconDensityAware}"
+					<ObjectStatus title="{dcs>title}" text="{dcs>text}" state="{dcs>state}" icon="{dcs>icon}" iconDensityAware="{dcs>iconDensityAware}"
 						textDirection="{dcs>textDirection}"/>
 				</statuses>
 			</UploadCollectionItem>
