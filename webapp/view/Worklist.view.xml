@@ -40,7 +40,7 @@
 						viewName="portaltest.view.fragments_views.googleMap" type="JS"></mvc:JSView> -->
 					</content>
 					</IconTabFilter>
-					<!-- IMAGES 	-->
+					<!-- IMAGES 	../assets/ (webide)  /assets (windows)    -->
 					<IconTabFilter text="Preview Images." >
 						<content>
 							<Button	text="Lame Printing"	press="lamePrint">	</Button>
@@ -53,11 +53,11 @@
 									<Button text="test Snippets" press="handleSnippetsPress"/>
 								</l:HorizontalLayout >
 								<l:HorizontalLayout class="sapUiSmallMargin">
-									<Image id="img" src="../assets/defaultImg.png" densityAware="false" width="315px"></Image>
+									<Image id="img" src="./assets/defaultImg.png" densityAware="false" width="315px"></Image>
 									<Panel class="sapUiResponsiveMargin sapUiHideOnPhone DrDrPanel" width="400px" headerText="Drag and Drop Panel" backgroundDesign = "Solid"  >
 										<Text text= "choose a file or drag it here" />	
 									</Panel>
-									<cust:Snippets src1="../assets/defaultImg.png" prop1="David Vela" href1="www.google.com"></cust:Snippets>
+									<cust:Snippets src1="./assets/defaultImg.png" prop1="David Vela" href1="www.google.com"></cust:Snippets>
 								</l:HorizontalLayout >
 							</l:VerticalLayout>
 						</content>
