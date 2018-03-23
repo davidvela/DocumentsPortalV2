@@ -21,7 +21,27 @@
     .alternate-color .sapUiTableRowOdd:hover  input {
         color: blue;
     }
-
+	
+	.alternate-color .sapUiTableCnt {
+		box-sizing: border-box;
+	    position: relative;
+	    overflow: hidden;
+	    border-left: 1px solid #ec0c0c;
+	    border-right: 1px solid #1231dc;
+	    border-top: 1px solid #e5e5e5;
+	    background-color: #2ad325;
+	}
+	
+	/*.sapUiTableCnt {*/
+	/*	box-sizing: border-box;*/
+	/*    position: relative;*/
+	/*    overflow: hidden;*/
+	/*    border-left: 1px solid #ec0c0c;*/
+	/*    border-right: 1px solid #1231dc;*/
+	/*    border-top: 1px solid #e5e5e5;*/
+	/*    background-color: #2ad325;*/
+	/*}*/
+	
     @media print {
     	body { font-size: 10pt }
     	.alternate-color .sapUiTableRowOdd {
@@ -30,6 +50,17 @@
     	.alternate-color .sapUiTableRowOdd input {
         	color: yellow;
     	}
+    	
+    	.alternate-color .sapUiTableCnt {
+		    box-sizing: border-box;
+		    position: relative;
+		    overflow: hidden;
+		    border-left: 1px solid #ec0c0c;
+		    border-right: 1px solid #1231dc;
+		    border-top: 1px solid #e5e5e5;
+		    background-color: #c125d3;
+		}
+    	
     	.titleUI5 {
     		font-size: 50pt;
     		font-weight: bold
